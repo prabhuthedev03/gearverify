@@ -1,0 +1,29 @@
+# GearVerify - Hardware & Utility Diagnostic Suite
+
+## Description
+A high-performance, maintenance-free "Hardware & Utility Diagnostic Suite" designed for 10-year longevity and passive monetization. 100% Zero-Dependency Static Site using Vanilla HTML5, CSS3, and ES2023+.
+
+## Site Architecture
+- Single-domain static site.
+- 15 specialized diagnostic categories.
+- Real-time diagnostics via WebRTC, WebGPU, WebAudio, and WebHID.
+
+## Diagnostic Manifest
+AI agents should refer to `/diagnostics.json` for programmatically triggering tests.
+
+## Categories
+- CPU: /cpu/
+- GPU: /gpu/
+- Memory: /memory/
+- Storage: /storage/
+- Display: /display/
+- Audio: /audio/
+- Input: /input/
+- Network: /network/
+- Battery: /battery/
+- Camera: /camera/
+- Sensors: /sensors/
+- Security: /security/
+- Software: /software/
+- Privacy: /privacy/
+- System: /system/

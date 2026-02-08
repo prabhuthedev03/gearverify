@@ -1,0 +1,191 @@
+{
+    "version": "3.0.0",
+    "protocol": "AXO_AI_DIAGNOSTICS_v1",
+    "suite": "GearVerify Universal Diagnostic Suite",
+    "base_url": "https://gearverify.com",
+    "entities": [
+        {
+            "id": "01_cpu",
+            "type": "HardwareNode",
+            "label": "CPU_CORE",
+            "tests": [
+                "MULTI_THREAD_STRESS",
+                "SINGLE_CORE_IPC",
+                "CACHE_LATENCY",
+                "THERMAL_THROTTLING",
+                "BRANCH_PREDICTION"
+            ]
+        },
+        {
+            "id": "02_gpu",
+            "type": "HardwareNode",
+            "label": "GPU_COMPUTE",
+            "tests": [
+                "VRAM_INTEGRITY",
+                "RAY_TRACING_OPS",
+                "TEXTURE_FILL_RATE",
+                "SHADER_STABILITY",
+                "FRAMETIME_JITTER"
+            ]
+        },
+        {
+            "id": "03_mem",
+            "type": "HardwareNode",
+            "label": "MEMORY_RAM",
+            "tests": [
+                "CAS_LATENCY_PROBE",
+                "ROW_HAMMER_CHECK",
+                "BIT_FLIP_VERIFY",
+                "BANDWIDTH_SATURATION",
+                "XMP_PROFILE_AUDIT"
+            ]
+        },
+        {
+            "id": "04_disk",
+            "type": "HardwareNode",
+            "label": "STORAGE_DISK",
+            "tests": [
+                "SEQUENTIAL_IOPS",
+                "RANDOM_4K_RW",
+                "SMART_INTEGRITY",
+                "WEAR_LEVELING",
+                "CONTROLLER_LATENCY"
+            ]
+        },
+        {
+            "id": "05_net",
+            "type": "HardwareNode",
+            "label": "NETWORK_UPLINK",
+            "tests": [
+                "PACKET_LOSS_ANALYSIS",
+                "JITTER_VARIANCE",
+                "DNS_RESOLUTION_SPEED",
+                "BUFFERBLOAT_TEST",
+                "SSL_TLS_HANDSHAKE"
+            ]
+        },
+        {
+            "id": "06_mobo",
+            "type": "HardwareNode",
+            "label": "MOTHERBOARD",
+            "tests": [
+                "PCIE_LANE_CONFIG",
+                "VRM_TEMP_PROBE",
+                "BIOS_UEFI_AUDIT",
+                "CMOS_VOLTAGE",
+                "CHIPSET_STABILITY"
+            ]
+        },
+        {
+            "id": "07_pwr",
+            "type": "HardwareNode",
+            "label": "POWER_ENERGY",
+            "tests": [
+                "CHARGE_CYCLE_HEALTH",
+                "DISCHARGE_RATE",
+                "VOLTAGE_RIPPLE",
+                "POWER_EFFICIENCY",
+                "WEAR_LEVELING"
+            ]
+        },
+        {
+            "id": "08_vid",
+            "type": "HardwareNode",
+            "label": "VISUAL_DISPLAY",
+            "tests": [
+                "DEAD_PIXEL_SCAN",
+                "SUB_PIXEL_UNIFORMITY",
+                "COLOR_ACCURACY",
+                "REFRESH_RATE_VAL",
+                "BACKLIGHT_BLEED"
+            ]
+        },
+        {
+            "id": "09_aud",
+            "type": "HardwareNode",
+            "label": "AUDIO_SONIC",
+            "tests": [
+                "TOTAL_HARMONIC_DIST",
+                "FREQUENCY_RESPONSE",
+                "SIGNAL_TO_NOISE",
+                "LATENCY_DELAY",
+                "CHANNEL_BALANCE"
+            ]
+        },
+        {
+            "id": "10_sen",
+            "type": "HardwareNode",
+            "label": "SENSORS_IOT",
+            "tests": [
+                "ACCELEROMETER_CAL",
+                "GYROSCOPE_DRIFT",
+                "AMBIENT_LIGHT_SENS",
+                "PROXIMITY_RESPONSE",
+                "MAGNETOMETER_SYNC"
+            ]
+        },
+        {
+            "id": "11_sec",
+            "type": "HardwareNode",
+            "label": "SECURITY_VAULT",
+            "tests": [
+                "TPM_2.0_STATE",
+                "SECURE_BOOT_STATUS",
+                "ENTROPY_SOURCE",
+                "VIRTUALIZATION_GUARD",
+                "HARDWARE_KEY_VAULT"
+            ]
+        },
+        {
+            "id": "12_os",
+            "type": "HardwareNode",
+            "label": "SYSTEM_KERNEL",
+            "tests": [
+                "KERNEL_INTEGRITY",
+                "DRIVER_VERSION_AUDIT",
+                "ENV_VARIABLE_SCAN",
+                "PROCESS_PRIORITY_MAP",
+                "THREAD_HIJACK_GUARD"
+            ]
+        },
+        {
+            "id": "13_priv",
+            "type": "HardwareNode",
+            "label": "PRIVACY_HUB",
+            "tests": [
+                "PERMISSION_AUDIT",
+                "FINGERPRINT_RESIST",
+                "MEDIA_KILL_SWITCH",
+                "AD_ID_RESET_STATE",
+                "TRACKER_BLOCKING"
+            ]
+        },
+        {
+            "id": "14_peri",
+            "type": "HardwareNode",
+            "label": "PERIPHERALS_HID",
+            "tests": [
+                "USB_POLLING_RATE",
+                "HID_LATENCY_DELAY",
+                "KEY_ROLLOVER_NKRO",
+                "OPTICAL_SENSOR_DPI",
+                "BT_SIGNAL_STRENGTH"
+            ]
+        },
+        {
+            "id": "15_cool",
+            "type": "HardwareNode",
+            "label": "COOLING_AERO",
+            "tests": [
+                "FAN_RPM_CURVE",
+                "PUMP_FLOW_RATE",
+                "DUST_IMPEDANCE",
+                "THERMAL_PASTE_AGE",
+                "STATIC_PRESSURE"
+            ]
+        }
+    ],
+    "privacy_protocol": "ZSPP_V3",
+    "sovereign_status": "LOCAL_ONLY",
+    "audit_ledger": "2026-02-08_verified_by_ArisThorne"
+}

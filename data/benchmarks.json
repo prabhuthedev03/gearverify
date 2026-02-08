@@ -1,0 +1,40 @@
+{
+    "2026_standards": {
+        "cpu": {
+            "single_core_ops": 15000,
+            "multi_core_ops": 120000,
+            "description": "Operations per second based on Web Worker-based stress test."
+        },
+        "gpu": {
+            "compute_flops": 8000,
+            "render_latency_ms": 2.0,
+            "description": "WebGPU compute performance and frame latency."
+        },
+        "memory": {
+            "bandwidth_gbps": 64.0,
+            "latency_ns": 40
+        },
+        "display": {
+            "refresh_rate_hz": 120,
+            "color_depth_bits": 10
+        }
+    },
+    "percentiles": {
+        "cpu": [5000, 10000, 15000, 20000, 25000],
+        "gpu": [2000, 4000, 8000, 12000, 16000]
+    },
+    "recommendations": [
+        {
+            "category": "cpu",
+            "threshold": 70,
+            "name": "AMD Ryzen 9 9950X / Intel Ultra 9",
+            "url": "https://amazon.com/dp/placeholder-cpu"
+        },
+        {
+            "category": "gpu",
+            "threshold": 70,
+            "name": "NVIDIA RTX 5080 / AMD RX 9800",
+            "url": "https://amazon.com/dp/placeholder-gpu"
+        }
+    ]
+}

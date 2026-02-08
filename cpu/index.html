@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Stress Test | GearVerify HUD</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+
+    <!-- Cloudflare Zaraz Integration Placeholder -->
+    <!-- <script src="/cdn-cgi/zaraz/i.js" referrerpolicy="origin"></script> -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GearVerify CPU Test",
+      "description": "High-performance CPU stress test using Web Workers with HUD interface."
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="../" style="text-decoration: none; color: inherit;">GEARVERIFY</a></div>
+        <p style="color: var(--text-secondary); letter-spacing: 2px;">CPU_DIAGNOSTIC_TERMINAL</p>
+    </header>
+
+    <main class="container" style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem;">
+        <div class="test-area">
+            <div class="widget fade-in">
+                <h2 style="color: var(--accent-color); margin-bottom: 1rem;">>>> CPU_STRESS_INIT</h2>
+                <p style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--text-secondary);">
+                    Executing multi-threaded mathematical saturation. This process will isolate logical cores to
+                    determine peak operational throughput.
+                </p>
+
+                <div id="status-area" style="margin-bottom: 2rem;">
+                    <button id="start-btn" class="btn glitch-hover"
+                        style="background: none; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 1rem 2rem; font-family: monospace;">EXECUTE_DIAGNOSTIC</button>
+                </div>
+
+                <div id="results-container"></div>
+            </div>
+
+            <!-- Methodology Widget -->
+            <div class="widget fade-in" style="margin-top: 2rem;">
+                <h3 style="color: var(--accent-color); font-size: 0.8rem; margin-bottom: 1rem;">[METHODOLOGY_NOTICE]
+                </h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                    This test utilizes the <code>navigator.hardwareConcurrency</code> API to spawn background Web
+                    Workers.
+                    Each worker performs intensive floating-point operations to saturate the instruction pipeline.
+                </p>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <!-- AdSense Sidebar Slot -->
+            <div class="ad-slot ad-sidebar">
+                <!-- [AdSense Slot: Sidebar_300x250] -->
+                AD_SPACE: SIDEBAR_300x250
+            </div>
+
+            <div class="widget" style="margin-top: 2rem;">
+                <h4 style="color: var(--accent-color); font-size: 0.7rem; margin-bottom: 1rem;">ENGINEERING_LOG</h4>
+                <p style="font-size: 0.7rem; color: var(--text-secondary); font-family: monospace;">
+                    [12:58:02] CPU_ENGINE_LOADED<br>
+                    [12:58:05] THREAD_SYNC_READY<br>
+                    [12:58:10] WAITING_FOR_USER...
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <footer style="margin-top: 4rem; padding: 2rem; text-align: center; border-top: 1px solid var(--border-color);">
+        <p style="font-size: 0.7rem; color: var(--text-secondary);">&copy; 2026 GearVerify Labs. Verified Static
+            Diagnostics.</p>
+    </footer>
+
+    <script src="../js/benchmarks.js"></script>
+    <script>
+        const startBtn = document.getElementById('start-btn');
+        const resultsContainer = document.getElementById('results-container');
+        const statusArea = document.getElementById('status-area');
+
+        startBtn.addEventListener('click', async () => {
+            statusArea.innerHTML = '<p class="fade-in" style="font-family: monospace; color: var(--accent-color);">>>> CALIBRATING_CORES... [WAIT]</p>';
+
+            await Benchmarks.init();
+
+            const duration = 5000;
+            const threadCount = navigator.hardwareConcurrency || 4;
+            let totalOps = 0;
+            let completedThreads = 0;
+
+            for (let i = 0; i < threadCount; i++) {
+                const worker = new Worker('worker.js');
+                worker.postMessage({ duration });
+
+                worker.onmessage = (e) => {
+                    if (e.data.type === 'complete') {
+                        totalOps += e.data.totalOps;
+                        completedThreads++;
+
+                        if (completedThreads === threadCount) {
+                            finalize(totalOps);
+                        }
+                        worker.terminate();
+                    }
+                };
+            }
+        });
+
+        function finalize(totalOps) {
+            statusArea.innerHTML = '<p class="status-green" style="font-family: monospace;">>>> ANALYSIS_COMPLETE</p>';
+            const evaluation = Benchmarks.evaluate('cpu', totalOps);
+            Benchmarks.renderResult('results-container', evaluation);
+        }
+    </script>
+</body>
+
+</html>
