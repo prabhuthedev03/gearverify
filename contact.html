@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | GearVerify</title>
+    <link rel="stylesheet" href="styles/globals.css">
+    <style>
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            margin-bottom: 1rem;
+            background: var(--surface-color);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: opacity 0.2s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Connect</span></h1>
+            </a>
+            <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
+                COMMUNICATION_UPLINK_V1</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Featured Ad Slot -->
+        <div class="ad-slot-featured">
+            <span class="ad-label">Featured Verification Partner</span>
+            <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                [ADSENSE_LEADERBOARD_728x90]
+            </div>
+        </div>
+
+        <div class="studio-grid" style="grid-template-columns: 1fr; margin-bottom: 2rem;">
+            <!-- Main Content Card -->
+            <div class="category-card"
+                style="align-items: flex-start; text-align: left; cursor: default; transform: none; box-shadow: var(--card-shadow); max-width: 600px; margin: 0 auto; width: 100%;">
+                <div class="lab-title" style="margin-bottom: 1.5rem; font-size: 1.2rem; font-weight: 700;">Establish
+                    Connection</div>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem;">For technical
+                    inquiries, partnership opportunities, or validation protocol questions. Response time typically < 24
+                        hours.</p>
+
+                        <div id="contact-form-container">
+                            <!-- Standard Cloudflare API Endpoint -->
+                            <form id="lab-contact-form" action="/api/contact" method="POST" style="width: 100%;">
+                                <div>
+                                    <label
+                                        style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Identity
+                                        / Name</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Dr. Jane Smith"
+                                        required>
+                                </div>
+                                <div>
+                                    <label
+                                        style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Email
+                                        Access Point</label>
+                                    <input type="email" name="email" class="form-control"
+                                        placeholder="researcher@lab.com" required>
+                                </div>
+                                <div>
+                                    <label
+                                        style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Inquiry
+                                        Protocol</label>
+                                    <textarea name="message" class="form-control" rows="6"
+                                        placeholder="Describe your technical query..." required></textarea>
+                                </div>
+
+                                <!-- Cloudflare Turnstile Widget (Anti-Bot) -->
+                                <div style="margin-bottom: 1rem;">
+                                    <!-- Replace data-sitekey with your actual Cloudflare Site Key -->
+                                    <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="dark">
+                                    </div>
+                                </div>
+
+                                <button type="submit" id="submit-btn" class="submit-btn" style="position: relative;">
+                                    <span id="btn-text">Transmit Message</span>
+                                    <div id="btn-loader"
+                                        style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border: 2px solid white; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;">
+                                    </div>
+                                </button>
+                            </form>
+                            <div id="form-status" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></div>
+                        </div>
+
+                        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+                        <script>
+                            const form = document.getElementById("lab-contact-form");
+                            const status = document.getElementById("form-status");
+                            const btn = document.getElementById("submit-btn");
+                            const btnText = document.getElementById("btn-text");
+                            const btnLoader = document.getElementById("btn-loader");
+
+                            async function handleSubmit(event) {
+                                event.preventDefault();
+                                const data = new FormData(event.target);
+
+                                // UI Loading State
+                                btn.disabled = true;
+                                btnText.style.opacity = "0";
+                                btnLoader.style.display = "block";
+                                status.style.display = "none";
+
+                                try {
+                                    const response = await fetch(event.target.action, {
+                                        method: form.method,
+                                        body: data
+                                    });
+
+                                    const result = await response.json();
+
+                                    if (response.ok) {
+                                        status.innerHTML = "✅ Secure Uplink Established. " + (result.message || "Message Sent.");
+                                        status.style.color = "#34C759"; // Success Green
+                                        status.style.display = "block";
+                                        form.reset();
+                                        // Reset Turnstile if it exists
+                                        if (window.turnstile) turnstile.reset();
+                                    } else {
+                                        status.innerHTML = "❌ Transmission Error: " + (result.error || "Unknown Error");
+                                        status.style.color = "#FF3B30"; // Error Red
+                                        status.style.display = "block";
+                                    }
+                                } catch (error) {
+                                    status.innerHTML = "❌ Network Uplink Failed. Please try again.";
+                                    status.style.color = "#FF3B30";
+                                    status.style.display = "block";
+                                } finally {
+                                    // Reset UI
+                                    btn.disabled = false;
+                                    btnText.style.opacity = "1";
+                                    btnLoader.style.display = "none";
+                                }
+                            }
+
+                            form.addEventListener("submit", handleSubmit);
+                        </script>
+
+                        <style>
+                            @keyframes spin {
+                                to {
+                                    transform: translate(-50%, -50%) rotate(360deg);
+                                }
+                            }
+                        </style>
+            </div>
+        </div>
+
+        <!-- Laboratory Recommendations Carousel -->
+        <section class="recommendation-carousel" id="amazon-carousel" style="margin-top: 1rem; border-radius: 20px;">
+            <div class="container">
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: left;">Support Our Laboratory</h2>
+                <div class="carousel-grid">
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            DONATE_VISUAL</div>
+                        <h4>Laboratory Fund</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Support Server Costs</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            MERCH_VISUAL</div>
+                        <h4>Lab Coat</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Official GearVerify Attire</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            BOOK_VISUAL</div>
+                        <h4>Hardware Internals</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Educational Reference</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- E-E-A-T Footer -->
+    <footer class="lab-footer">
+        <div class="container footer-columns">
+            <div class="footer-column">
+                <h4>Contact Protocol</h4>
+                <p>All inquiries are routed through our secure local server. We categorize tickets by urgency and
+                    technical complexity.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Legal & Compliance</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.6rem;"><a href="privacy.html"
+                            style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Privacy
+                            Policy</a></li>
+                    <li style="margin-bottom: 0.6rem;"><a href="terms.html"
+                            style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Terms of
+                            Service</a></li>
+                    <li style="margin-bottom: 0.6rem;"><a href="contact.html"
+                            style="color: var(--text-primary); text-decoration: none; font-size: 0.9rem; font-weight: 600;">Contact
+                            Lab</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container"
+            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
+            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+        </div>
+    </footer>
+</body>
+
+</html>

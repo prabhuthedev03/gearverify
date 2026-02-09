@@ -80,8 +80,8 @@ h1 {
 }
 
 .card-vector {
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

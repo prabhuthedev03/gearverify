@@ -1,0 +1,77 @@
+@import url('../styles/globals.css');
+
+.webcam-lab-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .webcam-lab-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.lab-card {
+    background: var(--bg-color);
+    border: none;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.video-container {
+    position: relative;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    /* aspect-ratio set inline for now, but good to have fallback */
+    min-height: 200px;
+}
+
+#webcam-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scaleX(-1);
+    /* Mirror effect */
+}
+
+.stat-item {
+    background: var(--surface-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    min-width: 100px;
+}
+
+.action-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Mic Visualizer */
+#mic-visualizer {
+    width: 100%;
+    height: 60px;
+    background: var(--surface-color);
+    border-radius: 8px;
+}

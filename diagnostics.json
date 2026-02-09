@@ -183,6 +183,18 @@
                 "THERMAL_PASTE_AGE",
                 "STATIC_PRESSURE"
             ]
+        },
+        {
+            "id": "16_cam",
+            "type": "HardwareNode",
+            "label": "WEBCAM_OPTICAL",
+            "tests": [
+                "SENSOR_RESOLUTION",
+                "FRAME_RATE_FPS",
+                "MIC_INPUT_GAIN",
+                "COLOR_VIBRANCE",
+                "FOCUS_SPEED"
+            ]
         }
     ],
     "privacy_protocol": "ZSPP_V3",

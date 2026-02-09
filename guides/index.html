@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Validation Guides | GearVerify</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+    <style>
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .guide-card {
+            background: var(--bg-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .guide-image {
+            height: 200px;
+            background: var(--surface-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 3rem;
+        }
+
+        .guide-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .guide-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .guide-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            margin-top: auto;
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Intel</span></h1>
+            </a>
+            <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
+                KNOWLEDGE_BASE_V1</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Featured Ad Slot -->
+        <div class="ad-slot-featured">
+            <span class="ad-label">Featured Verification Partner</span>
+            <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                [ADSENSE_LEADERBOARD_728x90]
+            </div>
+        </div>
+
+        <section
+            style="margin-bottom: 3rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Laboratory Insights</h2>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6;">
+                Deep-dive technical analysis on hardware validation, browser-based compute performance, and the future
+                of sovereign silicon diagnostics.
+            </p>
+        </section>
+
+        <div class="guide-grid">
+
+            <!-- Article 1 -->
+            <a href="gpu-stress-test-explained.html" class="guide-card">
+                <div class="guide-image"
+                    style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white;">
+                    ⚡
+                </div>
+                <div class="guide-content">
+                    <div class="guide-meta">Diagnostics • Feb 2026</div>
+                    <h3 class="guide-title">How to Interpret GPU Stress Test Results</h3>
+                    <p class="guide-excerpt">Understanding thermal throttling patterns, artifacting, and stability
+                        metrics in WebGPU environments.</p>
+                    <span class="read-more">Read Analysis →</span>
+                </div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="webgpu-vs-webgl-performance.html" class="guide-card">
+                <div class="guide-image" style="background: linear-gradient(135deg, #FF416C, #FF4B2B); color: white;">
+                    🚀
+                </div>
+                <div class="guide-content">
+                    <div class="guide-meta">Industry • Jan 2026</div>
+                    <h3 class="guide-title">Why WebGPU is the Future of Benchmarking</h3>
+                    <p class="guide-excerpt">Comparing the raw compute throughput of next-gen browser APIs versus legacy
+                        WebGL rasterization.</p>
+                    <span class="read-more">Read Analysis →</span>
+                </div>
+            </a>
+
+            <!-- Placeholder Article 3 -->
+            <div class="guide-card" style="opacity: 0.6; cursor: not-allowed;">
+                <div class="guide-image">
+                    🔒
+                </div>
+                <div class="guide-content">
+                    <div class="guide-meta">Upcoming • Mar 2026</div>
+                    <h3 class="guide-title">Audio Latency in Modern Browsers</h3>
+                    <p class="guide-excerpt">Investigating the audio stack buffer bloat in Chrome vs. Firefox.</p>
+                    <span class="read-more">Locked Access</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- E-E-A-T Footer -->
+    <footer class="lab-footer">
+        <div class="container footer-columns">
+            <div class="footer-column">
+                <h4>Validation Methodology</h4>
+                <p>GearVerify operates as a sovereign hardware validation laboratory. Our methodology utilizes WebGPU
+                    2.0 compute shaders to bypass high-level OS driver abstractions.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Legal & Compliance</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.6rem;"><a href="../privacy.html"
+                            style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Privacy
+                            Policy</a></li>
+                    <li style="margin-bottom: 0.6rem;"><a href="../terms.html"
+                            style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Terms of
+                            Service</a></li>
+                    <li style="margin-bottom: 0.6rem;"><a href="../contact.html"
+                            style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Contact
+                            Lab</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container"
+            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
+            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+        </div>
+    </footer>
+</body>
+
+</html>

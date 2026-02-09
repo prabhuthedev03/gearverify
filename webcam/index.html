@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCam Laboratory | GearVerify</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- AXO Semantic Manifest -->
+    <link rel="alternate" type="application/json" href="../diagnostics.json">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GearVerify WebCam Lab",
+      "applicationCategory": "HardwareValidationApplication",
+      "operatingSystem": "Web (Cross-Platform)",
+      "potentialAction": [
+        {"@type": "Action", "name": "TEST_RESOLUTION", "target": "https://gearverify.com/webcam/"},
+        {"@type": "Action", "name": "CHECK_FPS", "target": "https://gearverify.com/webcam/"}
+      ]
+    }
+    </script>
+</head>
+
+<body>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Lab</span></h1>
+            </a>
+            <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
+                OPTICAL_SENSOR_V1</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Featured Ad Slot -->
+        <div class="ad-slot-featured">
+            <span class="ad-label">Featured Verification Partner</span>
+            <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                [ADSENSE_LEADERBOARD_728x90]
+            </div>
+        </div>
+
+        <div class="webcam-lab-grid">
+            <!-- 1. Video Preview & Stats -->
+            <div class="lab-card" style="grid-column: 1 / -1; position: relative;">
+                <div class="lab-title" style="justify-content: space-between;">
+                    <span>Live Sensor Feed</span>
+                    <select id="camera-select"
+                        style="font-size: 0.8rem; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--surface-color); color: var(--text-primary);">
+                        <option value="">Detecting Cameras...</option>
+                    </select>
+                </div>
+
+                <div class="video-container"
+                    style="background: #000; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; display: flex; justify-content: center; align-items: center; position: relative;">
+                    <video id="webcam-video" autoplay playsinline
+                        style="width: 100%; height: 100%; object-fit: contain; transform: scaleX(-1);"></video>
+                    <div id="video-overlay"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0,0,0,0.7); color: white; transition: opacity 0.3s;">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">Camera Permission Required
+                        </p>
+                        <button id="start-camera-btn" class="action-button"
+                            style="background: var(--accent-blue); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600;">Grant
+                            Access & Start Test</button>
+                    </div>
+                </div>
+
+                <div class="stats-bar"
+                    style="display: flex; gap: 2rem; margin-top: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <div class="stat-item" style="text-align: center;">
+                        <span
+                            style="display: block; font-size: 0.75rem; color: var(--text-secondary);">Resolution</span>
+                        <span id="res-val" style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">-- x
+                            --</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span style="display: block; font-size: 0.75rem; color: var(--text-secondary);">Frame
+                            Rate</span>
+                        <span id="fps-val" style="font-size: 1.2rem; font-weight: 700; color: var(--accent-blue);">--
+                            FPS</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span style="display: block; font-size: 0.75rem; color: var(--text-secondary);">Format</span>
+                        <span id="format-val"
+                            style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Controls & Actions -->
+            <div class="lab-card">
+                <div class="lab-title">Test Actions</div>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <button id="snapshot-btn" disabled class="action-button"
+                        style="background: var(--surface-color); color: var(--text-primary); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <span>📷</span> Capture Snapshot
+                    </button>
+                    <p
+                        style="font-size: 0.75rem; color: var(--text-secondary); text-align: center; margin-top: 0.5rem;">
+                        Snapshots are processed locally in your browser memory. No images are uploaded to any server.
+                    </p>
+                    <div id="snapshot-result" style="display: none; margin-top: 1rem; text-align: center;">
+                        <img id="snapshot-img" src=""
+                            style="max-width: 100%; border-radius: 8px; border: 2px solid var(--accent-blue); display: block; margin: 0 auto;">
+                        <a id="download-link" href="#" download="gearverify_snapshot.png"
+                            style="display: inline-block; margin-top: 0.5rem; font-size: 0.8rem; color: var(--accent-blue); text-decoration: none;">Download
+                            Image</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Mic Info (Part of Webcam stream usually) -->
+            <div class="lab-card">
+                <div class="lab-title">Audio Input Check</div>
+                <div
+                    style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem 0;">
+                    <div id="mic-status" style="font-size: 1rem; font-weight: 600; color: var(--text-secondary);">
+                        Waiting for permission...</div>
+                    <canvas id="mic-visualizer" width="200" height="60"
+                        style="width: 100%; height: 60px; margin-top: 1rem; background: var(--surface-color); border-radius: 4px;"></canvas>
+                </div>
+            </div>
+
+            <!-- 4. Amazon Recommendation (Cloned from Input) -->
+            <div class="lab-card health-card" style="grid-column: 1 / -1;">
+                <div>
+                    <div class="lab-title">Optical Upgrade Path</div>
+                    <div class="upgrade-suggestion"
+                        style="background: var(--surface-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <span
+                            style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 800; text-transform: uppercase;">Laboratory
+                            Recommendation</span>
+                        <h4 style="margin: 0.5rem 0; font-size: 1rem;">4K Pro-Grade Sensors</h4>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">Upgrade to
+                            rapid-focus lenses and uncompressed 4K streams for professional clarity.</p>
+                        <a href="#amazon-carousel" class="action-button"
+                            style="display: block; background: var(--accent-blue); color: white;">Shop Amazon
+                            Recommendations</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Technical Specifications [NEW] -->
+            <div class="lab-card" style="grid-column: 1 / -1; margin-top: 1rem;">
+                <div class="lab-title">Camera Technical Specifications</div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr>
+                                <th
+                                    style="padding: 12px; border-bottom: 2px solid var(--border-color); color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase;">
+                                    Property</th>
+                                <th
+                                    style="padding: 12px; border-bottom: 2px solid var(--border-color); color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase;">
+                                    Detected Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="specs-body">
+                            <tr>
+                                <td colspan="2"
+                                    style="padding: 2rem; text-align: center; color: var(--text-secondary);">
+                                    Start the camera to analyze sensor capabilities...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.7rem; color: var(--text-secondary);">
+                    * Reported capabilities depend on browser permission level and driver availability.
+                </p>
+            </div>
+        </div>
+        </div>
+
+        <!-- Mid-Page Featured Content (Ad) -->
+        <div class="ad-slot-featured">
+            <span class="ad-label">Laboratory Recommendation</span>
+            <div style="height: 250px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                AD_NATIVE_ARTICLE_PLACEMENT
+            </div>
+        </div>
+
+        <!-- Laboratory Recommendations Carousel -->
+        <section class="recommendation-carousel" id="amazon-carousel" style="margin-top: 1rem; border-radius: 20px;">
+            <div class="container">
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: left;">Pro Stream Gear</h2>
+                <div class="carousel-grid">
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            CAM_VISUAL</div>
+                        <h4>Elgato Facecam Pro</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">4K60 True RAW</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            LIGHT_VISUAL</div>
+                        <h4>Key Light Air</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">1400 Lumens / 2900-7000K</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            MIC_VISUAL</div>
+                        <h4>Wave:3 Mic</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Clipguard Technology</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- E-E-A-T Footer -->
+        <footer class="lab-footer">
+            <div class="container footer-columns">
+                <div class="footer-column">
+                    <h4>Sensor Analysis Methodology</h4>
+                    <p>Resolution and frame rate are detected directly from the MediaStreamTrack capabilities. Frame
+                        timing is calculated using `requestVideoFrameCallback` for sub-millisecond precision.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Privacy Protocol</h4>
+                    <p>All video and audio streams are processed locally within your browser's secure sandbox. No
+                        footage is ever recorded, transmitted, or analyzed by our servers. The "Snapshot" feature
+                        operates entirely client-side.</p>
+                </div>
+            </div>
+            <div class="container"
+                style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
+                &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+            </div>
+        </footer>
+    </main>
+
+    <script src="webcam.js"></script>
+</body>
+
+</html>
