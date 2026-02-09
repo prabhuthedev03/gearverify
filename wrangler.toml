@@ -1,5 +1,5 @@
 name = "gearverify"
-main = "index.ts" # Change this to "index.js" if you aren't using TypeScript
+main = "src/index.ts" # Change this to "index.js" if you aren't using TypeScript
 compatibility_date = "2024-02-09"
 
 
