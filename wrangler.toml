@@ -1,3 +1,7 @@
 name = "gearverify"
 main = "index.ts" # Change this to "index.js" if you aren't using TypeScript
 compatibility_date = "2024-02-09"
+
+
+[assets]
+directory = "./public" # Change this to the folder where your index.html lives
