@@ -4,4 +4,4 @@ compatibility_date = "2024-02-09"
 
 
 [assets]
-directory = "./" # Change this to the folder where your index.html lives
+directory = "." # Change this to the folder where your index.html lives
