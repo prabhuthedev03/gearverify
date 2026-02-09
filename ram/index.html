@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPU laboratory | GearVerify</title>
+    <title>RAM Testing Laboratory | GearVerify</title>
     <link rel="stylesheet" href="../styles/globals.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,7 +17,7 @@
                         style="font-weight: 300; color: var(--text-secondary);">_Lab</span></h1>
             </a>
             <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
-                GPU_VALIDATION_V2</p>
+                MEMORY_VOLATILITY_V1</p>
         </div>
     </header>
 
@@ -30,69 +30,88 @@
             </div>
         </div>
 
-        <div class="gpu-lab-grid">
-            <!-- 0. Hardware Identity Card -->
+        <div class="ram-lab-grid">
+            <!-- 0. Memory Identity Card -->
             <div class="lab-card" style="grid-column: 1 / -1;">
-                <div class="lab-title">GPU Identity Detected</div>
+                <div class="lab-title">Memory Identity Detected</div>
                 <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; align-items: start;">
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: start;">
                     <div>
                         <div class="lab-metric">
-                            <span>Hardware Renderer</span>
-                            <span id="hw-description" style="word-break: break-all;">Analyzing...</span>
+                            <span>Detected Capacity</span>
+                            <span id="hw-description"
+                                style="word-break: break-all; color: var(--accent-blue); font-weight: 800;">Analyzing...</span>
                         </div>
                         <div class="lab-metric">
-                            <span>GPU Vendor</span>
-                            <span id="hw-vendor">Analyzing...</span>
+                            <span>Memory Technology</span>
+                            <span id="hw-tech">Detecting...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Clock Speed</span>
+                            <span id="hw-speed">Detecting...</span>
                         </div>
                     </div>
                     <div>
                         <div class="lab-metric">
-                            <span>VRAM Capacity</span>
-                            <span id="hw-vram">Estimating...</span>
+                            <span>Module Configuration</span>
+                            <span id="hw-config">Analyzing...</span>
                         </div>
                         <div class="lab-metric">
-                            <span>Release Date</span>
-                            <span id="hw-release">Checking Registry...</span>
+                            <span>Slots Used</span>
+                            <span id="hw-slots">Detecting...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Memory Rank</span>
+                            <span id="hw-rank">Checking...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>CAS Latency (CL)</span>
+                            <span id="hw-latency">Calculating...</span>
                         </div>
                     </div>
                     <div>
                         <div class="lab-metric">
-                            <span>GPU Age</span>
-                            <span id="hw-age">Calculating...</span>
+                            <span>Voltage (VDD)</span>
+                            <span id="hw-voltage">Analysing...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Bandwidth Tier</span>
+                            <span id="hw-bandwidth">Analysing...</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 1. Stress Test Card -->
+            <!-- 1. Pressure Test Card -->
             <div class="lab-card">
-                <div class="lab-title">GPU Stress Sequence</div>
-                <div class="gpu-visualizer">
-                    <div class="fps-display">
-                        <span id="fps-value">0</span><span class="fps-unit">FPS</span>
+                <div class="lab-title">Memory Pressure Sequence</div>
+                <div class="ram-visualizer"
+                    style="height: 180px; background: var(--surface-color); border-radius: 12px; margin-bottom: 1.5rem; position: relative; overflow: hidden;">
+                    <div class="load-display"
+                        style="position: absolute; top: 15px; left: 15px; font-size: 2rem; font-weight: 800; color: var(--text-primary);">
+                        <span id="load-value">0</span><span class="load-unit">%</span>
                         <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.25rem;">
-                            SHADER LOAD: <span id="util-value" style="color: var(--accent-blue);">0%</span> |
-                            EST. TEMP: <span id="temp-value" style="color: #FF9500;">0°C</span>
+                            ALLOCATED: <span id="allocated-mb" style="color: var(--accent-blue);">0MB</span> |
+                            PAGES: <span id="temp-value" style="color: #34C759;">STABLE</span>
                         </div>
                     </div>
-                    <svg class="chart-svg" viewBox="0 0 400 60">
-                        <path id="chart-path" d="" fill="rgba(0, 102, 204, 0.05)" stroke="var(--accent-blue)"
-                            stroke-width="2" />
+                    <svg class="chart-svg" viewBox="0 0 400 60"
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; height: 60px;">
+                        <path id="chart-path" d="" fill="rgba(52, 199, 89, 0.05)" stroke="#34C759" stroke-width="2" />
                     </svg>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                     <div style="display: flex; flex-direction: column;">
                         <span style="font-size: 0.7rem; color: var(--text-secondary);">Remaining Duration</span>
-                        <span id="timer-text" style="font-size: 0.8rem; font-weight: 700;">0s / 600s</span>
+                        <span id="timer-text" style="font-size: 0.8rem; font-weight: 700;">0s / 300s</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="font-size: 0.7rem; color: var(--text-secondary);">SAFETY_STOP</span>
-                        <input type="checkbox" checked style="accent-color: var(--accent-blue);">
+                        <span style="font-size: 0.7rem; color: var(--text-secondary);">SWAP_PROTECT</span>
+                        <input type="checkbox" checked style="accent-color: #34C759;">
                     </div>
                 </div>
-                <button id="stress-toggle" class="action-button" onclick="GpuLab.toggleStress()">Begin GPU Stress
-                    Test</button>
+                <button id="stress-toggle" class="action-button" onclick="RamLab.toggleStress()"
+                    style="background: #34C759; color: white; border: none;">Begin Memory Pressure Audit</button>
 
                 <div id="stress-summary"
                     style="display: none; margin-top: 1.5rem; background: var(--surface-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
@@ -100,26 +119,26 @@
                 </div>
             </div>
 
-            <!-- 2. VRAM Monitor & Live Map Card -->
+            <!-- 2. Volatility Map Card -->
             <div class="lab-card">
-                <div class="lab-title">Laboratory VRAM Map</div>
+                <div class="lab-title">Data Volatility Map</div>
                 <div style="margin-bottom: 1.5rem;">
                     <div
                         style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                        <span>Laboratory Heap Allocation</span>
-                        <span id="vram-text">-- / --</span>
+                        <span>System Memory Capacity (Live)</span>
+                        <span id="thread-text">-- / --</span>
                     </div>
                     <div
                         style="height: 12px; background: var(--surface-color); border-radius: 6px; overflow: hidden; margin-bottom: 1rem;">
-                        <div id="vram-bar"
-                            style="height: 100%; background: var(--accent-blue); width: 0%; transition: width 0.3s ease;">
+                        <div id="thread-bar"
+                            style="height: 100%; background: #34C759; width: 0%; transition: width 0.3s ease;">
                         </div>
                     </div>
                     <div
-                        style="height: 100px; background: var(--surface-color); border-radius: 12px; overflow: hidden; position: relative;">
-                        <svg id="vram-svg" viewBox="0 0 400 100" preserveAspectRatio="none"
-                            style="width: 100%; height: 100%;">
-                            <path id="vram-path" d="" fill="rgba(0, 102, 204, 0.1)" stroke="var(--accent-blue)"
+                        style="background: rgba(0,0,0,0.02); border-radius: 8px; padding: 0.5rem; position: relative; height: 110px;">
+                        <svg id="thread-chart" width="400" height="100" viewBox="0 0 400 100" preserveAspectRatio="none"
+                            style="width: 100%; height: 100px;">
+                            <path id="thread-path" d="" fill="rgba(52, 199, 89, 0.4)" stroke="#34C759"
                                 stroke-width="2" />
                         </svg>
                     </div>
@@ -128,69 +147,58 @@
                 <div id="advisor-section"
                     style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
                     <div
-                        style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">
-                        Upgrade Advisor</div>
+                        style="font-size: 0.65rem; color: #34C759; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">
+                        Memory Advisor</div>
                     <div id="advisor-content"
                         style="font-size: 0.8rem; line-height: 1.4; color: var(--text-secondary); margin-bottom: 1rem;">
-                        Detecting bottleneck potential based on GPU age...
-                    </div>
-                    <div
-                        style="background: rgba(0, 102, 204, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--accent-blue);">
-                        <p style="font-size: 0.65rem; line-height: 1.3; color: var(--text-secondary); margin: 0;">
-                            <strong>Honest Telemetry Note:</strong> Browsers are sandboxed and cannot access OS-level
-                            VRAM capacity. GearVerify measures the real-time Graphics Heap being used by our
-                            laboratory's WebGPU objects.
-                        </p>
+                        Detecting memory overhead based on application density...
                     </div>
                 </div>
             </div>
 
-            <!-- 3. Performance Benchmark Card -->
+            <!-- 3. Bandwidth Benchmark Card -->
             <div class="lab-card">
-                <div class="lab-title">Performance Benchmark</div>
+                <div class="lab-title">Bandwidth & Latency Audit</div>
                 <div style="flex: 1;">
                     <div class="lab-metric">
-                        <span>Geometric Complexity</span>
-                        <span id="bench-geom" style="color: var(--text-primary);">0 Triangles/s</span>
+                        <span>Read Throughput</span>
+                        <span id="bench-read" style="color: var(--text-primary);">0 GB/s</span>
                     </div>
                     <div class="lab-metric">
-                        <span>Texture Bandwidth</span>
-                        <span id="bench-bw" style="color: var(--text-primary);">0 GB/s</span>
+                        <span>Write Throughput</span>
+                        <span id="bench-write" style="color: var(--text-primary);">0 GB/s</span>
                     </div>
                     <div class="lab-metric">
-                        <span>AI / Compute TFLOPS</span>
-                        <span id="bench-ai" style="color: var(--text-primary);">0.00</span>
+                        <span>CAS Latency (Probe)</span>
+                        <span id="bench-latency" style="color: var(--text-primary);">0.0 ns</span>
                     </div>
                     <div id="bench-score-area" style="margin-top: 1.5rem; display: none;">
                         <div style="text-align: center; margin-bottom: 1rem;">
                             <div style="font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase;">
                                 Laboratory Score</div>
-                            <div id="bench-score"
-                                style="font-size: 2.5rem; font-weight: 900; color: var(--accent-blue);">0</div>
-                            <div
-                                style="font-size: 0.7rem; color: var(--text-secondary); margin-top: -0.5rem; font-weight: 700;">
-                                CALCULATIONS / µs</div>
+                            <div id="bench-score" style="font-size: 2.5rem; font-weight: 900; color: #34C759;">0</div>
                             <div id="bench-recommendation"
-                                style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 1rem;"></div>
+                                style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;"></div>
                         </div>
                         <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
                             <div
                                 style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 0.5rem;">
-                                Top Performer Comparison</div>
+                                Top Tier Comparison</div>
                             <div id="bench-compare-list">
                                 <!-- Populated by JS -->
                             </div>
                         </div>
                     </div>
                 </div>
-                <button id="bench-btn" class="action-button" style="margin-top: 1.5rem;"
-                    onclick="GpuLab.startBenchmark()">Run 30s GPU Audit</button>
+                <button id="bench-btn" class="action-button"
+                    style="margin-top: 1.5rem; background: #34C759; color: white; border: none;"
+                    onclick="RamLab.startBenchmark()">Run 30s Memory Audit</button>
             </div>
 
-            <!-- 4. Health & Amazon Recommendation (Refined) -->
+            <!-- 4. Health & Amazon Recommendation -->
             <div class="lab-card health-card" id="health-card" style="grid-column: 1 / -1;">
                 <div>
-                    <div class="lab-title">GPU Upgrade Path</div>
+                    <div class="lab-title">Memory Upgrade Path</div>
                     <div id="advisor-pros-cons"
                         style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1rem 0;">
                         <div>
@@ -198,7 +206,7 @@
                                 PROS )</div>
                             <ul id="advisor-pros"
                                 style="font-size: 0.8rem; padding-left: 1.2rem; color: var(--text-secondary);">
-                                <li>Analyzing architecture benefits...</li>
+                                <li>Analyzing memory efficiency...</li>
                             </ul>
                         </div>
                         <div>
@@ -206,7 +214,7 @@
                                 CONS ]</div>
                             <ul id="advisor-cons"
                                 style="font-size: 0.8rem; padding-left: 1.2rem; color: var(--text-secondary);">
-                                <li>Identifying technical bottlenecks...</li>
+                                <li>Identifying data bottlenecks...</li>
                             </ul>
                         </div>
                     </div>
@@ -215,14 +223,14 @@
                 <div id="upgrade-suggestion"
                     style="background: var(--surface-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
                     <span
-                        style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 800; text-transform: uppercase;">Recommended
+                        style="font-size: 0.65rem; color: #34C759; font-weight: 800; text-transform: uppercase;">Recommended
                         Upgrade</span>
-                    <h4 id="recommended-model" style="margin: 0.5rem 0; font-size: 1rem;">RTX 50-Series Evolution</h4>
+                    <h4 id="recommended-model" style="margin: 0.5rem 0; font-size: 1rem;">64GB DDR5-8000 CL36</h4>
                     <p id="recommended-reason"
-                        style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">Future-proof your
-                        workstation for 2026 AI workflows.</p>
+                        style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">Double your
+                        bandwidth for 2026 creative workloads.</p>
                     <a href="#amazon-carousel" class="action-button"
-                        style="display: block; background: var(--accent-blue); color: white;">Shop Amazon
+                        style="display: block; background: #34C759; color: white; border: none;">Shop Amazon
                         Recommendations</a>
                 </div>
             </div>
@@ -231,31 +239,30 @@
         <!-- Laboratory Recommendations Carousel -->
         <section class="recommendation-carousel" id="amazon-carousel" style="margin-top: 1rem; border-radius: 20px;">
             <div class="container">
-                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: left;">Affiliate Product Laboratory
-                    Selection</h2>
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: left;">Affiliate Memory Selection</h2>
                 <div class="carousel-grid">
                     <div class="product-card">
                         <div class="product-image"
                             style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
-                            GPU_VISUAL</div>
-                        <h4>RTX 5090 FE</h4>
-                        <p style="color:var(--text-secondary); font-size: 0.75rem;">32GB GDDR7 / 2026 Standard</p>
+                            DDR5_VISUAL</div>
+                        <h4>32GB DDR5-6400</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Low-Latency Performance Kit</p>
                         <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
                     </div>
                     <div class="product-card">
                         <div class="product-image"
                             style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
-                            COOLING_VISUAL</div>
-                        <h4>AIO Liquid Cooler</h4>
-                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Thermal validation: 250W TDP</p>
+                            LAPTOP_RAM</div>
+                        <h4>16GB DDR4 SO-DIMM</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Laptop Upgrade Path Verified</p>
                         <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
                     </div>
                     <div class="product-card">
                         <div class="product-image"
                             style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
-                            CABLE_VISUAL</div>
-                        <h4>PCIe 5.0 Cable</h4>
-                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Lossless signal integrity</p>
+                            MAC_STUDIO</div>
+                        <h4>Premium NVMe Expansion</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Fast Swap Architecture</p>
                         <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
                     </div>
                 </div>
@@ -268,9 +275,9 @@
         <div class="container footer-columns">
             <div class="footer-column">
                 <h4>Validation Methodology</h4>
-                <p>GearVerify operates as a sovereign hardware validation laboratory. Our methodology utilizes WebGPU
-                    2.0 compute shaders to bypass high-level OS driver abstractions, measuring raw silicon throughput
-                    with sub-millisecond precision.</p>
+                <p>GearVerify operates as a sovereign hardware validation laboratory. Our Memory methodology utilizes
+                    SharedArrayBuffers and atomic operations to measure data volatility and cycle throughput with
+                    nanosecond precision.</p>
             </div>
             <div class="footer-column">
                 <h4>Expert Oversight</h4>
@@ -280,21 +287,11 @@
         </div>
         <div class="container"
             style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
-            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+            &copy; 2026 GearVerify Laboratory // Volatility Intel // All Data stays Local.
         </div>
     </footer>
 
-    <!-- SEO Performance Data -->
-    <script type="application/ld+json" id="performance-ld">
-    {
-      "@context": "https://schema.org",
-      "@type": "PerformanceReport",
-      "name": "GearVerify GPU Benchmark",
-      "measurementTechnique": "WebGPU Compute stress-test"
-    }
-    </script>
-
-    <script src="gpu.js"></script>
+    <script src="ram.js"></script>
 </body>
 
 </html>

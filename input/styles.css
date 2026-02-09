@@ -1,0 +1,186 @@
+@import url('../styles/globals.css');
+
+.input-lab-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .input-lab-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.lab-card {
+    background: var(--bg-color);
+    border: none;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- Full Keyboard Visualizer --- */
+.keyboard-wrapper {
+    display: flex;
+    gap: 10px;
+    background: #f5f5f7;
+    padding: 15px;
+    border-radius: 16px;
+    overflow-x: auto;
+    /* Allow scroll on small screens */
+    margin-bottom: 1rem;
+    user-select: none;
+    justify-content: center;
+}
+
+.kb-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.kb-row {
+    display: flex;
+    gap: 4px;
+}
+
+.key {
+    background: white;
+    border: 1px solid #d1d1d6;
+    border-bottom: 2px solid #d1d1d6;
+    border-radius: 4px;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: all 0.05s ease;
+    position: relative;
+    padding: 0 2px;
+    text-align: center;
+    word-break: break-all;
+    line-height: 1;
+}
+
+.key.active {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+    transform: translateY(2px);
+    border-bottom-width: 0px;
+    margin-top: 1px;
+    /* Compensate for border removal */
+    margin-bottom: 1px;
+}
+
+/* Special Key Sizes relative to base 30px + 4px gap */
+/* Roughly: 1u = 30px */
+
+.w-125 {
+    min-width: 38px;
+}
+
+/* ~1.25u */
+.w-150 {
+    min-width: 47px;
+}
+
+/* ~1.5u */
+.w-175 {
+    min-width: 55px;
+}
+
+/* ~1.75u */
+.w-200 {
+    min-width: 64px;
+}
+
+/* ~2u */
+.w-225 {
+    min-width: 72px;
+}
+
+/* ~2.25u */
+.w-275 {
+    min-width: 89px;
+}
+
+/* ~2.75u */
+.w-625 {
+    min-width: 198px;
+}
+
+/* Spacebar */
+.h-200 {
+    height: 64px;
+}
+
+/* Vertical 2u (Numpad Enter/Plus) */
+
+/* Empty spacer for layout gaps */
+.spacer {
+    min-width: 30px;
+    height: 30px;
+    visibility: hidden;
+}
+
+.spacer.half {
+    min-width: 15px;
+}
+
+
+/* --- Mouse Visualizer --- */
+.mouse-viz-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background: #f5f5f7;
+    border-radius: 12px;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.mouse-svg {
+    width: 120px;
+    height: 180px;
+    fill: none;
+    stroke: var(--text-secondary);
+    stroke-width: 2;
+}
+
+.mouse-btn {
+    fill: white;
+    transition: fill 0.1s;
+}
+
+.mouse-btn.active {
+    fill: var(--accent-blue);
+    stroke: var(--accent-blue);
+}
+
+.poll-rate-display {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}

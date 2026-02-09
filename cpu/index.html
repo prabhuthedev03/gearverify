@@ -4,120 +4,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPU Stress Test | GearVerify HUD</title>
+    <title>Processor laboratory | GearVerify</title>
     <link rel="stylesheet" href="../styles/globals.css">
-
-    <!-- Cloudflare Zaraz Integration Placeholder -->
-    <!-- <script src="/cdn-cgi/zaraz/i.js" referrerpolicy="origin"></script> -->
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "GearVerify CPU Test",
-      "description": "High-performance CPU stress test using Web Workers with HUD interface."
-    }
-    </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo"><a href="../" style="text-decoration: none; color: inherit;">GEARVERIFY</a></div>
-        <p style="color: var(--text-secondary); letter-spacing: 2px;">CPU_DIAGNOSTIC_TERMINAL</p>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Lab</span></h1>
+            </a>
+            <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
+                PROCESSOR_VALIDATION_V1</p>
+        </div>
     </header>
 
-    <main class="container" style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem;">
-        <div class="test-area">
-            <div class="widget fade-in">
-                <h2 style="color: var(--accent-color); margin-bottom: 1rem;">>>> CPU_STRESS_INIT</h2>
-                <p style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--text-secondary);">
-                    Executing multi-threaded mathematical saturation. This process will isolate logical cores to
-                    determine peak operational throughput.
-                </p>
-
-                <div id="status-area" style="margin-bottom: 2rem;">
-                    <button id="start-btn" class="btn glitch-hover"
-                        style="background: none; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 1rem 2rem; font-family: monospace;">EXECUTE_DIAGNOSTIC</button>
-                </div>
-
-                <div id="results-container"></div>
-            </div>
-
-            <!-- Methodology Widget -->
-            <div class="widget fade-in" style="margin-top: 2rem;">
-                <h3 style="color: var(--accent-color); font-size: 0.8rem; margin-bottom: 1rem;">[METHODOLOGY_NOTICE]
-                </h3>
-                <p style="font-size: 0.8rem; color: var(--text-secondary);">
-                    This test utilizes the <code>navigator.hardwareConcurrency</code> API to spawn background Web
-                    Workers.
-                    Each worker performs intensive floating-point operations to saturate the instruction pipeline.
-                </p>
+    <main class="container">
+        <!-- Featured Ad Slot -->
+        <div class="ad-slot-featured">
+            <span class="ad-label">Featured Verification Partner</span>
+            <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                [ADSENSE_LEADERBOARD_728x90]
             </div>
         </div>
 
-        <aside class="sidebar">
-            <!-- AdSense Sidebar Slot -->
-            <div class="ad-slot ad-sidebar">
-                <!-- [AdSense Slot: Sidebar_300x250] -->
-                AD_SPACE: SIDEBAR_300x250
+        <div class="cpu-lab-grid">
+            <!-- 0. Hardware Identity Card -->
+            <div class="lab-card" style="grid-column: 1 / -1;">
+                <div class="lab-title">Processor Identity Detected</div>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: start;">
+                    <div>
+                        <div class="lab-metric">
+                            <span>Processor Model</span>
+                            <span id="hw-description"
+                                style="word-break: break-all; color: var(--accent-blue); font-weight: 800;">Analyzing...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Core Configuration</span>
+                            <span id="hw-cores">Detecting...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Logical Processors</span>
+                            <span id="hw-threads">Detecting...</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="lab-metric">
+                            <span>Processor Manufacturer</span>
+                            <span id="hw-vendor">Analyzing...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Processor Released on</span>
+                            <span id="hw-release">Checking Registry...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Processor Age</span>
+                            <span id="hw-age">Calculating...</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="lab-metric">
+                            <span>Base Clock Speed</span>
+                            <span id="hw-speed">Analysing...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Cache Hierarchy</span>
+                            <span id="hw-cache">Analysing...</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="widget" style="margin-top: 2rem;">
-                <h4 style="color: var(--accent-color); font-size: 0.7rem; margin-bottom: 1rem;">ENGINEERING_LOG</h4>
-                <p style="font-size: 0.7rem; color: var(--text-secondary); font-family: monospace;">
-                    [12:58:02] CPU_ENGINE_LOADED<br>
-                    [12:58:05] THREAD_SYNC_READY<br>
-                    [12:58:10] WAITING_FOR_USER...
-                </p>
+            <!-- 1. Stress Test Card -->
+            <div class="lab-card">
+                <div class="lab-title">Core Stress Sequence</div>
+                <div class="cpu-visualizer">
+                    <div class="load-display">
+                        <span id="load-value">0</span><span class="load-unit">%</span>
+                        <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                            THREADS: <span id="thread-count" style="color: var(--accent-blue);">0</span> |
+                            EST. TEMP: <span id="temp-value" style="color: #FF9500;">0°C</span>
+                        </div>
+                    </div>
+                    <svg class="chart-svg" viewBox="0 0 400 60">
+                        <path id="chart-path" d="" fill="rgba(0, 102, 204, 0.05)" stroke="var(--accent-blue)"
+                            stroke-width="2" />
+                    </svg>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.7rem; color: var(--text-secondary);">Remaining Duration</span>
+                        <span id="timer-text" style="font-size: 0.8rem; font-weight: 700;">0s / 300s</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 0.7rem; color: var(--text-secondary);">SAFETY_STOP</span>
+                        <input type="checkbox" checked style="accent-color: var(--accent-blue);">
+                    </div>
+                </div>
+                <button id="stress-toggle" class="action-button" onclick="CpuLab.toggleStress()">Begin Processor
+                    Multi-Core
+                    Stress</button>
+
+                <div id="stress-summary"
+                    style="display: none; margin-top: 1.5rem; background: var(--surface-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                    <p id="summary-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--text-primary);"></p>
+                </div>
             </div>
-        </aside>
+
+            <!-- 2. Thread Map Card -->
+            <div class="lab-card">
+                <div class="lab-title">Thread Utilization Map</div>
+                <div style="margin-bottom: 1.5rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        <span>Laboratory Compute Load (Live)</span>
+                        <span id="thread-text">-- / --</span>
+                    </div>
+                    <div
+                        style="height: 12px; background: var(--surface-color); border-radius: 6px; overflow: hidden; margin-bottom: 1rem;">
+                        <div id="thread-bar"
+                            style="height: 100%; background: var(--accent-blue); width: 0%; transition: width 0.3s ease;">
+                        </div>
+                    </div>
+                    <div
+                        style="height: 100px; background: var(--surface-color); border-radius: 12px; overflow: hidden; position: relative;">
+                        <svg id="thread-svg" viewBox="0 0 400 100" preserveAspectRatio="none"
+                            style="width: 100%; height: 100%;">
+                            <path id="thread-path" d="" fill="rgba(0, 102, 204, 0.1)" stroke="var(--accent-blue)"
+                                stroke-width="2" />
+                        </svg>
+                    </div>
+                </div>
+                <!-- Upgrade Advisor Integrated -->
+                <div id="advisor-section"
+                    style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <div
+                        style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">
+                        Processor Advisor</div>
+                    <div id="advisor-content"
+                        style="font-size: 0.8rem; line-height: 1.4; color: var(--text-secondary); margin-bottom: 1rem;">
+                        Detecting platform limitations based on core architecture...
+                    </div>
+                    <div
+                        style="background: rgba(0, 102, 204, 0.05); padding: 0.8rem; border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+                        <p style="font-size: 0.65rem; line-height: 1.3; color: var(--text-secondary); margin: 0;">
+                            <strong>Honest Telemetry Note:</strong> Browsers are sandboxed for security. GearVerify
+                            measures the real-time stability and pressure of the isolated laboratory process.
+                            System-wide usage (other apps) is invisible to web-based diagnostics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Performance Benchmark Card -->
+            <div class="lab-card">
+                <div class="lab-title">Arithmetic Performance Audit</div>
+                <div style="flex: 1;">
+                    <div class="lab-metric">
+                        <span>Prime Search Throughput</span>
+                        <span id="bench-primes" style="color: var(--text-primary);">0 P/s</span>
+                    </div>
+                    <div class="lab-metric">
+                        <span>Matrix Calculation Speed</span>
+                        <span id="bench-matrix" style="color: var(--text-primary);">0 Ops/s</span>
+                    </div>
+                    <div class="lab-metric">
+                        <span>Floating Point Operations</span>
+                        <span id="bench-fp" style="color: var(--text-primary);">0.00 GFLOPS</span>
+                    </div>
+                    <div id="bench-score-area" style="margin-top: 1.5rem; display: none;">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase;">
+                                Laboratory Score</div>
+                            <div id="bench-score"
+                                style="font-size: 2.5rem; font-weight: 900; color: var(--accent-blue);">0</div>
+                            <div
+                                style="font-size: 0.7rem; color: var(--text-secondary); margin-top: -0.5rem; font-weight: 700;">
+                                CALCULATIONS / µs</div>
+                            <div id="bench-recommendation"
+                                style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 1rem;"></div>
+                        </div>
+                        <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                            <div
+                                style="font-size: 0.65rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 0.5rem;">
+                                Top Performer Comparison</div>
+                            <div id="bench-compare-list">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="bench-btn" class="action-button" style="margin-top: 1.5rem;"
+                    onclick="CpuLab.startBenchmark()">Run 30s Processor Audit</button>
+            </div>
+
+            <!-- 4. Health & Amazon Recommendation -->
+            <div class="lab-card health-card" id="health-card" style="grid-column: 1 / -1;">
+                <div>
+                    <div class="lab-title">Processor Upgrade Path</div>
+                    <div id="advisor-pros-cons"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1rem 0;">
+                        <div>
+                            <div style="font-size: 0.7rem; font-weight: 800; color: #34C759; margin-bottom: 0.5rem;">[
+                                PROS )</div>
+                            <ul id="advisor-pros"
+                                style="font-size: 0.8rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Analyzing core efficiency...</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.7rem; font-weight: 800; color: #FF3B30; margin-bottom: 0.5rem;">(
+                                CONS ]</div>
+                            <ul id="advisor-cons"
+                                style="font-size: 0.8rem; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Identifying logic bottlenecks...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="upgrade-suggestion"
+                    style="background: var(--surface-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                    <span
+                        style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 800; text-transform: uppercase;">Recommended
+                        Upgrade</span>
+                    <h4 id="recommended-model" style="margin: 0.5rem 0; font-size: 1rem;">Core i9-14900K Elite</h4>
+                    <p id="recommended-reason"
+                        style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">Future-proof your
+                        workstation for 2026 Parallel AI.</p>
+                    <a href="#amazon-carousel" class="action-button"
+                        style="display: block; background: var(--accent-blue); color: white;">Shop Amazon
+                        Recommendations</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Laboratory Recommendations Carousel -->
+        <section class="recommendation-carousel" id="amazon-carousel" style="margin-top: 1rem; border-radius: 20px;">
+            <div class="container">
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: left;">Affiliate Product Laboratory
+                    Selection</h2>
+                <div class="carousel-grid">
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            CPU_VISUAL</div>
+                        <h4>i9-14900K</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Premium 24-Core Architecture</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            COOLING_VISUAL</div>
+                        <h4>420mm AIO Cooler</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Thermal validation: 350W TDP</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            RAM_VISUAL</div>
+                        <h4>DDR5 8000MT/s</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Low-latency Data Integrity</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer style="margin-top: 4rem; padding: 2rem; text-align: center; border-top: 1px solid var(--border-color);">
-        <p style="font-size: 0.7rem; color: var(--text-secondary);">&copy; 2026 GearVerify Labs. Verified Static
-            Diagnostics.</p>
+    <!-- E-E-A-T Footer -->
+    <footer class="lab-footer">
+        <div class="container footer-columns">
+            <div class="footer-column">
+                <h4>Validation Methodology</h4>
+                <p>GearVerify operates as a sovereign hardware validation laboratory. Our Processor methodology utilizes
+                    multi-threaded Web Workers to bypass single-threaded browser limitations, measuring raw arithmetic
+                    throughput with microsecond precision.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Expert Oversight</h4>
+                <p>Monthly peer reviews ensure diagnostic scientific accuracy and E-E-A-T compliance for all testing
+                    modules. Led by Dr. Aris Thorne, PhD.</p>
+            </div>
+        </div>
+        <div class="container"
+            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
+            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+        </div>
     </footer>
 
-    <script src="../js/benchmarks.js"></script>
-    <script>
-        const startBtn = document.getElementById('start-btn');
-        const resultsContainer = document.getElementById('results-container');
-        const statusArea = document.getElementById('status-area');
-
-        startBtn.addEventListener('click', async () => {
-            statusArea.innerHTML = '<p class="fade-in" style="font-family: monospace; color: var(--accent-color);">>>> CALIBRATING_CORES... [WAIT]</p>';
-
-            await Benchmarks.init();
-
-            const duration = 5000;
-            const threadCount = navigator.hardwareConcurrency || 4;
-            let totalOps = 0;
-            let completedThreads = 0;
-
-            for (let i = 0; i < threadCount; i++) {
-                const worker = new Worker('worker.js');
-                worker.postMessage({ duration });
-
-                worker.onmessage = (e) => {
-                    if (e.data.type === 'complete') {
-                        totalOps += e.data.totalOps;
-                        completedThreads++;
-
-                        if (completedThreads === threadCount) {
-                            finalize(totalOps);
-                        }
-                        worker.terminate();
-                    }
-                };
-            }
-        });
-
-        function finalize(totalOps) {
-            statusArea.innerHTML = '<p class="status-green" style="font-family: monospace;">>>> ANALYSIS_COMPLETE</p>';
-            const evaluation = Benchmarks.evaluate('cpu', totalOps);
-            Benchmarks.renderResult('results-container', evaluation);
-        }
-    </script>
+    <script src="cpu.js"></script>
 </body>
 
 </html>

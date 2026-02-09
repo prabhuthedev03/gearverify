@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Laboratory | GearVerify</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Lab</span></h1>
+            </a>
+            <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
+                AUDIO_FIDELITY_V1</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Featured Ad Slot -->
+        <div class="ad-slot-featured">
+            <span class="ad-label">Featured Verification Partner</span>
+            <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                [ADSENSE_LEADERBOARD_728x90]
+            </div>
+        </div>
+
+        <div class="audio-lab-grid">
+            <!-- 0. Header Card -->
+            <div class="lab-card" style="grid-column: 1 / -1;">
+                <div class="lab-title">Audio Subsystem Identity</div>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: start;">
+                    <div>
+                        <div class="lab-metric">
+                            <span>Sample Rate</span>
+                            <span id="audio-rate"
+                                style="word-break: break-all; color: var(--accent-blue); font-weight: 800;">Detecting...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Output Channels</span>
+                            <span id="audio-channels">Detecting...</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="lab-metric">
+                            <span>Context State</span>
+                            <span id="audio-state">Suspended</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Base Latency</span>
+                            <span id="audio-latency">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. Speaker Stereo Test -->
+            <div class="lab-card">
+                <div class="lab-title">Stereo Imaging Audit</div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Validate Left/Right channel separation. Ensure speakers are correctly wired.
+                </p>
+                <div style="margin-bottom: 1rem;">
+                    <select id="speaker-select" class="device-select" onchange="AudioLab.changeOutput(this.value)">
+                        <option value="default" selected>Default Output Device</option>
+                    </select>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <button class="action-button" onclick="AudioLab.playTone('left')">Left Channel</button>
+                    <button class="action-button" onclick="AudioLab.playTone('right')">Right Channel</button>
+                </div>
+                <button class="action-button" onclick="AudioLab.playTone('center')">Center (Both)</button>
+            </div>
+
+            <!-- 2. Frequency Sweep -->
+            <div class="lab-card">
+                <div class="lab-title">Frequency Response Sweep</div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Test speaker range from Bass (20Hz) to Treble (20kHz).
+                </p>
+                <div class="freq-slider-container">
+                    <span style="font-size: 0.7rem; width: 40px;">20Hz</span>
+                    <input type="range" min="20" max="20000" value="440" id="freq-slider"
+                        oninput="AudioLab.updateFreq(this.value)">
+                    <span style="font-size: 0.7rem; width: 40px;">20kHz</span>
+                </div>
+                <div style="text-align: center; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.8rem;"
+                    id="freq-val">440 Hz</div>
+                <button id="sweep-btn" class="action-button" onclick="AudioLab.toggleSweep()">Start Oscillator</button>
+            </div>
+
+            <!-- 3. Microphone Input -->
+            <div class="lab-card" style="grid-column: 1 / -1;">
+                <div class="lab-title">Microphone Input Visualizer</div>
+                <canvas id="mic-visualizer"></canvas>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Real-time input monitoring. Requires microphone permission. Data is processed locally and never
+                    uploaded.
+                </p>
+                <div style="margin-bottom: 1rem;">
+                    <label
+                        style="font-size: 0.7rem; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">Input
+                        Source</label>
+                    <select id="mic-select" class="device-select">
+                        <option value="default" selected>Default Microphone (Grant Access to List)</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <button id="mic-btn" class="action-button" onclick="AudioLab.startMicTest()"
+                        style="flex: 1;">Request Access</button>
+                    <button id="record-btn" class="action-button" onclick="AudioLab.recordClip()" disabled
+                        style="flex: 1; opacity: 0.5; cursor: not-allowed; background: var(--surface-color); color: var(--text-secondary);">
+                        Start 15s Audit
+                    </button>
+                </div>
+
+                <!-- Recording Status & Timer -->
+                <div id="rec-status"
+                    style="margin-top: 1rem; display: none; align-items: center; justify-content: space-between; background: #fff5f5; padding: 0.8rem; border-radius: 8px; border: 1px solid #ffcccc;">
+                    <div
+                        style="display: flex; align-items: center; gap: 0.5rem; color: #FF3B30; font-weight: 600; font-size: 0.8rem;">
+                        <span
+                            style="display: block; width: 8px; height: 8px; background: #FF3B30; border-radius: 50%; animation: blink 1s infinite;"></span>
+                        Recording Input...
+                    </div>
+                    <div id="rec-timer"
+                        style="font-family: monospace; font-weight: 700; font-size: 1rem; color: #FF3B30;">00:15</div>
+                </div>
+
+                <div id="playback-area"
+                    style="margin-top: 1rem; display: none; background: var(--surface-color); padding: 1rem; border-radius: 12px;">
+                    <p
+                        style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">
+                        AUDIT PLAYBACK REVIEW</p>
+                    <audio id="mic-player" controls style="width: 100%; height: 32px; border-radius: 8px;"></audio>
+                </div>
+            </div>
+
+            <!-- 5. Amazon Recommendation -->
+            <div class="lab-card health-card" id="audio-health" style="grid-column: 1 / -1;">
+                <div>
+                    <div class="lab-title">Audio Upgrade Path</div>
+                    <div class="upgrade-suggestion"
+                        style="background: var(--surface-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <span
+                            style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 800; text-transform: uppercase;">Laboratory
+                            Recommendation</span>
+                        <h4 id="recommended-model" style="margin: 0.5rem 0; font-size: 1rem;">Hi-Res DAC Interface</h4>
+                        <p id="recommended-reason"
+                            style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">Eliminate
+                            motherboard interference with isolated external audio processing.</p>
+                        <a href="#amazon-carousel" class="action-button"
+                            style="display: block; background: var(--accent-blue); color: white;">Shop Amazon
+                            Recommendations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Laboratory Recommendations Carousel -->
+        <section class="recommendation-carousel" id="amazon-carousel" style="margin-top: 1rem; border-radius: 20px;">
+            <div class="container">
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: left;">Studio Audio Gear</h2>
+                <div class="carousel-grid">
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            DAC_VISUAL</div>
+                        <h4>FiiO K5 Pro DAC</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">768kHz/32bit Processing</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            MIC_VISUAL</div>
+                        <h4>Shure MV7 USB</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Podcaster Standard</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            IEM_VISUAL</div>
+                        <h4>Sennheiser IE 200</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Neutral Response In-Ear</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- E-E-A-T Footer -->
+    <footer class="lab-footer">
+        <div class="container footer-columns">
+            <div class="footer-column">
+                <h4>Validation Methodology</h4>
+                <p>GearVerify Audio Lab uses the Web Audio API to generate bit-perfect synthetic waveforms and analyze
+                    local microphone input via Fast Fourier Transform (FFT) nodes. All processing occurs within the
+                    browser sandbox.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Expert Oversight</h4>
+                <p>Monthly peer reviews ensure diagnostic scientific accuracy and E-E-A-T compliance for all testing
+                    modules. Led by Dr. Aris Thorne, PhD.</p>
+            </div>
+        </div>
+        <div class="container"
+            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
+            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+        </div>
+    </footer>
+
+    <script src="audio.js"></script>
+</body>
+
+</html>

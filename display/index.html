@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Laboratory | GearVerify</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Lab</span></h1>
+            </a>
+            <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
+                DISPLAY_VALIDATION_V1</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Featured Ad Slot -->
+        <div class="ad-slot-featured">
+            <span class="ad-label">Featured Verification Partner</span>
+            <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                [ADSENSE_LEADERBOARD_728x90]
+            </div>
+        </div>
+
+        <div class="display-lab-grid">
+            <!-- 0. Header Card -->
+            <div class="lab-card" style="grid-column: 1 / -1;">
+                <div class="lab-title">Display Panel Signal Identity</div>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: start;">
+                    <div>
+                        <div class="lab-metric">
+                            <span>Resolution (Viewport)</span>
+                            <span id="disp-res"
+                                style="word-break: break-all; color: var(--accent-blue); font-weight: 800;">Detecting...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Pixel Ratio (Density)</span>
+                            <span id="disp-dpr">Detecting...</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="lab-metric">
+                            <span>Color Depth</span>
+                            <span id="disp-depth">Detecting...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Orientation</span>
+                            <span id="disp-orientation">Checking...</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="lab-metric">
+                            <span>Touch Capable</span>
+                            <span id="disp-touch">Analysing...</span>
+                        </div>
+                        <div class="lab-metric">
+                            <span>Gamut Support</span>
+                            <span id="disp-gamut">Checkerboard...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. Refresh Rate / Hz -->
+            <div class="lab-card">
+                <div class="lab-title">Refresh Rate Audit</div>
+                <div class="refresh-rate-visualizer">
+                    <span id="hz-value">--</span> <span style="font-size: 1rem; margin-left: 5px;">Hz</span>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.4;">
+                    Real-time frame delivery analysis. Detects 60Hz, 120Hz, 144Hz, and dynamic refresh rates (ProMotion
+                    / VRR).
+                </p>
+                <button id="hz-btn" class="action-button" onclick="DisplayLab.toggleHzMeasure()">Recalibrate
+                    Signal</button>
+            </div>
+
+            <!-- 2. Dead Pixel Check -->
+            <div class="lab-card">
+                <div class="lab-title">Pixel Integrity (Dead Pixel)</div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Tap below to enter full-screen isolation mode for spotting stuck or dead pixels. Click screen to
+                    exit.
+                </p>
+                <div class="pixel-grid">
+                    <div class="pixel-btn" style="background: red;" onclick="DisplayLab.enterFullscreen('red')"></div>
+                    <div class="pixel-btn" style="background: lime;" onclick="DisplayLab.enterFullscreen('lime')"></div>
+                    <div class="pixel-btn" style="background: blue;" onclick="DisplayLab.enterFullscreen('blue')"></div>
+                    <div class="pixel-btn" style="background: white; border: 1px solid #ddd;"
+                        onclick="DisplayLab.enterFullscreen('white')"></div>
+                    <div class="pixel-btn" style="background: black;" onclick="DisplayLab.enterFullscreen('black')">
+                    </div>
+                    <div class="pixel-btn" style="background: #808080;" onclick="DisplayLab.enterFullscreen('#808080')">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Color Fidelity -->
+            <div class="lab-card">
+                <div class="lab-title">Color Banding & Bit-Depth</div>
+                <div class="color-band-container" id="gradient-test"></div>
+                <div class="lab-metric">
+                    <span>Gradient Smoothness</span>
+                    <span id="grad-status" style="color: #34C759;">Analyzing...</span>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Visual inspection for 8-bit vs 10-bit color banding artifacts.
+                </p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="action-button" onclick="DisplayLab.setGradient('bw')">B&W</button>
+                    <button class="action-button" onclick="DisplayLab.setGradient('rgb')">RGB</button>
+                </div>
+            </div>
+
+            <!-- 4. Uniformity / Backlight Bleed (Black Screen) -->
+            <div class="lab-card">
+                <div class="lab-title">Backlight Uniformity</div>
+                <div style="height: 100px; background: black; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; cursor: pointer;"
+                    onclick="DisplayLab.enterFullscreen('black')">
+                    <span style="color: #333; font-size: 0.8rem;">Tap for Blackout</span>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-secondary);">
+                    Inspect for backlight bleed or IPS glow in a darkened room.
+                </p>
+            </div>
+
+
+            <!-- 5. Amazon Recommendation -->
+            <div class="lab-card health-card" id="display-health" style="grid-column: 1 / -1;">
+                <div>
+                    <div class="lab-title">Display Upgrade Path</div>
+                    <div class="upgrade-suggestion"
+                        style="background: var(--surface-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <span
+                            style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 800; text-transform: uppercase;">Laboratory
+                            Recommendation</span>
+                        <h4 id="recommended-model" style="margin: 0.5rem 0; font-size: 1rem;">OLED 240Hz Master Tier
+                        </h4>
+                        <p id="recommended-reason"
+                            style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 1rem;">Upgrade to
+                            self-emissive pixels for infinite contrast.</p>
+                        <a href="#amazon-carousel" class="action-button"
+                            style="display: block; background: var(--accent-blue); color: white;">Shop Amazon
+                            Recommendations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fullscreen Overlay -->
+        <div id="fullpath-overlay" onclick="DisplayLab.exitFullscreen()">
+            Tap anywhere to exit
+        </div>
+
+        <!-- Laboratory Recommendations Carousel -->
+        <section class="recommendation-carousel" id="amazon-carousel" style="margin-top: 1rem; border-radius: 20px;">
+            <div class="container">
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: left;">Calibrated Display Selection</h2>
+                <div class="carousel-grid">
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            OLED_VISUAL</div>
+                        <h4>LG 27" OLED 240Hz</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Pure Black Response</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            IPS_VISUAL</div>
+                        <h4>ASUS ProArt 4K</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">100% sRGB / Rec.709</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"
+                            style="background: #f0f0f5; height: 120px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                            CALIBRATOR_VISUAL</div>
+                        <h4>Datacolor SpyderX</h4>
+                        <p style="color:var(--text-secondary); font-size: 0.75rem;">Laboratory Color Analysis</p>
+                        <a href="https://amzn.to/placeholder" target="_blank" class="buy-button">Shop Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- E-E-A-T Footer -->
+    <footer class="lab-footer">
+        <div class="container footer-columns">
+            <div class="footer-column">
+                <h4>Validation Methodology</h4>
+                <p>GearVerify Display Lab utilizes high-frequency requestAnimationFrame monitoring to detect signal
+                    transmission rates and browser-compositor synchronization. Color fidelity is assessed via
+                    CSS4-compliant rendering contexts.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Expert Oversight</h4>
+                <p>Monthly peer reviews ensure diagnostic scientific accuracy and E-E-A-T compliance for all testing
+                    modules. Led by Dr. Aris Thorne, PhD.</p>
+            </div>
+        </div>
+        <div class="container"
+            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
+            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+        </div>
+    </footer>
+
+    <script src="display.js"></script>
+</body>
+
+</html>

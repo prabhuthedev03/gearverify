@@ -1,0 +1,165 @@
+/* GearVerify Global Lab System - Shared Layout */
+
+:root {
+    --gpu-surface: #f5f5f7;
+    --gpu-accent-glow: rgba(0, 102, 204, 0.1);
+}
+
+.cpu-lab-grid,
+.gpu-lab-grid,
+.ram-lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.lab-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-card:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-4px);
+    border-color: var(--accent-blue);
+}
+
+.lab-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lab-title::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+}
+
+.cpu-visualizer,
+.gpu-visualizer {
+    width: 100%;
+    height: 180px;
+    background: var(--surface-color);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.load-display,
+.fps-display {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.load-unit,
+.fps-unit {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-left: 4px;
+}
+
+.action-button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.action-button:hover {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+}
+
+.lab-metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.lab-metric:last-child {
+    border-bottom: none;
+}
+
+.lab-metric span:first-child {
+    color: var(--text-secondary);
+}
+
+.lab-metric span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.chart-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    pointer-events: none;
+}
+
+.health-card {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .health-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .cpu-lab-grid,
+    .gpu-lab-grid,
+    .ram-lab-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lab-card {
+        padding: 1.5rem;
+    }
+
+    .load-display,
+    .fps-display {
+        font-size: 1.5rem;
+    }
+}

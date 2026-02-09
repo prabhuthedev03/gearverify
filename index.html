@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearVerify | Professional Hardware Validation Laboratory</title>
     <meta name="description"
-        content="Premium hardware diagnostic laboratory. Silicon-level compute validation, WebGPU performance analysis, and zero-server privacy protocol.">
+        content="Premium hardware diagnostic laboratory. Processor-level compute validation, WebGPU performance analysis, and zero-server privacy protocol.">
 
     <!-- AXO Semantic Manifest -->
     <link rel="alternate" type="application/json" href="/diagnostics.json">
@@ -68,518 +68,193 @@
                         </svg>
                     </div>
                     <p style="font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.3;">
-                        Silicon-level compute validation & stress testing</p>
+                        Hardware-level compute validation & parallel stress</p>
                     <div class="test-subgrid">
-                        <div class="test-item"><span>WebGPU Shader Stress</span> <span
+                        <div class="test-item"><span>Architecture Stress</span> <span
                                 style="color:var(--accent-blue)">⚡</span></div>
-                        <div class="test-item"><span>Silicon Throughput Audit</span></div>
-                        <div class="test-item"><span>VRAM Allocation Map</span></div>
-                        <div class="test-item"><span>AI Inference Benchmark</span></div>
-                        <div class="test-item"><span>Geometric Complexity Audit</span></div>
+                        <div class="test-item"><span>Geometry Throughput</span></div>
+                        <div class="test-item"><span>VRAM Bandwidth Audit</span></div>
+                        <div class="test-item"><span>AI TFLOPS Benchmark</span></div>
+                        <div class="test-item"><span>Compute Profiling</span></div>
                     </div>
                 </div>
             </a>
 
             <!-- 2. CPU Group -->
-            <div class="category-card">
-                <h3>Processor Validation</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="cpuGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FF3B30;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FF9500;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="25" y="25" width="50" height="50" rx="2" fill="none" stroke="url(#cpuGrad)"
-                            stroke-width="2.5" />
-                        <rect x="35" y="35" width="30" height="30" rx="1" fill="url(#cpuGrad)" opacity="0.1" />
-                        <path d="M 30 25 V 15 M 40 25 V 15 M 50 25 V 15 M 60 25 V 15 M 70 25 V 15" stroke="#FF3B30"
-                            stroke-width="2" />
-                        <path d="M 30 75 V 85 M 40 75 V 85 M 50 75 V 85 M 60 75 V 85 M 70 75 V 85" stroke="#FF3B30"
-                            stroke-width="2" />
-                        <path d="M 25 30 H 15 M 25 40 H 15 M 25 50 H 15 M 25 60 H 15 M 25 70 H 15" stroke="#FF3B30"
-                            stroke-width="2" />
-                        <path d="M 75 30 H 85 M 75 40 H 85 M 75 50 H 85 M 75 60 H 85 M 75 70 H 85" stroke="#FF3B30"
-                            stroke-width="2" />
-                    </svg>
+            <a href="cpu/" style="text-decoration: none; color: inherit; display: contents;">
+                <div class="category-card" style="cursor: pointer;">
+                    <h3>CPU Testing</h3>
+                    <div class="product-image">
+                        <svg viewBox="0 0 100 100" class="card-vector">
+                            <defs>
+                                <linearGradient id="cpuGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF3B30;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF9500;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="25" y="25" width="50" height="50" rx="2" fill="none" stroke="url(#cpuGrad)"
+                                stroke-width="2.5" />
+                            <rect x="35" y="35" width="30" height="30" rx="1" fill="url(#cpuGrad)" opacity="0.1" />
+                            <path d="M 30 25 V 15 M 40 25 V 15 M 50 25 V 15 M 60 25 V 15 M 70 25 V 15" stroke="#FF3B30"
+                                stroke-width="2" />
+                            <path d="M 30 75 V 85 M 40 75 V 85 M 50 75 V 85 M 60 75 V 85 M 70 75 V 85" stroke="#FF3B30"
+                                stroke-width="2" />
+                            <path d="M 25 30 H 15 M 25 40 H 15 M 25 50 H 15 M 25 60 H 15 M 25 70 H 15" stroke="#FF3B30"
+                                stroke-width="2" />
+                            <path d="M 75 30 H 85 M 75 40 H 85 M 75 50 H 85 M 75 60 H 85 M 75 70 H 85" stroke="#FF3B30"
+                                stroke-width="2" />
+                        </svg>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.3;">
+                        Logic-layer multi-core stress & clock audit</p>
+                    <div class="test-subgrid">
+                        <div class="test-item"><span>Multi-Core Stress</span> <span
+                                style="color:var(--accent-blue)">⚡</span></div>
+                        <div class="test-item"><span>Prime Search Audit</span></div>
+                        <div class="test-item"><span>Matrix Operations</span></div>
+                        <div class="test-item"><span>FP Arithmetic Audit</span></div>
+                        <div class="test-item"><span>Thermal Profiling</span></div>
+                    </div>
                 </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Instruction Set Audit</span> <span
-                            style="color:var(--accent-blue)">⚡</span></div>
-                    <div class="test-item"><span>Thermal Throttling Log</span></div>
-                    <div class="test-item"><span>Multi-Core Load Delta</span></div>
-                    <div class="test-item"><span>L1/L2 Cache Latency</span></div>
-                    <div class="test-item"><span>V8 Execution Profiling</span></div>
-                </div>
-            </div>
+            </a>
 
-            <!-- 3. Input Group -->
-            <div class="category-card">
-                <h3>Haptic Response</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#34C759;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#00C2FF;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="20" y="35" width="60" height="30" rx="4" fill="none" stroke="url(#inputGrad)"
-                            stroke-width="2" />
-                        <rect x="25" y="42" width="6" height="6" rx="1" fill="url(#inputGrad)" />
-                        <rect x="34" y="42" width="6" height="6" rx="1" fill="url(#inputGrad)" />
-                        <rect x="43" y="42" width="6" height="6" rx="1" fill="url(#inputGrad)" />
-                        <rect x="52" y="42" width="6" height="6" rx="1" fill="url(#inputGrad)" />
-                        <rect x="61" y="42" width="15" height="6" rx="1" fill="url(#inputGrad)" />
-                        <rect x="35" y="52" width="30" height="6" rx="1" fill="url(#inputGrad)" />
-                    </svg>
+            <!-- 3. RAM Group (Repurposed from Haptic) -->
+            <a href="ram/" style="text-decoration: none; color: inherit; display: contents;">
+                <div class="category-card" style="cursor: pointer;">
+                    <h3>RAM Testing</h3>
+                    <div class="product-image">
+                        <svg viewBox="0 0 100 100" class="card-vector">
+                            <defs>
+                                <linearGradient id="ramGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#34C759;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#00C2FF;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="15" y="40" width="70" height="20" rx="1" fill="none" stroke="url(#ramGrad)"
+                                stroke-width="2" />
+                            <rect x="22" y="44" width="8" height="12" rx="1" fill="url(#ramGrad)" />
+                            <rect x="34" y="44" width="8" height="12" rx="1" fill="url(#ramGrad)" />
+                            <rect x="46" y="44" width="8" height="12" rx="1" fill="url(#ramGrad)" />
+                            <rect x="58" y="44" width="8" height="12" rx="1" fill="url(#ramGrad)" />
+                            <rect x="70" y="44" width="8" height="12" rx="1" fill="url(#ramGrad)" />
+                        </svg>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.3;">
+                        Volatility-layer bandwidth & pressure audit</p>
+                    <div class="test-subgrid">
+                        <div class="test-item"><span>Memory Pressure Test</span> <span
+                                style="color:var(--accent-blue)">⚡</span></div>
+                        <div class="test-item"><span>Bandwidth Throughput</span></div>
+                        <div class="test-item"><span>CAS Latency Probe</span></div>
+                        <div class="test-item"><span>Integrity Verification</span></div>
+                        <div class="test-item"><span>Upgrade Advisor</span></div>
+                    </div>
                 </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Polling Rate Stability</span></div>
-                    <div class="test-item"><span>Ghosting Resistance</span></div>
-                    <div class="test-item"><span>Pressure Curve Audit</span></div>
-                    <div class="test-item"><span>Signal Bounce Filter</span></div>
-                    <div class="test-item"><span>Gesture Recognition</span></div>
-                </div>
-            </div>
+            </a>
 
             <!-- 4. Display Group -->
-            <div class="category-card">
-                <h3>Optic Validation</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="dispGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#5856D6;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#AF52DE;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="15" y="25" width="70" height="45" rx="4" fill="none" stroke="url(#dispGrad)"
-                            stroke-width="2.5" />
-                        <path d="M 40 70 L 35 85 H 65 L 60 70" fill="none" stroke="url(#dispGrad)" stroke-width="2" />
-                        <rect x="20" y="30" width="60" height="35" fill="url(#dispGrad)" opacity="0.1" />
-                    </svg>
+            <a href="display/" style="text-decoration: none; color: inherit; display: contents;">
+                <div class="category-card" style="cursor: pointer;">
+                    <h3>Display Testing</h3>
+                    <div class="product-image">
+                        <svg viewBox="0 0 100 100" class="card-vector">
+                            <defs>
+                                <linearGradient id="dispGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#5856D6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#AF52DE;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="15" y="25" width="70" height="45" rx="4" fill="none" stroke="url(#dispGrad)"
+                                stroke-width="2.5" />
+                            <path d="M 40 70 L 35 85 H 65 L 60 70" fill="none" stroke="url(#dispGrad)"
+                                stroke-width="2" />
+                            <rect x="20" y="30" width="60" height="35" fill="url(#dispGrad)" opacity="0.1" />
+                        </svg>
+                    </div>
+                    <div class="test-subgrid">
+                        <div class="test-item"><span>Refresh Rate Delta</span></div>
+                        <div class="test-item"><span>Sub-pixel Leak Check</span></div>
+                        <div class="test-item"><span>Color Accuracy (Lab)</span></div>
+                        <div class="test-item"><span>Flicker Modulation</span></div>
+                        <div class="test-item"><span>HDR Luminance Mapping</span></div>
+                    </div>
                 </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Refresh Rate Delta</span></div>
-                    <div class="test-item"><span>Sub-pixel Leak Check</span></div>
-                    <div class="test-item"><span>Color Accuracy (Lab)</span></div>
-                    <div class="test-item"><span>Flicker Modulation</span></div>
-                    <div class="test-item"><span>HDR Luminance Mapping</span></div>
-                </div>
-            </div>
+            </a>
 
             <!-- 5. Audio Group -->
-            <div class="category-card">
-                <h3>Audio Fidelity</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="soundGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FF2D55;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FF3B30;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M 30 40 L 50 40 L 70 20 V 80 L 50 60 H 30 Z" fill="none" stroke="url(#soundGrad)"
-                            stroke-width="2.5" />
-                        <path d="M 75 40 Q 85 50 75 60" fill="none" stroke="#FF2D55" stroke-width="2" />
-                        <path d="M 82 30 Q 98 50 82 70" fill="none" stroke="#FF2D55" stroke-width="2" opacity="0.5" />
-                    </svg>
+            <a href="audio/" style="text-decoration: none; color: inherit; display: contents;">
+                <div class="category-card" style="cursor: pointer;">
+                    <h3>Audio Testing</h3>
+                    <div class="product-image">
+                        <svg viewBox="0 0 100 100" class="card-vector">
+                            <defs>
+                                <linearGradient id="soundGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF2D55;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF3B30;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M 30 40 L 50 40 L 70 20 V 80 L 50 60 H 30 Z" fill="none" stroke="url(#soundGrad)"
+                                stroke-width="2.5" />
+                            <path d="M 75 40 Q 85 50 75 60" fill="none" stroke="#FF2D55" stroke-width="2" />
+                            <path d="M 82 30 Q 98 50 82 70" fill="none" stroke="#FF2D55" stroke-width="2"
+                                opacity="0.5" />
+                        </svg>
+                    </div>
+                    <div class="test-subgrid">
+                        <div class="test-item"><span>Sample Rate Clock Sync</span></div>
+                        <div class="test-item"><span>Harmonic Distortion</span></div>
+                        <div class="test-item"><span>Channel Phase Offset</span></div>
+                        <div class="test-item"><span>Spatial Tracking Acc</span></div>
+                        <div class="test-item"><span>SNR Threshold Audit</span></div>
+                    </div>
                 </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Sample Rate Clock Sync</span></div>
-                    <div class="test-item"><span>Harmonic Distortion</span></div>
-                    <div class="test-item"><span>Channel Phase Offset</span></div>
-                    <div class="test-item"><span>Spatial Tracking Acc</span></div>
-                    <div class="test-item"><span>SNR Threshold Audit</span></div>
-                </div>
-            </div>
+            </a>
 
-            <!-- 6. RAM Group -->
-            <div class="category-card">
-                <h3>Memory Volatility</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="memGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#007AFF;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#5856D6;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="15" y="40" width="70" height="20" rx="1" fill="none" stroke="url(#memGrad)"
-                            stroke-width="2" />
-                        <rect x="22" y="44" width="8" height="12" rx="1" fill="url(#memGrad)" />
-                        <rect x="34" y="44" width="8" height="12" rx="1" fill="url(#memGrad)" />
-                        <rect x="46" y="44" width="8" height="12" rx="1" fill="url(#memGrad)" />
-                        <rect x="58" y="44" width="8" height="12" rx="1" fill="url(#memGrad)" />
-                        <rect x="70" y="44" width="8" height="12" rx="1" fill="url(#memGrad)" />
-                    </svg>
+            <!-- 6. Input Group (Replaces RAM) -->
+            <a href="input/" style="text-decoration: none; color: inherit; display: contents;">
+                <div class="category-card" style="cursor: pointer;">
+                    <h3>Keyboard / Mouse Testing</h3>
+                    <div class="product-image">
+                        <svg viewBox="0 0 100 100" class="card-vector">
+                            <defs>
+                                <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#30D158;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#34C759;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Keyboard Icon -->
+                            <rect x="20" y="40" width="60" height="35" rx="4" fill="none" stroke="url(#inputGrad)"
+                                stroke-width="2.5" />
+                            <rect x="25" y="45" width="8" height="8" rx="1" fill="none" stroke="#30D158"
+                                stroke-width="1.5" />
+                            <rect x="36" y="45" width="8" height="8" rx="1" fill="none" stroke="#30D158"
+                                stroke-width="1.5" opacity="0.5" />
+                            <rect x="47" y="45" width="8" height="8" rx="1" fill="none" stroke="#30D158"
+                                stroke-width="1.5" />
+                            <rect x="58" y="45" width="8" height="8" rx="1" fill="none" stroke="#30D158"
+                                stroke-width="1.5" opacity="0.5" />
+                            <rect x="69" y="45" width="8" height="8" rx="1" fill="none" stroke="#30D158"
+                                stroke-width="1.5" />
+                            <!-- Spacebar -->
+                            <rect x="35" y="58" width="30" height="8" rx="1" fill="none" stroke="#30D158"
+                                stroke-width="1.5" />
+                        </svg>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.3;">
+                        Peripheral report rate & ghosting analysis</p>
+                    <div class="test-subgrid">
+                        <div class="test-item"><span>Mouse Polling Rate (Hz)</span></div>
+                        <div class="test-item"><span>N-Key Rollover (Ghosting)</span></div>
+                        <div class="test-item"><span>Click Latency Audit</span></div>
+                        <div class="test-item"><span>Scroll Encoder Steps</span></div>
+                        <div class="test-item"><span>Switch Debounce Check</span></div>
+                    </div>
                 </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Read/Write Cycle Audit</span> <span
-                            style="color:var(--accent-blue)">⚡</span></div>
-                    <div class="test-item"><span>Latency Histogram (ns)</span></div>
-                    <div class="test-item"><span>SharedBuffer Isolation</span></div>
-                    <div class="test-item"><span>Swapping Threshold</span></div>
-                    <div class="test-item"><span>Buffer Stability Sweep</span></div>
-                </div>
-            </div>
+            </a>
 
-            <!-- 7. Storage Group -->
-            <div class="category-card">
-                <h3>I/O Throughput</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="diskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#8E8E93;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#1D1D1F;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="25" y="20" width="50" height="60" rx="4" fill="none" stroke="url(#diskGrad)"
-                            stroke-width="2.5" />
-                        <path d="M 35 30 H 65 M 35 40 H 65 M 35 50 H 55" stroke="#8E8E93" stroke-width="2" />
-                        <circle cx="50" cy="70" r="5" fill="none" stroke="#1D1D1F" stroke-width="2" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Sequential Write Peak</span></div>
-                    <div class="test-item"><span>Random 4K IOPS Audit</span></div>
-                    <div class="test-item"><span>NVMe Controller Ping</span></div>
-                    <div class="test-item"><span>Endurance Estimation</span></div>
-                    <div class="test-item"><span>Data Integrity Hash</span></div>
-                </div>
-            </div>
 
-            <!-- 8. Network Group -->
-            <div class="category-card">
-                <h3>Entropy Protocol</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="netGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#00C2FF;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#007AFF;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="50" cy="50" r="35" fill="none" stroke="url(#netGrad)" stroke-width="2" />
-                        <ellipse cx="50" cy="50" rx="12" ry="35" fill="none" stroke="#00C2FF" stroke-width="1.5" />
-                        <line x1="15" y1="50" x2="85" y2="50" stroke="#007AFF" stroke-width="1.5" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>ICE Candidate Jitter</span></div>
-                    <div class="test-item"><span>STUN/TURN Latency</span></div>
-                    <div class="test-item"><span>Socket Bufferbloat</span></div>
-                    <div class="test-item"><span>Packet Sequence Sync</span></div>
-                    <div class="test-item"><span>TLS Handshake Profile</span></div>
-                </div>
-            </div>
-
-            <!-- 9. Battery Group -->
-            <div class="category-card">
-                <h3>Energy Profiling</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="battGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#34C759;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#32D74B;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="30" y="25" width="40" height="55" rx="4" fill="none" stroke="url(#battGrad)"
-                            stroke-width="2.5" />
-                        <rect x="42" y="20" width="16" height="5" rx="1" fill="url(#battGrad)" />
-                        <rect x="35" y="32" width="30" height="42" fill="url(#battGrad)" opacity="0.2" />
-                        <path d="M 50 40 V 65 M 40 52 H 60" stroke="#34C759" stroke-width="2.5" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Cycle Decay Estimation</span></div>
-                    <div class="test-item"><span>Voltage Stability Delta</span></div>
-                    <div class="test-item"><span>Drain Profile (Idle)</span></div>
-                    <div class="test-item"><span>Charge Efficiency Log</span></div>
-                    <div class="test-item"><span>Heat Generation Map</span></div>
-                </div>
-            </div>
-
-            <!-- 10. Cooling Group -->
-            <div class="category-card">
-                <h3>Thermal Dynamics</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="fanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#007AFF;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FF3B30;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="url(#fanGrad)" stroke-width="2" />
-                        <circle cx="50" cy="50" r="8" fill="url(#fanGrad)" />
-                        <path
-                            d="M 50 50 L 50 15 Q 75 15 50 50 L 85 50 Q 85 75 50 50 L 50 85 Q 25 85 50 50 L 15 50 Q 15 25 50 50"
-                            fill="none" stroke="url(#fanGrad)" stroke-width="2" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>RPM Precision Audit</span></div>
-                    <div class="test-item"><span>Static Pressure Delta</span></div>
-                    <div class="test-item"><span>Dissipation Curve</span></div>
-                    <div class="test-item"><span>Airflow Laminar Check</span></div>
-                    <div class="test-item"><span>Acoustic Profile (dB)</span></div>
-                </div>
-            </div>
-
-            <!-- 11. Motherboard Group -->
-            <div class="category-card">
-                <h3>Circuit Integrity</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <rect x="20" y="20" width="60" height="60" rx="4" fill="none" stroke="#5856D6"
-                            stroke-width="2" />
-                        <path d="M 30 30 H 50 V 50 H 70" stroke="#AF52DE" stroke-width="2" fill="none" />
-                        <circle cx="30" cy="30" r="3" fill="#5856D6" />
-                        <circle cx="70" cy="50" r="3" fill="#AF52DE" />
-                        <rect x="55" y="25" width="10" height="15" fill="#5856D6" opacity="0.2" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Trace Resistance Map</span></div>
-                    <div class="test-item"><span>Phase Controller Sync</span></div>
-                    <div class="test-item"><span>Southbridge Clocking</span></div>
-                    <div class="test-item"><span>VRM Stability Delta</span></div>
-                    <div class="test-item"><span>Interrupt Jitter Log</span></div>
-                </div>
-            </div>
-
-            <!-- 12. USB Group -->
-            <div class="category-card">
-                <h3>Interface Speed</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <path d="M 25 50 H 60 L 75 35 M 60 50 L 75 65" fill="none" stroke="#FF9500"
-                            stroke-width="2.5" />
-                        <rect x="75" y="30" width="10" height="10" fill="#FF9500" />
-                        <circle cx="80" cy="65" r="5" fill="#FF9500" />
-                        <path d="M 72 47 L 80 55 L 88 47 Z" fill="#FF9500" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Protocol Version Sync</span></div>
-                    <div class="test-item"><span>Burst Rate Consistency</span></div>
-                    <div class="test-item"><span>Power Delivery Profile</span></div>
-                    <div class="test-item"><span>CRC Error Log</span></div>
-                    <div class="test-item"><span>Lane Allocation Map</span></div>
-                </div>
-            </div>
-
-            <!-- 13. WebGPU/AI Group -->
-            <div class="category-card">
-                <h3>Compute Shaders</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <circle cx="35" cy="35" r="6" fill="#5E5CE6" />
-                        <circle cx="65" cy="35" r="6" fill="#5E5CE6" />
-                        <circle cx="35" cy="65" r="6" fill="#5E5CE6" />
-                        <circle cx="65" cy="65" r="6" fill="#5E5CE6" />
-                        <path
-                            d="M 35 35 L 65 35 M 35 65 L 65 65 M 35 35 L 35 65 M 65 35 L 65 65 M 35 35 L 65 65 M 65 35 L 35 65"
-                            stroke="#BF5AF2" stroke-width="1.5" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>WGSL Pipeline Warmup</span></div>
-                    <div class="test-item"><span>Tensor Core Dispatch</span></div>
-                    <div class="test-item"><span>Memory Barrier Latency</span></div>
-                    <div class="test-item"><span>Atomic Op Throughput</span></div>
-                    <div class="test-item"><span>Precision Drift Check</span></div>
-                </div>
-            </div>
-
-            <!-- 14. Privacy/ZSPP Group -->
-            <div class="category-card">
-                <h3>ZSPP Verification</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <path d="M 30 45 V 75 Q 50 85 70 75 V 45 Z" fill="none" stroke="#34C759" stroke-width="2.5" />
-                        <path d="M 40 45 V 35 Q 50 25 60 35 V 45" fill="none" stroke="#34C759" stroke-width="2.5" />
-                        <circle cx="50" cy="60" r="4" fill="#34C759" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Sandbox Escape Audit</span></div>
-                    <div class="test-item"><span>Data Exfiltration Probe</span></div>
-                    <div class="test-item"><span>Local Isolation Audit</span></div>
-                    <div class="test-item"><span>Session Clearing Sync</span></div>
-                    <div class="test-item"><span>Crypto Engine Speed</span></div>
-                </div>
-            </div>
-
-            <!-- 15. OS Group -->
-            <div class="category-card">
-                <h3>Kernel Interface</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <rect x="20" y="25" width="60" height="50" rx="4" fill="none" stroke="#1D1D1F"
-                            stroke-width="2" />
-                        <circle cx="30" cy="35" r="3" fill="#0066CC" />
-                        <line x1="40" y1="50" x2="70" y2="50" stroke="#1D1D1F" stroke-width="2" />
-                        <line x1="40" y1="60" x2="60" y2="60" stroke="#1D1D1F" stroke-width="2" />
-                    </svg>
-                </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>Syscall Latency Map</span></div>
-                    <div class="test-item"><span>Scheduler Priority</span></div>
-                    <div class="test-item"><span>Driver Compatibility</span></div>
-                    <div class="test-item"><span>Registry Bloat Check</span></div>
-                    <div class="test-item"><span>Process Isolation Log</span></div>
-                </div>
-            </div>
         </section>
 
-        <!-- Network Group -->
-        <div class="category-card">
-            <div class="card-icon">Net</div>
-            <h3>Entropy Protocol</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>ICE Candidate Jitter</span></div>
-                <div class="test-item"><span>STUN/TURN Latency</span></div>
-                <div class="test-item"><span>Socket Bufferbloat</span></div>
-                <div class="test-item"><span>Packet Sequence Sync</span></div>
-                <div class="test-item"><span>TLS Handshake Profile</span></div>
-            </div>
-        </div>
-
-        <!-- Display Group -->
-        <div class="category-card">
-            <div class="card-icon">Display</div>
-            <h3>Optic Validation</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Refresh Rate Delta</span></div>
-                <div class="test-item"><span>Sub-pixel Leak Check</span></div>
-                <div class="test-item"><span>Color Accuracy (Lab)</span></div>
-                <div class="test-item"><span>Flicker Modulation</span></div>
-                <div class="test-item"><span>HDR Luminance Mapping</span></div>
-            </div>
-        </div>
-
-        <!-- Audio Group -->
-        <div class="category-card">
-            <div class="card-icon">Audio</div>
-            <h3>Signal Processing</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Sample Rate Clock Sync</span></div>
-                <div class="test-item"><span>Harmonic Distortion</span></div>
-                <div class="test-item"><span>Channel Phase Offset</span></div>
-                <div class="test-item"><span>Spatial Tracking Acc</span></div>
-                <div class="test-item"><span>SNR Threshold Audit</span></div>
-            </div>
-        </div>
-
-        <!-- Battery Group -->
-        <div class="category-card">
-            <div class="card-icon">Batt</div>
-            <h3>Energy Profiling</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Cycle Decay Estimation</span></div>
-                <div class="test-item"><span>Voltage Stability Delta</span></div>
-                <div class="test-item"><span>Drain Profile (Idle)</span></div>
-                <div class="test-item"><span>Charge Efficiency Log</span></div>
-                <div class="test-item"><span>Heat Generation Map</span></div>
-            </div>
-        </div>
-
-        <!-- Input Group -->
-        <div class="category-card">
-            <div class="card-icon">Input</div>
-            <h3>Haptic Response</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Polling Rate Stability</span></div>
-                <div class="test-item"><span>Ghosting Resistance</span></div>
-                <div class="test-item"><span>Pressure Curve Audit</span></div>
-                <div class="test-item"><span>Signal Bounce Filter</span></div>
-                <div class="test-item"><span>Gesture Recognition</span></div>
-            </div>
-        </div>
-
-        <!-- USB Group -->
-        <div class="category-card">
-            <div class="card-icon">Bus</div>
-            <h3>Interface Speed</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Protocol Version Sync</span></div>
-                <div class="test-item"><span>Burst Rate Consistency</span></div>
-                <div class="test-item"><span>Power Delivery Profile</span></div>
-                <div class="test-item"><span>CRC Error Log</span></div>
-                <div class="test-item"><span>Lane Allocation Map</span></div>
-            </div>
-        </div>
-
-        <!-- WebGPU Group -->
-        <div class="category-card">
-            <div class="card-icon">AI</div>
-            <h3>Compute Shaders</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>WGSL Pipeline Warmup</span></div>
-                <div class="test-item"><span>Tensor Core Dispatch</span></div>
-                <div class="test-item"><span>Memory Barrier Latency</span></div>
-                <div class="test-item"><span>Atomic Op Throughput</span></div>
-                <div class="test-item"><span>Precision Drift Check</span></div>
-            </div>
-        </div>
-
-        <!-- Privacy Group -->
-        <div class="category-card">
-            <div class="card-icon">Lock</div>
-            <h3>ZSPP Verification</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Sandbox Escape Audit</span></div>
-                <div class="test-item"><span>Data Exfiltration Probe</span></div>
-                <div class="test-item"><span>Local Isolation Audit</span></div>
-                <div class="test-item"><span>Session Clearing Sync</span></div>
-                <div class="test-item"><span>Crypto Engine Speed</span></div>
-            </div>
-        </div>
-
-        <!-- Motherboard Group -->
-        <div class="category-card">
-            <div class="card-icon">PCB</div>
-            <h3>Circuit Integrity</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Trace Resistance Map</span></div>
-                <div class="test-item"><span>Phase Controller Sync</span></div>
-                <div class="test-item"><span>Southbridge Clocking</span></div>
-                <div class="test-item"><span>VRM Stability Delta</span></div>
-                <div class="test-item"><span>Interrupt Jitter Log</span></div>
-            </div>
-        </div>
-
-        <!-- Cooling Group -->
-        <div class="category-card">
-            <div class="card-icon">Fan</div>
-            <h3>Thermal Dynamics</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>RPM Precision Audit</span></div>
-                <div class="test-item"><span>Static Pressure Delta</span></div>
-                <div class="test-item"><span>Dissipation Curve</span></div>
-                <div class="test-item"><span>Airflow Laminar Check</span></div>
-                <div class="test-item"><span>Acoustic Profile (dB)</span></div>
-            </div>
-        </div>
-
-        <!-- OS Group -->
-        <div class="category-card">
-            <div class="card-icon">OS</div>
-            <h3>Kernel Interface</h3>
-            <div class="test-subgrid">
-                <div class="test-item"><span>Syscall Latency Map</span></div>
-                <div class="test-item"><span>Scheduler Priority</span></div>
-                <div class="test-item"><span>Driver Compatibility</span></div>
-                <div class="test-item"><span>Registry Bloat Check</span></div>
-                <div class="test-item"><span>Process Isolation Log</span></div>
-            </div>
-        </div>
         </section>
 
         <!-- Mid-Page Featured Content (Ad) -->

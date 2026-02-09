@@ -1,0 +1,15 @@
+@import url('../styles/lab-shared.css');
+
+.ram-lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .ram-lab-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
