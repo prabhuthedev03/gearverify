@@ -1,7 +1,5 @@
 name = "gearverify"
-main = "src/index.ts" # Change this to "index.js" if you aren't using TypeScript
-compatibility_date = "2024-02-09"
+compatibility_date = "2026-02-09"
+pages_build_output_dir = "." 
 
-
-[assets]
-directory = "." # Change this to the folder where your index.html lives
+# We are removing the "main" line to stop the script from crashing the site
