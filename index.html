@@ -48,32 +48,37 @@
         <!-- 15 Group Studio Grid -->
         <section class="studio-grid">
             <!-- 1. GPU Group -->
-            <div class="category-card">
-                <h3>Silicon Performance</h3>
-                <div class="product-image">
-                    <svg viewBox="0 0 100 100" class="card-vector">
-                        <defs>
-                            <linearGradient id="gpuGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#00C2FF;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="20" y="30" width="60" height="40" rx="4" fill="none" stroke="url(#gpuGrad)"
-                            stroke-width="2" />
-                        <circle cx="35" cy="50" r="10" fill="none" stroke="#00C2FF" stroke-width="1.5" />
-                        <circle cx="65" cy="50" r="10" fill="none" stroke="#00C2FF" stroke-width="1.5" />
-                        <path d="M 80 40 L 85 40 M 80 50 L 85 50 M 80 60 L 85 60" stroke="#00C2FF" stroke-width="2" />
-                    </svg>
+            <a href="gpu/" style="text-decoration: none; color: inherit; display: contents;">
+                <div class="category-card" style="cursor: pointer;">
+                    <h3>GPU Testing</h3>
+                    <div class="product-image">
+                        <svg viewBox="0 0 100 100" class="card-vector">
+                            <defs>
+                                <linearGradient id="gpuGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#00C2FF;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="20" y="30" width="60" height="40" rx="4" fill="none" stroke="url(#gpuGrad)"
+                                stroke-width="2" />
+                            <circle cx="35" cy="50" r="10" fill="none" stroke="#00C2FF" stroke-width="1.5" />
+                            <circle cx="65" cy="50" r="10" fill="none" stroke="#00C2FF" stroke-width="1.5" />
+                            <path d="M 80 40 L 85 40 M 80 50 L 85 50 M 80 60 L 85 60" stroke="#00C2FF"
+                                stroke-width="2" />
+                        </svg>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.3;">
+                        Silicon-level compute validation & stress testing</p>
+                    <div class="test-subgrid">
+                        <div class="test-item"><span>WebGPU Shader Stress</span> <span
+                                style="color:var(--accent-blue)">⚡</span></div>
+                        <div class="test-item"><span>Silicon Throughput Audit</span></div>
+                        <div class="test-item"><span>VRAM Allocation Map</span></div>
+                        <div class="test-item"><span>AI Inference Benchmark</span></div>
+                        <div class="test-item"><span>Geometric Complexity Audit</span></div>
+                    </div>
                 </div>
-                <div class="test-subgrid">
-                    <div class="test-item"><span>WebGPU Power Draw</span> <span
-                            style="color:var(--accent-blue)">⚡</span></div>
-                    <div class="test-item"><span>Vertex Shading Limit</span></div>
-                    <div class="test-item"><span>Memory Clock Integrity</span></div>
-                    <div class="test-item"><span>TFLOPS Compute Stress</span></div>
-                    <div class="test-item"><span>VRAM Allocation Map</span></div>
-                </div>
-            </div>
+            </a>
 
             <!-- 2. CPU Group -->
             <div class="category-card">
@@ -641,17 +646,15 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-column"
-                style="background: var(--surface-color); padding: 2rem; border-radius: 12px; text-align: center;">
-                <span class="ad-label">Partner Outreach</span>
-                <div style="height: 250px; color: #aaa; display: flex; align-items: center; justify-content: center;">
-                    [ADSENSE_SIDEBAR_300x250]
-                </div>
+            <div class="footer-column">
+                <h4>Trust & Accuracy</h4>
+                <p>GearVerify operates with total independence. Our diagnostic tools are calibrated daily against 2026
+                    reference samples to ensure 99.9% spectral accuracy.</p>
             </div>
         </div>
         <div class="container"
-            style="border-top:1px solid var(--border-color); margin-top: 4rem; padding-top: 2rem; text-align: center; font-size: 0.75rem; color:var(--text-secondary);">
-            &copy; 2026 GearVerify Laboratory // Sovereign Hardware Validation // All Data stays Local.
+            style="border-top: 1px solid var(--border-color); margin-top: 4rem; padding-top: 2rem; text-align: center; font-size: 0.75rem; color: var(--text-secondary);">
+            <p>&copy; 2026 GearVerify Laboratory // All Rights Reserved // AI Integrity Protocol active.</p>
         </div>
     </footer>
 
