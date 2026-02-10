@@ -364,32 +364,36 @@ h1 {
 }
 
 
-/* Standardized Guide List Card (Horizontal) */
+/* Standardized Guide List Card (Compact & Premium) */
 .guide-list-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    /* Force single column list view */
+    gap: 1rem;
+    /* Tighter gap */
+    max-width: 800px;
+    /* Constrain width for readability */
 }
 
-@media (min-width: 768px) {
-    .guide-list-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
+/* No 2-column grid on desktop - User requested "List View" */
 
 .guide-list-card {
     background: var(--bg-color);
-    border-radius: 12px;
+    border-radius: 10px;
+    /* Slightly smaller radius */
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+    /* Lighter shadow */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--border-color);
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    min-height: 120px;
+    min-height: 80px;
+    /* Reduced height (was ~120px) */
+    height: auto;
 }
 
 .guide-list-card:hover {
@@ -399,18 +403,21 @@ h1 {
 }
 
 .guide-list-thumb {
-    width: 100px;
-    min-width: 100px;
+    width: 80px;
+    /* Reduced from 100px */
+    min-width: 80px;
     background: var(--surface-color);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    /* Reduced from 2rem */
 }
 
 .guide-list-content {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
+    /* Compact padding */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -418,17 +425,20 @@ h1 {
 }
 
 .guide-list-meta {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+    /* Smaller meta */
     color: var(--text-secondary);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .guide-list-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.35;
+    font-size: 0.9rem;
+    /* Smaller title */
+    font-weight: 600;
+    line-height: 1.3;
     margin-bottom: 0;
+    color: var(--text-primary);
 }
