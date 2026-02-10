@@ -1,12 +1,11 @@
 name = "gearverify"
-main = "src\index.ts"  # <--- MUST HAVE THIS
+main = "src/index.ts"  # Use / not \
 compatibility_date = "2026-02-09"
 
 [assets]
 directory = "."
-run_worker_first = true # <--- THIS PREVENTS THE 404
+run_worker_first = true # Important: This ensures your API isn't ignored
 
 [[kv_namespaces]]
 binding = "GEAR_VERIFY_DATA"
-id = "PASTE_YOUR_ACTUAL_KV_ID_HERE" # <--- Ensure this is updated from your dashboard
-3. Replace wrangler.jsonc
+id = "YOUR_ACTUAL_COPIED_ID_HERE"
