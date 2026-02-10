@@ -9,9 +9,16 @@
     <style>
         .guide-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+        }
+
+        @media (min-width: 768px) {
+            .guide-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .guide-card {
@@ -24,58 +31,67 @@
             text-decoration: none;
             color: inherit;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            /* List view style */
+            align-items: stretch;
+            height: 100%;
         }
 
         .guide-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-2px);
             box-shadow: var(--hover-shadow);
         }
 
         .guide-image {
-            height: 200px;
+            width: 120px;
+            min-width: 120px;
             background: var(--surface-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-secondary);
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         .guide-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
             flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
 
         .guide-meta {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-secondary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
         .guide-title {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             line-height: 1.3;
         }
 
         .guide-excerpt {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             line-height: 1.5;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .read-more {
-            margin-top: auto;
-            color: var(--accent-blue);
-            font-weight: 600;
-            font-size: 0.9rem;
+            display: none;
+            /* Hide read more for cleaner list view */
         }
     </style>
 </head>
@@ -112,74 +128,28 @@
 
         <div class="guide-grid">
 
-            <!-- Article 1 -->
-            <a href="gpu-stress-test-explained.html" class="guide-card">
-                <div class="guide-image"
-                    style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white;">
-                    ⚡
+            <!-- Article 8 - Latest -->
+            <a href="client-side-vs-server-diagnostics.html" class="guide-card">
+                <div class="guide-image" style="background: linear-gradient(135deg, #1CB5E0, #000851); color: white;">
+                    🌐
                 </div>
                 <div class="guide-content">
-                    <div class="guide-meta">Diagnostics • Feb 2026</div>
-                    <h3 class="guide-title">How to Interpret GPU Stress Test Results</h3>
-                    <p class="guide-excerpt">Understanding thermal throttling patterns, artifacting, and stability
-                        metrics in WebGPU environments.</p>
-                    <span class="read-more">Read Analysis →</span>
+                    <div class="guide-meta">Network • Feb 2026</div>
+                    <h3 class="guide-title">Client-Side vs Server-Ping Benchmarks</h3>
+                    <p class="guide-excerpt">Why local execution is the only way to measure true hardware performance.
+                    </p>
                 </div>
             </a>
 
-            <!-- Article 2 -->
-            <a href="webgpu-vs-webgl-performance.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #FF416C, #FF4B2B); color: white;">
-                    🚀
+            <!-- Article 7 -->
+            <a href="latency-metrics-gaming.html" class="guide-card">
+                <div class="guide-image" style="background: linear-gradient(135deg, #000000, #434343); color: white;">
+                    🎯
                 </div>
                 <div class="guide-content">
-                    <div class="guide-meta">Industry • Jan 2026</div>
-                    <h3 class="guide-title">Why WebGPU is the Future of Benchmarking</h3>
-                    <p class="guide-excerpt">Comparing the raw compute throughput of next-gen browser APIs versus legacy
-                        WebGL rasterization.</p>
-                    <span class="read-more">Read Analysis →</span>
-                </div>
-            </a>
-
-            <!-- Article 3 -->
-            <a href="signs-graphics-card-failing.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #cb2d3e, #ef473a); color: white;">
-                    ⚠️
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Hardware Health • Feb 2026</div>
-                    <h3 class="guide-title">Top 5 Signs Your Graphics Card is Failing</h3>
-                    <p class="guide-excerpt">Identify artifacts, thermal issues, and VRM failures before your GPU dies
-                        completely.</p>
-                    <span class="read-more">Read Analysis →</span>
-                </div>
-            </a>
-
-
-            <!-- Article 4 -->
-            <a href="nvme-gen5-throttling.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #11998e, #38ef7d); color: white;">
-                    💾
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Storage • Feb 2026</div>
-                    <h3 class="guide-title">How to Detect Thermal Throttling in NVMe Gen5 SSDs</h3>
-                    <p class="guide-excerpt">Identify if your PCIe 5.0 drive is slowing down due to controller
-                        overheating.</p>
-                    <span class="read-more">Read Analysis →</span>
-                </div>
-            </a>
-
-            <!-- Article 5 -->
-            <a href="silicon-lottery-webgpu.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #FFD700, #FDB931); color: white;">
-                    💎
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Hardware Science • Feb 2026</div>
-                    <h3 class="guide-title">Understanding Silicon Lottery: WebGPU Validation</h3>
-                    <p class="guide-excerpt">Use compute shaders to find your chip's voltage/frequency sweet spot.</p>
-                    <span class="read-more">Read Analysis →</span>
+                    <div class="guide-meta">Esports • Feb 2026</div>
+                    <h3 class="guide-title">Interpreting Latency Metrics for Gaming</h3>
+                    <p class="guide-excerpt">Understand the input lag chain from mouse click to photon emission.</p>
                 </div>
             </a>
 
@@ -193,34 +163,71 @@
                     <h3 class="guide-title">Guide to Browser-Based GPU Stress Testing</h3>
                     <p class="guide-excerpt">Stress test your GPU safely without installing risky kernel-level software.
                     </p>
-                    <span class="read-more">Read Analysis →</span>
                 </div>
             </a>
 
-            <!-- Article 7 -->
-            <a href="latency-metrics-gaming.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #000000, #434343); color: white;">
-                    🎯
+            <!-- Article 5 -->
+            <a href="silicon-lottery-webgpu.html" class="guide-card">
+                <div class="guide-image" style="background: linear-gradient(135deg, #FFD700, #FDB931); color: white;">
+                    💎
                 </div>
                 <div class="guide-content">
-                    <div class="guide-meta">Esports • Feb 2026</div>
-                    <h3 class="guide-title">Interpreting Latency Metrics for Gaming</h3>
-                    <p class="guide-excerpt">Understand the input lag chain from mouse click to photon emission.</p>
-                    <span class="read-more">Read Analysis →</span>
+                    <div class="guide-meta">Hardware Science • Feb 2026</div>
+                    <h3 class="guide-title">Understanding Silicon Lottery: WebGPU Validation</h3>
+                    <p class="guide-excerpt">Use compute shaders to find your chip's voltage/frequency sweet spot.</p>
                 </div>
             </a>
 
-            <!-- Article 8 -->
-            <a href="client-side-vs-server-diagnostics.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #1CB5E0, #000851); color: white;">
-                    🌐
+            <!-- Article 4 -->
+            <a href="nvme-gen5-throttling.html" class="guide-card">
+                <div class="guide-image" style="background: linear-gradient(135deg, #11998e, #38ef7d); color: white;">
+                    💾
                 </div>
                 <div class="guide-content">
-                    <div class="guide-meta">Network • Feb 2026</div>
-                    <h3 class="guide-title">Client-Side vs Server-Ping Benchmarks</h3>
-                    <p class="guide-excerpt">Why local execution is the only way to measure true hardware performance.
-                    </p>
-                    <span class="read-more">Read Analysis →</span>
+                    <div class="guide-meta">Storage • Feb 2026</div>
+                    <h3 class="guide-title">How to Detect Thermal Throttling in NVMe Gen5 SSDs</h3>
+                    <p class="guide-excerpt">Identify if your PCIe 5.0 drive is slowing down due to controller
+                        overheating.</p>
+                </div>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="signs-graphics-card-failing.html" class="guide-card">
+                <div class="guide-image" style="background: linear-gradient(135deg, #cb2d3e, #ef473a); color: white;">
+                    ⚠️
+                </div>
+                <div class="guide-content">
+                    <div class="guide-meta">Hardware Health • Feb 2026</div>
+                    <h3 class="guide-title">Top 5 Signs Your Graphics Card is Failing</h3>
+                    <p class="guide-excerpt">Identify artifacts, thermal issues, and VRM failures before your GPU dies
+                        completely.</p>
+                </div>
+            </a>
+
+            <!-- Article 1 -->
+            <a href="gpu-stress-test-explained.html" class="guide-card">
+                <div class="guide-image"
+                    style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white;">
+                    ⚡
+                </div>
+                <div class="guide-content">
+                    <div class="guide-meta">Diagnostics • Feb 2026</div>
+                    <h3 class="guide-title">How to Interpret GPU Stress Test Results</h3>
+                    <p class="guide-excerpt">Understanding thermal throttling patterns, artifacting, and stability
+                        metrics in WebGPU environments.</p>
+                </div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="webgpu-vs-webgl-performance.html" class="guide-card">
+                <div class="guide-image" style="background: linear-gradient(135deg, #FF416C, #FF4B2B); color: white;">
+                    🚀
+                </div>
+                <div class="guide-content">
+                    <div class="guide-meta">Industry • Jan 2026</div>
+                    <h3 class="guide-title">Why WebGPU is the Future of Benchmarking</h3>
+                    <p class="guide-excerpt">Comparing the raw compute throughput of next-gen browser APIs versus legacy
+                        WebGL rasterization.</p>
                 </div>
             </a>
 
