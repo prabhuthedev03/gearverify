@@ -442,3 +442,15 @@ h1 {
     margin-bottom: 0;
     color: var(--text-primary);
 }
+
+/* Article Hero Image (Replacing Placeholder) */
+.article-hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
