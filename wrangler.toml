@@ -1,11 +1,12 @@
 name = "gearverify"
-main = "src/index.ts"  # Use / not \
+main = "index.ts"  # Points to your logic file
 compatibility_date = "2026-02-09"
 
 [assets]
-directory = "."
-run_worker_first = true # Important: This ensures your API isn't ignored
+directory = "./" [cite: 1]
+binding = "ASSETS" # Required to fix the previous build warning
+run_worker_first = true # Ensures the API route is checked before assets
 
 [[kv_namespaces]]
 binding = "GEAR_VERIFY_DATA"
-id = "YOUR_ACTUAL_COPIED_ID_HERE"
+id = "c2476175d276c0c61b573349640c2325" # Get this from Storage & Databases > KV
