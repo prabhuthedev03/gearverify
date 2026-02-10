@@ -11,8 +11,8 @@ html {
     /* Apple-style light gray */
     --text-primary: #1d1d1f;
     /* Jet Black */
-    --text-secondary: #6e6e73;
-    /* Darkened from #86868b for 4.5:1 contrast */
+    --text-secondary: #59595e;
+    /* Darkened for 4.5:1 contrast on surface-color */
     --accent-blue: #0066cc;
     /* Electric Blue */
     --border-color: #d2d2d7;
