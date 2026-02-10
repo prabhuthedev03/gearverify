@@ -1,12 +1,7 @@
 name = "gearverify"
-main = "src/index.ts"
 compatibility_date = "2026-02-09"
-
-[assets]
-directory = "./"
-binding = "ASSETS"
-run_worker_first = true
+pages_build_output_dir = "."
 
 [[kv_namespaces]]
-binding = "GEAR_VERIFY_DATA" # Use the name from your script
+binding = "GEAR_VERIFY_DATA"
 id = "29bf566611004795aec60203c8a4b5bd"
