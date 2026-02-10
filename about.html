@@ -52,50 +52,79 @@
             <div class="category-card"
                 style="align-items: flex-start; text-align: left; cursor: default; transform: none; box-shadow: var(--card-shadow); max-width: 800px; margin: 0 auto; width: 100%;">
 
-                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">The Sovereign Validation Initiative</h2>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">GearVerify: The White-Lab Standard</h2>
 
-                <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2rem;">
-                    In an era of cloud-dependent diagnostics and invasive telemetry, <strong>GearVerify</strong> stands
-                    as a fortress of local-first validation. We believe that hardware owners deserve to know
-                    <em>exactly</em> what their silicon is capable of—without uploading their data to a remote server.
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+                    <strong>GearVerify Laboratory</strong> defines the modern "White-Lab" approach to hardware
+                    diagnostics. In an industry saturated with opaque, server-dependent reporting tools, we established
+                    GearVerify to return sovereignty to the hardware owner. Our platform functions as a legitimate,
+                    client-side laboratory environment where every benchmark, stress test, and validation protocol
+                    executes exclusively on your local machine. We rely on the <strong>Antigravity Performance
+                        Architecture</strong>, a proprietary testing framework that leverages low-level browser APIs to
+                    push silicon to its theoretical limits without ever transmitting a single byte of telemetry to a
+                    remote cloud.
                 </p>
 
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Our Technology:
-                        WebGPU Native</h3>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">The Antigravity
+                        Architecture</h3>
                     <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
-                        GearVerify is built on the bleeding edge of browser technology. Unlike legacy tools that rely on
-                        WebGL rasterization hacks, our diagnostics utilize <strong>WebGPU Compute Shaders
-                            (WGSL)</strong>. This allows us to access the raw parallel processing power of your
-                        GPU—bypassing high-level OS driver abstractions—to deliver synthetic benchmark results that
-                        rival native desktop applications.
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 3rem;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Commitment to Data
-                        Privacy</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
-                        We operate under a strict <strong>"Sovereign Data Protocol"</strong>. This means:
+                        At the core of GearVerify is the highly specialized <strong>Antigravity Architecture</strong>.
+                        This framework was built to bypass the traditional limitations of potential web-based
+                        throttling. By utilizing <strong style="color: var(--accent-blue);">WebGPU Compute Shaders
+                            (WGSL)</strong> and multi-threaded WebWorkers, Antigravity creates a direct,
+                        highly-parallelized pipeline to your GPU and CPU cores. This allows us to:
                     </p>
                     <ul style="list-style: none; padding-left: 0; color: var(--text-secondary); line-height: 1.8;">
-                        <li style="margin-bottom: 0.5rem;">✅ <strong>Local Execution:</strong> 100% of diagnostic code
-                            runs in your local V8 Isolate.</li>
-                        <li style="margin-bottom: 0.5rem;">✅ <strong>Zero Telemetry:</strong> Your hardware
-                            specifications, serial numbers, and benchmark scores are <em>never</em> uploaded to our
-                            servers unless you explicitly submit a validation report.</li>
-                        <li style="margin-bottom: 0.5rem;">✅ <strong>Ephemeral State:</strong> Once you close the tab,
-                            all memory buffers are cleared. Nothing remains.</li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>🔹 Unlock Raw Compute:</strong> We bypass high-level OS abstraction layers to
+                            validate raw FP32 and FP16 compute performance, revealing the true capability of modern dies
+                            (NVIDIA Lovelace, AMD RDNA3, Apple Silicon).
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>🔹 Eliminate Network Latency:</strong> Traditional benchmarks are often polluted by
+                            network "noise" (server pings, packet loss). GearVerify removes this variable entirely. The
+                            code lives in your browser; the execution lives on your silicon.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>🔹 Ensure Repeatable Accuracy:</strong> Our deterministic validation algorithms
+                            ensure that a variance in score reflects a genuine change in hardware state (thermal
+                            throttling, background processes), not server load.
+                        </li>
                     </ul>
                 </div>
 
                 <div style="margin-bottom: 3rem;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Why GearVerify?</h3>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Zero-Trust,
+                        Zero-Telemetry</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Privacy is not an option; it is the baseline requirement of our "White-Lab" philosophy. We
+                        operate on a <strong>Zero-Trust</strong> model regarding data transmission.
+                    </p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        When you run a diagnostic on GearVerify, you are downloading a signed, ephemeral
+                        micro-application. This application runs inside your browser's secure sandbox. <strong>No
+                            hardware identifiers, serial numbers, heatmaps, or performance logs are uploaded to our
+                            servers.</strong> The data exists in your RAM for the duration of the test, and it vanishes
+                        the moment you close the tab. This architecture makes GearVerify the only safe choice for
+                        testing prototype hardware, sensitive workstations, or enterprise-grade servers where data
+                        leakage is unacceptable.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Expert-Driven
+                        Validation</h3>
                     <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
-                        The hardware market is flooded with counterfeit components and "optimistic" manufacturer specs.
-                        We created GearVerify to give power back to the consumer. Whether you're buying a used GPU from
-                        a marketplace or stress-testing a new overclock, GearVerify provides the <strong>independent,
-                            unbiased truth</strong> about your silicon's performance.
+                        GearVerify is maintained by a collective of hardware engineers, driver developers, and
+                        overclocking enthusiasts. We understand the "Silicon Lottery." We know the difference between a
+                        stable 24-hour overclock and a suicide run. Our tools are designed to filter out the noise and
+                        provide clear, actionable metrics: <strong>Stability, Latency, and Throughput.</strong>
+                    </p>
+                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-top: 1rem;">
+                        Whether you are diagnosing a failing VRAM module, thermal-testing a new NVMe Gen5 SSD, or simply
+                        validating a used GPU purchase from a marketplace, GearVerify provides the forensic clarity you
+                        need to make informed decisions. Welcome to the future of sovereign hardware validation.
                     </p>
                 </div>
 

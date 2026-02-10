@@ -68,112 +68,119 @@
                 style="align-items: flex-start; text-align: left; cursor: default; transform: none; box-shadow: var(--card-shadow); max-width: 600px; margin: 0 auto; width: 100%;">
                 <div class="lab-title" style="margin-bottom: 1.5rem; font-size: 1.2rem; font-weight: 700;">Establish
                     Connection</div>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem;">For technical
-                    inquiries, partnership opportunities, or validation protocol questions. Response time typically < 24
-                        hours.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.6;">
+                    GearVerify maintains an open channel for the hardware community. Whether you are a systems engineer
+                    reporting an edge-case bug in our Antigravity engine, or an enthusiast seeking clarification on a
+                    specific benchmark variance, our ears are open.
+                </p>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.6;">
+                    Every submission is reviewed by a technical lead—not a chatbot. We strive to provide detailed,
+                    actionable responses to all valid hardware validation queries. For direct correspondence or
+                    sensitive disclosures, you may also reach our support desk at <strong
+                        style="color: var(--text-primary);">contact@gearverify.com</strong>.
+                </p>
 
-                        <div id="contact-form-container">
-                            <!-- Standard Cloudflare API Endpoint -->
-                            <form id="lab-contact-form" action="/api/contact" method="POST" style="width: 100%;">
-                                <div>
-                                    <label
-                                        style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Identity
-                                        / Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Dr. Jane Smith"
-                                        required>
-                                </div>
-                                <div>
-                                    <label
-                                        style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Email
-                                        Access Point</label>
-                                    <input type="email" name="email" class="form-control"
-                                        placeholder="researcher@lab.com" required>
-                                </div>
-                                <div>
-                                    <label
-                                        style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Inquiry
-                                        Protocol</label>
-                                    <textarea name="message" class="form-control" rows="6"
-                                        placeholder="Describe your technical query..." required></textarea>
-                                </div>
-
-                                <!-- Cloudflare Turnstile Widget (Anti-Bot) -->
-                                <div style="margin-bottom: 1rem;">
-                                    <!-- Replace data-sitekey with your actual Cloudflare Site Key -->
-                                    <div class="cf-turnstile" data-sitekey="0x4AAAAAACZ-w0K8J4-vS2PV" data-theme="dark">
-                                    </div>
-                                </div>
-
-                                <button type="submit" id="submit-btn" class="submit-btn" style="position: relative;">
-                                    <span id="btn-text">Send Message</span>
-                                    <div id="btn-loader"
-                                        style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border: 2px solid white; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;">
-                                    </div>
-                                </button>
-                            </form>
-                            <div id="form-status" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></div>
+                <div id="contact-form-container">
+                    <!-- Standard Cloudflare API Endpoint -->
+                    <form id="lab-contact-form" action="/api/contact" method="POST" style="width: 100%;">
+                        <div>
+                            <label
+                                style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Identity
+                                / Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Dr. Jane Smith" required>
+                        </div>
+                        <div>
+                            <label
+                                style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Email
+                                Access Point</label>
+                            <input type="email" name="email" class="form-control" placeholder="researcher@lab.com"
+                                required>
+                        </div>
+                        <div>
+                            <label
+                                style="display: block; font-size: 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary);">Inquiry
+                                Protocol</label>
+                            <textarea name="message" class="form-control" rows="6"
+                                placeholder="Describe your technical query..." required></textarea>
                         </div>
 
-                        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-                        <script>
-                            const form = document.getElementById("lab-contact-form");
-                            const status = document.getElementById("form-status");
-                            const btn = document.getElementById("submit-btn");
-                            const btnText = document.getElementById("btn-text");
-                            const btnLoader = document.getElementById("btn-loader");
+                        <!-- Cloudflare Turnstile Widget (Anti-Bot) -->
+                        <div style="margin-bottom: 1rem;">
+                            <!-- Replace data-sitekey with your actual Cloudflare Site Key -->
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAACZ-w0K8J4-vS2PV" data-theme="dark">
+                            </div>
+                        </div>
 
-                            async function handleSubmit(event) {
-                                event.preventDefault();
-                                const data = new FormData(event.target);
+                        <button type="submit" id="submit-btn" class="submit-btn" style="position: relative;">
+                            <span id="btn-text">Send Message</span>
+                            <div id="btn-loader"
+                                style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border: 2px solid white; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;">
+                            </div>
+                        </button>
+                    </form>
+                    <div id="form-status" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></div>
+                </div>
 
-                                // UI Loading State
-                                btn.disabled = true;
-                                btnText.style.opacity = "0";
-                                btnLoader.style.display = "block";
-                                status.style.display = "none";
+                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+                <script>
+                    const form = document.getElementById("lab-contact-form");
+                    const status = document.getElementById("form-status");
+                    const btn = document.getElementById("submit-btn");
+                    const btnText = document.getElementById("btn-text");
+                    const btnLoader = document.getElementById("btn-loader");
 
-                                try {
-                                    const response = await fetch(event.target.action, {
-                                        method: form.method,
-                                        body: data
-                                    });
+                    async function handleSubmit(event) {
+                        event.preventDefault();
+                        const data = new FormData(event.target);
 
-                                    const result = await response.json();
+                        // UI Loading State
+                        btn.disabled = true;
+                        btnText.style.opacity = "0";
+                        btnLoader.style.display = "block";
+                        status.style.display = "none";
 
-                                    if (response.ok) {
-                                        status.innerHTML = "✅ Message received successfully. We will be in touch shortly.";
-                                        status.style.color = "#34C759"; // Success Green
-                                        status.style.display = "block";
-                                        form.reset();
-                                        // Reset Turnstile if it exists
-                                        if (window.turnstile) turnstile.reset();
-                                    } else {
-                                        status.innerHTML = "❌ Error: " + (result.error || "Failed to send message. Please try again.");
-                                        status.style.color = "#FF3B30"; // Error Red
-                                        status.style.display = "block";
-                                    }
-                                } catch (error) {
-                                    status.innerHTML = "❌ Network Error. Please check your connection and try again.";
-                                    status.style.color = "#FF3B30";
-                                    status.style.display = "block";
-                                } finally {
-                                    // Reset UI
-                                    btn.disabled = false;
-                                    btnText.style.opacity = "1";
-                                    btnLoader.style.display = "none";
-                                }
+                        try {
+                            const response = await fetch(event.target.action, {
+                                method: form.method,
+                                body: data
+                            });
+
+                            const result = await response.json();
+
+                            if (response.ok) {
+                                status.innerHTML = "✅ Message received successfully. We will be in touch shortly.";
+                                status.style.color = "#34C759"; // Success Green
+                                status.style.display = "block";
+                                form.reset();
+                                // Reset Turnstile if it exists
+                                if (window.turnstile) turnstile.reset();
+                            } else {
+                                status.innerHTML = "❌ Error: " + (result.error || "Failed to send message. Please try again.");
+                                status.style.color = "#FF3B30"; // Error Red
+                                status.style.display = "block";
                             }
+                        } catch (error) {
+                            status.innerHTML = "❌ Network Error. Please check your connection and try again.";
+                            status.style.color = "#FF3B30";
+                            status.style.display = "block";
+                        } finally {
+                            // Reset UI
+                            btn.disabled = false;
+                            btnText.style.opacity = "1";
+                            btnLoader.style.display = "none";
+                        }
+                    }
 
-                            form.addEventListener("submit", handleSubmit);
-                        </script>
+                    form.addEventListener("submit", handleSubmit);
+                </script>
 
-                        <style>
-                            @keyframes spin {
-                                to {
-                                    transform: translate(-50%, -50%) rotate(360deg);
-                                }
-                            }
-                        </style>
+                <style>
+                    @keyframes spin {
+                        to {
+                            transform: translate(-50%, -50%) rotate(360deg);
+                        }
+                    }
+                </style>
             </div>
         </div>
 

@@ -38,43 +38,63 @@
 
                 <div style="line-height: 1.8; color: var(--text-secondary); font-size: 0.95rem;">
                     <p style="margin-bottom: 1.5rem;">
-                        <strong>1. Local-First Architecture</strong><br>
-                        GearVerify operates under a strict "Local-First" architecture. Our hardware validation tools
-                        (CPU Stress, GPU Benchmark, WebCam Testing, etc.) execute entirely within your browser's
-                        sandboxed environment via JavaScript, WebAssembly, and WebGPU. <strong>No hardware telemetry,
-                            video feeds, or microphone audio are ever uploaded to our servers.</strong>
+                        <strong>1. "Zero-Server-Side" Diagnostic Commitment</strong><br>
+                        GearVerify strictly adheres to a <strong>"Zero-Server-Side"</strong> processing model for all
+                        hardware diagnostics. When you utilize our CPU Stress, GPU Benchmark, or WebCam tools, the
+                        execution logic is delivered to your browser via JavaScript and WebAssembly. <strong>The actual
+                            processing occurs entirely within your device's local memory and processor.</strong> We do
+                        not operate backend servers that receive, analyze, or store your real-time hardware telemetry,
+                        frame rates, or thermal statistics. Your benchmark results are ephemeral and vanish upon session
+                        termination.
                     </p>
 
                     <p style="margin-bottom: 1.5rem;">
-                        <strong>2. Data Minimization</strong><br>
-                        We minimize data collection to the absolute essentials required for site operation:
+                        <strong>2. Secure Communication & Contact Data (Cloudflare Workers KV)</strong><br>
+                        When you voluntarily choose to contact us via our secure form, your name, email address, and
+                        message content are transmitted via HTTPS encryption. This data is securely stored using
+                        <strong>Cloudflare Workers KV</strong>, a distributed key-value storage system renowned for its
+                        security and low-latency access.
+                        We utilize this data <em>solely</em> to respond to your technical inquiries or feedback. We do
+                        not sell, trade, or otherwise transfer your contact information to outside parties. This data
+                        acts as a direct, encrypted uplink between our technical leads and you.
+                    </p>
+
+                    <p style="margin-bottom: 1.5rem;">
+                        <strong>3. Advertising & Cookies (Google AdSense)</strong><br>
+                        To maintain this laboratory as a free resource, we use third-party advertising companies to
+                        serve ads when you visit our website.
                     <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
-                        <li><strong>Technical Cookies:</strong> Used solely for maintaining session state (e.g., active
-                            theme preference).</li>
-                        <li><strong>Analytics:</strong> We use privacy-preserving analytics to count visitors and page
-                            views. No personally identifiable information (PII) is stored.</li>
+                        <li><strong>Interest-Based Advertising:</strong> Vendors, including Google, use cookies (such as
+                            the DoubleClick cookie) to serve ads based on your prior visits to this website or other
+                            websites. This enables them to provide relevant advertisements matching your interests.</li>
+                        <li><strong>User Control:</strong> You have the right to opt-out of personalized advertising.
+                            You may do so by visiting <a href="https://www.google.com/settings/ads" target="_blank"
+                                style="color: var(--accent-blue);">Google Ads Settings</a>. Alternatively, you can
+                            opt-out of a third-party vendor's use of cookies for interest-based advertising by visiting
+                            <a href="https://youradchoices.com/" target="_blank"
+                                style="color: var(--accent-blue);">youradchoices.com</a>.</li>
+                        <li><strong>Cookie Minimization:</strong> Outside of these advertising partners and essential
+                            session cookies (for theme preference), GearVerify does not plant tracking beacons or
+                            persistent fingerprinting scripts.</li>
                     </ul>
                     </p>
 
                     <p style="margin-bottom: 1.5rem;">
-                        <strong>3. Third-Party Partners</strong><br>
-                        We partner with trusted entities to support the laboratory:
-                    <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
-                        <li><strong>Google AdSense:</strong> Vendors, including Google, use cookies to serve ads based
-                            on a user's prior visits to your website or other websites. You may opt out of personalized
-                            advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank"
-                                style="color: var(--accent-blue);">Google Ads Settings</a>.</li>
-                        <li><strong>Amazon Associates:</strong> As an Amazon Associate, we earn from qualifying
-                            purchases via our "Laboratory Recommendation" links. This does not affect the purchase price
-                            for you.</li>
-                    </ul>
+                        <strong>4. Affiliate Disclosure (Amazon Associates)</strong><br>
+                        GearVerify is a participant in the Amazon Services LLC Associates Program, an affiliate
+                        advertising program designed to provide a means for sites to earn advertising fees by
+                        advertising and linking to Amazon.com. If you click on a "Laboratory Recommendation" link and
+                        make a purchase, we may receive a small commission at no additional cost to you. This supports
+                        our server maintenance and research.
                     </p>
 
                     <p style="margin-bottom: 0;">
-                        <strong>4. User Rights (GDPR / CCPA)</strong><br>
-                        Since we do not collect personal data, account information, or persistent tracking profiles,
-                        there is generally no data to request or delete. However, you maintain full control over your
-                        browser's local storage and cookie settings.
+                        <strong>5. Your Rights & Data Sovereignty</strong><br>
+                        Under frameworks like GDPR and CCPA, you retain full rights to your data. Since GearVerify
+                        operates on a data-minimization principle, we hold very little personal information. However,
+                        for any data stored via our Contact Form (Cloudflare KV), you may request a full export or
+                        deletion by contacting us directly at <strong
+                            style="color: var(--text-primary);">contact@gearverify.com</strong>.
                     </p>
                 </div>
             </div>
