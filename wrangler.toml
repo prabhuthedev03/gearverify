@@ -8,5 +8,5 @@ binding = "ASSETS"
 run_worker_first = true
 
 [[kv_namespaces]]
-binding = "GEAR_VERIFY_DATA"
-id = "c2476175d276c0c61b573349640c2325"
+binding = "GEAR_VERIFY_DATA" # Use the name from your script
+id = "29bf566611004795aec60203c8a4b5bd"
