@@ -128,6 +128,28 @@
             margin-bottom: 0.5rem;
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gearverify.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://gearverify.com/guides/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Display Lag vs System Latency",
+        "item": "https://gearverify.com/guides/display-lag-vs-system-latency.html"
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -143,14 +165,21 @@
     </header>
 
     <main class="container article-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>&gt;</span>
+            <a href="/guides/">Guides</a>
+            <span>&gt;</span>
+            <span aria-current="page">Input Science</span>
+        </nav>
         <article>
             <div class="article-header">
                 <span
                     style="background: var(--surface-color); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-blue);">Input
                     Science</span>
                 <h1 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 0.5rem; line-height: 1.2;">Display Lag
-                    vs. System Latency: Using GearVerify to Isolate Response Time from Input Lag</h1>
-                <div class="article-meta">By Dr. Aris Thorne • Updated Feb 11, 2026 • 13 min read</div>
+                    vs. System Latency: Isolating the Bottleneck</h1>
+                <div class="article-meta">By Dr. Aris Thorne • Updated Feb 11, 2026 • 14 min read</div>
             </div>
 
             <!-- Ad Slot -->
@@ -242,10 +271,33 @@
                     fullscreen modes.</p>
             </div>
 
-            <!-- Bottom Ad Slot -->
-            <div
-                style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                [ADSENSE_MULTIPLEX]</div>
+            <!-- Related Articles -->
+            <section class="related-articles">
+                <h3>Related Technical Guides</h3>
+                <div class="related-grid">
+                    <a href="latency-metrics-gaming.html" class="related-card">
+                        <div class="related-thumb">🖱️</div>
+                        <div class="related-info">
+                            <span class="related-tag">Esports</span>
+                            <h4>Interpreting Latency Metrics</h4>
+                        </div>
+                    </a>
+                    <a href="identifying-ghost-frames.html" class="related-card">
+                        <div class="related-thumb">🖼️</div>
+                        <div class="related-info">
+                            <span class="related-tag">Benchmarks</span>
+                            <h4>Identifying Ghost Frames</h4>
+                        </div>
+                    </a>
+                    <a href="browser-extensions-benchmarking-impact.html" class="related-card">
+                        <div class="related-thumb">🧩</div>
+                        <div class="related-info">
+                            <span class="related-tag">Browser Internals</span>
+                            <h4>Browser Extension Impact on Benchmarks</h4>
+                        </div>
+                    </a>
+                </div>
+            </section>
         </article>
     </main>
 

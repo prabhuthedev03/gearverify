@@ -94,6 +94,23 @@
             /* Hide read more for cleaner list view */
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gearverify.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://gearverify.com/guides/"
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -109,6 +126,13 @@
     </header>
 
     <main class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>&gt;</span>
+            <span aria-current="page">Guides</span>
+        </nav>
+
         <!-- Featured Ad Slot -->
         <div class="ad-slot-featured">
             <span class="ad-label">Featured Verification Partner</span>

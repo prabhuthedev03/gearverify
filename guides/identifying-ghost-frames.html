@@ -128,6 +128,28 @@
             margin-bottom: 0.5rem;
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gearverify.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://gearverify.com/guides/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Identifying Ghost Frames",
+        "item": "https://gearverify.com/guides/identifying-ghost-frames.html"
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -143,12 +165,19 @@
     </header>
 
     <main class="container article-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>&gt;</span>
+            <a href="/guides/">Guides</a>
+            <span>&gt;</span>
+            <span aria-current="page">Benchmarks</span>
+        </nav>
         <article>
             <div class="article-header">
                 <span
                     style="background: var(--surface-color); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-blue);">Benchmarks</span>
                 <h1 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 0.5rem; line-height: 1.2;">Identifying
-                    'Ghost' Frames: How Hardware Acceleration Fakes Performance</h1>
+                    'Ghost' Frames in Browsers: When 60FPS is Actually 30</h1>
                 <div class="article-meta">By Dr. Aris Thorne • Updated Feb 11, 2026 • 11 min read</div>
             </div>
 
@@ -232,10 +261,33 @@
                     ghost-riddled 140 FPS. Trust your eyes, and trust frame-time graphs over raw counters.</p>
             </div>
 
-            <!-- Bottom Ad Slot -->
-            <div
-                style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                [ADSENSE_MULTIPLEX]</div>
+            <!-- Related Articles -->
+            <section class="related-articles">
+                <h3>Related Technical Guides</h3>
+                <div class="related-grid">
+                    <a href="latency-metrics-gaming.html" class="related-card">
+                        <div class="related-thumb">🖱️</div>
+                        <div class="related-info">
+                            <span class="related-tag">Esports</span>
+                            <h4>Interpreting Latency Metrics</h4>
+                        </div>
+                    </a>
+                    <a href="display-lag-vs-system-latency.html" class="related-card">
+                        <div class="related-thumb">⏱️</div>
+                        <div class="related-info">
+                            <span class="related-tag">Input Science</span>
+                            <h4>Display Lag vs System Latency</h4>
+                        </div>
+                    </a>
+                    <a href="browser-extensions-benchmarking-impact.html" class="related-card">
+                        <div class="related-thumb">🧩</div>
+                        <div class="related-info">
+                            <span class="related-tag">Browser Internals</span>
+                            <h4>Browser Extension Impact on Benchmarks</h4>
+                        </div>
+                    </a>
+                </div>
+            </section>
         </article>
     </main>
 

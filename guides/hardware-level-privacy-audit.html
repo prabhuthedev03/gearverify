@@ -128,6 +128,28 @@
             margin-bottom: 0.5rem;
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://gearverify.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://gearverify.com/guides/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Hardware Privacy Audit",
+        "item": "https://gearverify.com/guides/hardware-level-privacy-audit.html"
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -143,6 +165,13 @@
     </header>
 
     <main class="container article-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>&gt;</span>
+            <a href="/guides/">Guides</a>
+            <span>&gt;</span>
+            <span aria-current="page">Sovereignty</span>
+        </nav>
         <article>
             <div class="article-header">
                 <span
@@ -227,10 +256,33 @@
                     client-side diagnostics is the only way to ensure your hardware topology remains <em>yours</em>.</p>
             </div>
 
-            <!-- Bottom Ad Slot -->
-            <div
-                style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                [ADSENSE_MULTIPLEX]</div>
+            <!-- Related Articles -->
+            <section class="related-articles">
+                <h3>Related Technical Guides</h3>
+                <div class="related-grid">
+                    <a href="client-side-vs-server-diagnostics.html" class="related-card">
+                        <div class="related-thumb">🌐</div>
+                        <div class="related-info">
+                            <span class="related-tag">Network</span>
+                            <h4>Client-Side vs Server Diagnostics</h4>
+                        </div>
+                    </a>
+                    <a href="apple-silicon-m-series-validation.html" class="related-card">
+                        <div class="related-thumb">🍎</div>
+                        <div class="related-info">
+                            <span class="related-tag">Apple Silicon</span>
+                            <h4>Apple Silicon M-Series Validation</h4>
+                        </div>
+                    </a>
+                    <a href="detecting-spoofed-gpu-bios.html" class="related-card">
+                        <div class="related-thumb">🕵️‍♀️</div>
+                        <div class="related-info">
+                            <span class="related-tag">Forensics</span>
+                            <h4>Detecting Spoofed GPU BIOS</h4>
+                        </div>
+                    </a>
+                </div>
+            </section>
         </article>
     </main>
 
