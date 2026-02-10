@@ -367,15 +367,17 @@ h1 {
 
 
 
-/* Standardized Guide List Card (Horizontal - Force Fix) */
-.guide-list-grid {
+
+
+/* Standardized Guide List Card (Horizontal - Super Force Fix) */
+body .guide-list-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
     max-width: 850px;
 }
 
-.guide-list-card {
+body .guide-list-card {
     background: var(--bg-color);
     border-radius: 24px !important;
     /* Explicitly visible curve */
@@ -393,13 +395,13 @@ h1 {
     min-height: 110px;
 }
 
-.guide-list-card:hover {
+body .guide-list-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--hover-shadow);
     border-color: var(--accent-blue);
 }
 
-.guide-list-thumb {
+body .guide-list-thumb {
     width: 110px;
     min-width: 110px;
     height: 110px;
@@ -413,9 +415,9 @@ h1 {
     flex-shrink: 0;
 }
 
-.guide-list-content {
+body .guide-list-content {
     padding: 0 1.5rem;
-    /* Horizontal padding, zero vertical to let align-items center work */
+    /* Horizontal padding */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -423,7 +425,7 @@ h1 {
     min-width: 0;
 }
 
-.guide-list-meta {
+body .guide-list-meta {
     font-size: 0.65rem;
     color: var(--text-secondary);
     margin-bottom: 0.35rem;
@@ -432,13 +434,15 @@ h1 {
     font-weight: 700;
 }
 
-.guide-list-title {
+body .guide-list-title {
     font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 0;
     color: var(--text-primary);
 }
+
+
 
 
 
