@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Lag vs. System Latency: Improving Reaction Times | GearVerify Laboratory</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+    <style>
+        .article-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .article-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .article-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .article-body h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .highlight-box {
+            background: var(--surface-color);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 4px;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::after {
+            content: 'Waiting for visual data generation...';
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-blue);
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background: var(--surface-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tech-table th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-blue);
+        }
+
+        .expert-tip {
+            border: 1px solid var(--accent-blue);
+            background: rgba(0, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .expert-tip strong {
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Intel</span></h1>
+            </a>
+            <a href="index.html" style="text-decoration: none; font-size: 0.9rem; color: var(--text-secondary);">← Back
+                to Guides</a>
+        </div>
+    </header>
+
+    <main class="container article-container">
+        <article>
+            <div class="article-header">
+                <span
+                    style="background: var(--surface-color); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-blue);">Input
+                    Science</span>
+                <h1 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 0.5rem; line-height: 1.2;">Display Lag
+                    vs. System Latency: Using GearVerify to Isolate Response Time from Input Lag</h1>
+                <div class="article-meta">By Dr. Aris Thorne • Updated Feb 11, 2026 • 13 min read</div>
+            </div>
+
+            <!-- Ad Slot -->
+            <div
+                style="height: 90px; background: var(--surface-color); margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
+                [ADSENSE_IN_ARTICLE]</div>
+
+            <div class="article-body">
+                <p>In our testing today at the GearVerify lab, we encountered a specific issue where a competitive CS2
+                    player swore their mouse felt "floaty" despite running a 360Hz monitor and a top-tier system. The
+                    diagnostics revealed ample frame rates, but our "Button-to-Pixel" analysis showed a massive 45ms
+                    latency spike. The culprit wasn't the mouse; it was the monitor's "processing" mode being left on
+                    "Standard" instead of "Game."</p>
+
+                <p>Latency is a chain. Most gamers conflate "Low Ping" with "Low Latency." This guide dissects the local
+                    hardware chain using our latency diagnostic tool.</p>
+
+                <div class="image-placeholder"
+                    aria-label="Diagram of the full latency chain: Mouse USB Poll -> CPU Game Logic -> GPU Render Queue -> Display Scanout -> Pixel Response">
+                    [IMG: Full Latency Chain Diagram]
+                </div>
+
+                <h2>1. The Four Horsemen of Lag</h2>
+                <p>When you click your mouse, four distinct delays occur before you see the result:</p>
+                <ul>
+                    <li><strong>Peripheral Latency:</strong> The time for the switch to close and the USB packet to
+                        reach the CPU.</li>
+                    <li><strong>Game/CPU Latency:</strong> The physics engine calculating the shot.</li>
+                    <li><strong>Render Latency:</strong> The GPU drawing the frame.</li>
+                    <li><strong>Display Latency:</strong> The monitor processing the signal and changing liquid crystal
+                        orientation.</li>
+                </ul>
+
+                <p>GearVerify can measure the <em>input processing</em> time (Peripheral + Game), but Display Latency
+                    remains the ghost in the machine.</p>
+
+                <h2>2. Pixel Response Time (GtG) vs. Input Lag</h2>
+                <p>Monitor boxes lie. "1ms GtG" (Gray-to-Gray) refers to how fast a pixel changes color, avoiding motion
+                    blur. It has <em>nothing</em> to do with input lag. A TV can have 1ms GtG but 100ms of input lag due
+                    to image post-processing.</p>
+
+                <div class="highlight-box">
+                    [GRAPH] - Monitor A: 1ms GtG, 4ms Input Lag (Excellent). Monitor B: 1ms GtG, 25ms Input Lag
+                    (Terrible for FPS).
+                </div>
+
+                <h2>3. Testing Your Chain</h2>
+                <p>Using the GearVerify Latency Lab, you can determine if your bottleneck is CPU or System side. If the
+                    "Event Timestamp" consistently lags behind the "Render Timestamp" by more than 16ms, your render
+                    queue is full.</p>
+
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Bottleneck</th>
+                            <th>Symptom</th>
+                            <th>Diagnosis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CPU Bound</td>
+                            <td>Stuttery frames, high variance</td>
+                            <td>Reduce physics/simulation quality</td>
+                        </tr>
+                        <tr>
+                            <td>GPU Bound</td>
+                            <td>Smooth visual but high input lag</td>
+                            <td>Reduce resolution or enable Reflex/Anti-Lag</td>
+                        </tr>
+                        <tr>
+                            <td>Display Bound</td>
+                            <td>"Floaty" mouse feel</td>
+                            <td>Check OSD for "Overdrive" or "Game Mode"</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="expert-tip">
+                    <strong>Expert Tip: The Polling Rate Myth</strong>
+                    4000Hz polling rate is useless if your CPU cannot process the interrupts. On older quad-core CPUs,
+                    setting your mouse to 4000Hz can actually <em>increase</em> system latency due to interrupt
+                    saturation. Stick to 1000Hz unless you have a modern i7/i9.
+                </div>
+
+                <h2>4. Laboratory Final Thoughts</h2>
+                <p>Stop buying faster monitors to fix a "slow feel." If your system latency is 30ms, a 0.5ms monitor
+                    won't save you. Optimize the pipeline first using Reflex, uncapped frame rates, and exclusive
+                    fullscreen modes.</p>
+            </div>
+
+            <!-- Bottom Ad Slot -->
+            <div
+                style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
+                [ADSENSE_MULTIPLEX]</div>
+        </article>
+    </main>
+
+    <footer class="lab-footer">
+        <div class="container footer-columns">
+            <div class="footer-column">
+                <h4>Related Tools</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.6rem;"><a href="../input/"
+                            style="color: var(--text-secondary); text-decoration: none;">Launch Input Lab</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.6rem;"><a href="../privacy.html"
+                            style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container"
+            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; color:var(--text-secondary); font-size: 0.8rem;">
+            &copy; 2026 GearVerify Laboratory <br> As an Amazon Associate, GearVerify earns from qualifying purchases.
+        </div>
+    </footer>
+</body>
+
+</html>
