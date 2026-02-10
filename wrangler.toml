@@ -1,9 +1,12 @@
 name = "gearverify"
+main = "src\index.ts"  # <--- MUST HAVE THIS
 compatibility_date = "2026-02-09"
-pages_build_output_dir = "." 
 
-# We are removing the "main" line to stop the script from crashing the site
+[assets]
+directory = "."
+run_worker_first = true # <--- THIS PREVENTS THE 404
 
 [[kv_namespaces]]
 binding = "GEAR_VERIFY_DATA"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # TODO: Replace with your actual KV Namespace ID from Cloudflare Dashboard
+id = "PASTE_YOUR_ACTUAL_KV_ID_HERE" # <--- Ensure this is updated from your dashboard
+3. Replace wrangler.jsonc
