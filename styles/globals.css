@@ -366,32 +366,31 @@ h1 {
 
 
 
-/* Standardized Guide List Card (Horizontal - Index Style Match) */
+
+/* Standardized Guide List Card (Horizontal - Force Fix) */
 .guide-list-grid {
     display: grid;
     grid-template-columns: 1fr;
-    /* Strict List View */
     gap: 1.25rem;
     max-width: 850px;
-    /* Aligned with article width */
 }
 
 .guide-list-card {
     background: var(--bg-color);
-    border-radius: 12px;
+    border-radius: 24px !important;
+    /* Explicitly visible curve */
     overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    /* Standard Shadow */
     transition: transform 0.2s, box-shadow 0.2s;
     border: 1px solid var(--border-color);
     text-decoration: none;
     color: inherit;
-    display: flex;
-    flex-direction: row;
-    /* Horizontal Stack */
-    align-items: stretch;
+    display: flex !important;
+    flex-direction: row !important;
+    /* Force Horizontal */
+    align-items: center !important;
+    /* Center vertically */
     min-height: 110px;
-    /* slightly smaller than index's 120px+ */
 }
 
 .guide-list-card:hover {
@@ -402,26 +401,26 @@ h1 {
 
 .guide-list-thumb {
     width: 110px;
-    /* Square aspect ratio */
     min-width: 110px;
+    height: 110px;
+    /* Force square */
     background: var(--surface-color);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 2.2rem;
-    /* Balanced icon size */
     flex-shrink: 0;
 }
 
 .guide-list-content {
-    padding: 1rem 1.25rem;
+    padding: 0 1.5rem;
+    /* Horizontal padding, zero vertical to let align-items center work */
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 0;
-    /* Text truncation fix */
 }
 
 .guide-list-meta {
@@ -434,12 +433,13 @@ h1 {
 }
 
 .guide-list-title {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    line-height: 1.35;
+    line-height: 1.3;
     margin-bottom: 0;
     color: var(--text-primary);
 }
+
 
 
 /* Article Hero Image (Replacing Placeholder) */
