@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Core Pages -->
     <url>
         <loc>https://gearverify.com/</loc>
         <lastmod>2026-02-10</lastmod>
@@ -7,13 +8,19 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/about</loc>
+        <loc>https://gearverify.com/about.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/contact</loc>
+        <loc>https://gearverify.com/privacy.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gearverify.com/contact.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -24,76 +31,116 @@
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
+
+    <!-- Phase 2: Advanced Guides (New) -->
     <url>
-        <loc>https://gearverify.com/guides/gpu-stress-test-explained</loc>
+        <loc>https://gearverify.com/guides/detecting-spoofed-gpu-bios.html</loc>
         <lastmod>2026-02-10</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/guides/webgpu-vs-webgl-performance</loc>
+        <loc>https://gearverify.com/guides/apple-silicon-m-series-validation.html</loc>
         <lastmod>2026-02-10</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/guides/signs-graphics-card-failing</loc>
+        <loc>https://gearverify.com/guides/gpu-vrm-thermal-soak.html</loc>
         <lastmod>2026-02-10</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/gpu/</loc>
+        <loc>https://gearverify.com/guides/display-lag-vs-system-latency.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/cpu/</loc>
+        <loc>https://gearverify.com/guides/webgpu-vs-cuda-deep-dive.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/ram/</loc>
+        <loc>https://gearverify.com/guides/identifying-ghost-frames.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/display/</loc>
+        <loc>https://gearverify.com/guides/ddr5-stability-testing-guide.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/audio/</loc>
+        <loc>https://gearverify.com/guides/browser-extensions-benchmarking-impact.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/input/</loc>
+        <loc>https://gearverify.com/guides/hardware-level-privacy-audit.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/webcam/</loc>
+        <loc>https://gearverify.com/guides/nvme-gen5-controller-heat.html</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Phase 1: Core Guides (Existing) -->
+    <url>
+        <loc>https://gearverify.com/guides/client-side-vs-server-diagnostics.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/privacy</loc>
+        <loc>https://gearverify.com/guides/latency-metrics-gaming.html</loc>
         <lastmod>2026-02-10</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://gearverify.com/terms</loc>
+        <loc>https://gearverify.com/guides/browser-gpu-stress-testing.html</loc>
         <lastmod>2026-02-10</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gearverify.com/guides/silicon-lottery-webgpu.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gearverify.com/guides/nvme-gen5-throttling.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gearverify.com/guides/signs-graphics-card-failing.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gearverify.com/guides/gpu-stress-test-explained.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://gearverify.com/guides/webgpu-vs-webgl-performance.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>
