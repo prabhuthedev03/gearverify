@@ -60,32 +60,43 @@
                     <em>exactly</em> what their silicon is capable of—without uploading their data to a remote server.
                 </p>
 
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">WebGPU Native
-                        </h3>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                            We bypass legacy WebGL abstraction layers, utilizing WebGPU Compute Shaders to access raw
-                            GFLOPS performance directly from the browser engine.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Zero-Knowledge
-                        </h3>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                            Our "Sovereign Data Protocol" guarantees that 100% of diagnostic code runs in your local V8
-                            Isolate. Your specs never leave your machine.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Lab Precision
-                        </h3>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                            Calibrated against 2026 industrial reference charts, our "Studio-White" testing suite
-                            delivers sub-millisecond timer resolution.
-                        </p>
-                    </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Our Technology:
+                        WebGPU Native</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        GearVerify is built on the bleeding edge of browser technology. Unlike legacy tools that rely on
+                        WebGL rasterization hacks, our diagnostics utilize <strong>WebGPU Compute Shaders
+                            (WGSL)</strong>. This allows us to access the raw parallel processing power of your
+                        GPU—bypassing high-level OS driver abstractions—to deliver synthetic benchmark results that
+                        rival native desktop applications.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Commitment to Data
+                        Privacy</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        We operate under a strict <strong>"Sovereign Data Protocol"</strong>. This means:
+                    </p>
+                    <ul style="list-style: none; padding-left: 0; color: var(--text-secondary); line-height: 1.8;">
+                        <li style="margin-bottom: 0.5rem;">✅ <strong>Local Execution:</strong> 100% of diagnostic code
+                            runs in your local V8 Isolate.</li>
+                        <li style="margin-bottom: 0.5rem;">✅ <strong>Zero Telemetry:</strong> Your hardware
+                            specifications, serial numbers, and benchmark scores are <em>never</em> uploaded to our
+                            servers unless you explicitly submit a validation report.</li>
+                        <li style="margin-bottom: 0.5rem;">✅ <strong>Ephemeral State:</strong> Once you close the tab,
+                            all memory buffers are cleared. Nothing remains.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Why GearVerify?</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+                        The hardware market is flooded with counterfeit components and "optimistic" manufacturer specs.
+                        We created GearVerify to give power back to the consumer. Whether you're buying a used GPU from
+                        a marketplace or stress-testing a new overclock, GearVerify provides the <strong>independent,
+                            unbiased truth</strong> about your silicon's performance.
+                    </p>
                 </div>
 
                 <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0; width: 100%;">
@@ -136,7 +147,8 @@
         </div>
         <div class="container"
             style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
-            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local.
+            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local. <br> As an Amazon
+            Associate, GearVerify earns from qualifying purchases.
         </div>
     </footer>
 </body>

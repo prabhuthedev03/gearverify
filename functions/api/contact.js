@@ -37,7 +37,28 @@ export async function onRequestPost(context) {
             }
         }
 
-        // 3. Dispatch to Discord Webhook (Database/Notification)
+        // 3. Store in Cloudflare KV (GEAR_VERIFY_DATA)
+        // Key format: contact:timestamp:uuid
+        if (env.GEAR_VERIFY_DATA) {
+            const timestamp = Date.now();
+            const uuid = crypto.randomUUID();
+            const key = `contact:${timestamp}:${uuid}`;
+
+            const data = {
+                name,
+                email,
+                message,
+                ip,
+                timestamp: new Date().toISOString(),
+                status: 'new'
+            };
+
+            await env.GEAR_VERIFY_DATA.put(key, JSON.stringify(data));
+        } else {
+            console.warn("KV Access Point [GEAR_VERIFY_DATA] not found. Data not persisted.");
+        }
+
+        // 4. Dispatch to Discord Webhook (Database/Notification)
         if (env.DISCORD_WEBHOOK_URL) {
             const discordPayload = {
                 embeds: [{
@@ -75,6 +96,7 @@ export async function onRequestPost(context) {
         });
 
     } catch (err) {
+        console.error(err);
         return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
     }
 }

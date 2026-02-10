@@ -32,6 +32,22 @@ async function onRequestPost(context) {
         return new Response(JSON.stringify({ error: "Security Check Failed: Invalid Token." }), { status: 403 });
       }
     }
+    if (env.GEAR_VERIFY_DATA) {
+      const timestamp = Date.now();
+      const uuid = crypto.randomUUID();
+      const key = `contact:${timestamp}:${uuid}`;
+      const data = {
+        name,
+        email,
+        message,
+        ip,
+        timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+        status: "new"
+      };
+      await env.GEAR_VERIFY_DATA.put(key, JSON.stringify(data));
+    } else {
+      console.warn("KV Access Point [GEAR_VERIFY_DATA] not found. Data not persisted.");
+    }
     if (env.DISCORD_WEBHOOK_URL) {
       const discordPayload = {
         embeds: [{
@@ -64,6 +80,7 @@ async function onRequestPost(context) {
       status: 200
     });
   } catch (err) {
+    console.error(err);
     return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
   }
 }
@@ -567,7 +584,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-n167Lt/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-D5eRfc/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -599,7 +616,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-n167Lt/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-D5eRfc/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

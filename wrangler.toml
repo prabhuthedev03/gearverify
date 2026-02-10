@@ -3,3 +3,7 @@ compatibility_date = "2026-02-09"
 pages_build_output_dir = "." 
 
 # We are removing the "main" line to stop the script from crashing the site
+
+[[kv_namespaces]]
+binding = "GEAR_VERIFY_DATA"
+id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # TODO: Replace with your actual KV Namespace ID from Cloudflare Dashboard

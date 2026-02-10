@@ -34,6 +34,22 @@ async function onRequestPost(context) {
         return new Response(JSON.stringify({ error: "Security Check Failed: Invalid Token." }), { status: 403 });
       }
     }
+    if (env.GEAR_VERIFY_DATA) {
+      const timestamp = Date.now();
+      const uuid = crypto.randomUUID();
+      const key = `contact:${timestamp}:${uuid}`;
+      const data = {
+        name,
+        email,
+        message,
+        ip,
+        timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+        status: "new"
+      };
+      await env.GEAR_VERIFY_DATA.put(key, JSON.stringify(data));
+    } else {
+      console.warn("KV Access Point [GEAR_VERIFY_DATA] not found. Data not persisted.");
+    }
     if (env.DISCORD_WEBHOOK_URL) {
       const discordPayload = {
         embeds: [{
@@ -66,6 +82,7 @@ async function onRequestPost(context) {
       status: 200
     });
   } catch (err) {
+    console.error(err);
     return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
   }
 }

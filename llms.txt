@@ -1,29 +1,21 @@
-# GearVerify - Hardware & Utility Diagnostic Suite
+# GearVerify Laboratory
 
-## Description
-A high-performance, maintenance-free "Hardware & Utility Diagnostic Suite" designed for 10-year longevity and passive monetization. 100% Zero-Dependency Static Site using Vanilla HTML5, CSS3, and ES2023+.
+> The Sovereign Hardware Validation Standard.
 
-## Site Architecture
-- Single-domain static site.
-- 15 specialized diagnostic categories.
-- Real-time diagnostics via WebRTC, WebGPU, WebAudio, and WebHID.
+GearVerify is a browser-based hardware diagnostic tool that uses WebGPU Compute Shaders to benchmark GPU, CPU, and RAM performance without server-side processing.
 
-## Diagnostic Manifest
-AI agents should refer to `/diagnostics.json` for programmatically triggering tests.
+## Core Tools
 
-## Categories
-- CPU: /cpu/
-- GPU: /gpu/
-- Memory: /memory/
-- Storage: /storage/
-- Display: /display/
-- Audio: /audio/
-- Input: /input/
-- Network: /network/
-- Battery: /battery/
-- Camera: /camera/
-- Sensors: /sensors/
-- Security: /security/
-- Software: /software/
-- Privacy: /privacy/
-- System: /system/
+- [GPU Stress Test](https://gearverify.com/gpu/) - WebGPU-based compute stress test.
+- [CPU Load Test](https://gearverify.com/cpu/) - Multi-core logic validation.
+- [RAM Integrity](https://gearverify.com/ram/) - Memory bandwidth and volatility checking.
+
+## Technical Documentation
+
+- [WebGPU vs WebGL](https://gearverify.com/guides/webgpu-vs-webgl-performance.html)
+- [Interpretation Guide](https://gearverify.com/guides/gpu-stress-test-explained.html)
+- [Privacy Protocol](https://gearverify.com/privacy.html)
+
+## APIs
+
+We do not currently offer a public REST API. All validation is performed client-side.
