@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
 
 Sitemap: https://gearverify.com/sitemap.xml

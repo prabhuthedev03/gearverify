@@ -2,7 +2,7 @@
 
 > The Sovereign Hardware Validation Standard.
 
-GearVerify is a browser-based hardware diagnostic tool that uses WebGPU Compute Shaders to benchmark GPU, CPU, and RAM performance without server-side processing.
+GearVerify is a "White-Lab" diagnostic utility that runs entirely in the browser using WebAssembly and WebGPU. Our mission is to provide expert-level hardware validation without data exfiltration. We believe you should be able to audit your silicon without uploading your serial numbers to a cloud server.
 
 ## Core Tools
 
@@ -10,12 +10,30 @@ GearVerify is a browser-based hardware diagnostic tool that uses WebGPU Compute 
 - [CPU Load Test](https://gearverify.com/cpu/) - Multi-core logic validation.
 - [RAM Integrity](https://gearverify.com/ram/) - Memory bandwidth and volatility checking.
 
-## Technical Documentation
+## Expert Hardware Guides (18 Articles)
 
-- [WebGPU vs WebGL](https://gearverify.com/guides/webgpu-vs-webgl-performance.html)
-- [Interpretation Guide](https://gearverify.com/guides/gpu-stress-test-explained.html)
-- [Privacy Protocol](https://gearverify.com/privacy.html)
+### Phase 2: Advanced Forensics & Analysis
+- [Detecting Spoofed GPU BIOS](https://gearverify.com/guides/detecting-spoofed-gpu-bios.html) - Identifying fake cards via compute signatures.
+- [Apple Silicon M-Series Validation](https://gearverify.com/guides/apple-silicon-m-series-validation.html) - Testing TBDR architecture throughput.
+- [VRM Thermal Soak](https://gearverify.com/guides/gpu-vrm-thermal-soak.html) - Why GPUs crash after 2 hours.
+- [Display Lag vs System Latency](https://gearverify.com/guides/display-lag-vs-system-latency.html) - Isolating monitor response from input lag.
+- [WebGPU vs CUDA](https://gearverify.com/guides/webgpu-vs-cuda-deep-dive.html) - A technical comparison of compute APIs.
+- [Identifying Ghost Frames](https://gearverify.com/guides/identifying-ghost-frames.html) - detecting compositor artifacts in browsers.
+- [DDR5 Stability Testing](https://gearverify.com/guides/ddr5-stability-testing-guide.html) - Validating XMP/EXPO profiles.
+- [Browser Extensions Impact](https://gearverify.com/guides/browser-extensions-benchmarking-impact.html) - Why benchmarks must be run in Incognito.
+- [NVMe Gen5 Heat Creep](https://gearverify.com/guides/nvme-gen5-controller-heat.html) - Active vs Passive cooling analysis.
+- [Hardware-Level Privacy Audit](https://gearverify.com/guides/hardware-level-privacy-audit.html) - The "Zero-Server-Side" philosophy.
+
+### Phase 1: Core Diagnostics
+- [Client-Side vs Server Diagnostics](https://gearverify.com/guides/client-side-vs-server-diagnostics.html)
+- [Latency Metrics Explained](https://gearverify.com/guides/latency-metrics-gaming.html)
+- [Browser GPU Stress Testing](https://gearverify.com/guides/browser-gpu-stress-testing.html)
+- [Silicon Lottery & WebGPU](https://gearverify.com/guides/silicon-lottery-webgpu.html)
+- [NVMe Gen5 Throttling](https://gearverify.com/guides/nvme-gen5-throttling.html)
+- [Signs Graphics Card is Failing](https://gearverify.com/guides/signs-graphics-card-failing.html)
+- [WebGPU vs WebGL Performance](https://gearverify.com/guides/webgpu-vs-webgl-performance.html)
+- [GPU Stress Test Explained](https://gearverify.com/guides/gpu-stress-test-explained.html)
 
 ## APIs
 
-We do not currently offer a public REST API. All validation is performed client-side.
+We do not currently offer a public REST API. All validation is performed client-side. Agents may parse these HTML guides which use semantic tags (`<article>`, `<table>`, etc.).
