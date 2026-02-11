@@ -85,144 +85,41 @@
 
 <body>
     <header class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/" style="text-decoration: none;">
-                <h1 style="font-size: 1.5rem;">GearVerify<span
-                        style="font-weight: 300; color: var(--text-secondary);">_Intel</span></h1>
-            </a>
-            <a href="index.html" style="text-decoration: none; font-size: 0.9rem; color: var(--text-secondary);">← Back
-                to Guides</a>
-        </div>
-    </header>
 
-    <main class="container article-container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span>&gt;</span>
-            <a href="/guides/">Guides</a>
-            <span>&gt;</span>
-            <span aria-current="page">Hardware Health</span>
-        </nav>
-        <article>
-            <div class="article-header">
-                <span
-                    style="background: var(--surface-color); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-blue);">Hardware
-                    Health</span>
-                <h1 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 0.5rem; line-height: 1.2;">Top 5 Signs
-                    Your Graphics Card is Failing: Early Warning Forensics</h1>
-                <div class="article-meta">By Dr. Aris Thorne • Updated Feb 10, 2026 • 8 min read</div>
-            </div>
 
-            <!-- Ad Slot -->
-            <div
-                style="height: 90px; background: var(--surface-color); margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                [ADSENSE_IN_ARTICLE]
-            </div>
-
-            <div class="article-body">
-                <p>Graphics cards are the workhorses of modern PCs, but like all high-performance machinery, they
-                    eventually wear out. Identifying the early warning signs can save you from a catastrophic failure in
-                    the middle of a render or raid.</p>
-
-                <h2>1. Visual Artifacts (The "Space Invaders")</h2>
-                <p>If you see random colored squares, stretching 3D models, or flickering textures, your VRAM is likely
-                    unstable. This is often called "Space Invaders" artifacting.</p>
-                <div class="highlight-box">
-                    "Artifacts that appear even on the desktop (2D mode) suggest the damage is severe and potentially
-                    irreversible."
-                </div>
-
-                <h2>2. Frequent Driver Crashes</h2>
-                <p>If your screen goes black for a few seconds and recovers with a "Display driver stopped responding
-                    and
-                    has recovered" message, your GPU core is becoming unstable at its stock voltage curve.</p>
-
-                <h2>3. Fan Noise & Thermal Throttling</h2>
-                <p>Is your GPU sounding like a jet engine while playing simple games? This often means the thermal paste
-                    has dried out, causing the hotspot temperature to skyrocket. The fans spin at 100% to compensate,
-                    but the card still throttles.</p>
-
-                <h2>4. Blue Screens (BSOD) under Load</h2>
-                <p>System crashes specifically when launching 3D applications point to power delivery failure. The VRMs
-                    (Voltage Regulator Modules) on the card may be overheating or failing to deliver clean power to the
-                    core.</p>
-
-                <h2>5. Coil Whine Changes</h2>
-                <p>While some coil whine is normal, a <em>sudden change</em> in the pitch or volume of the electrical
-                    buzzing can indicate a capacitor or inductor is nearing the end of its life.</p>
-
-                <h2>How to Verify?</h2>
-                <p>Don't guess. Run the <a href="../gpu/" style="color: var(--accent-blue);">GearVerify GPU Stress
-                        Test</a>. If your card crashes or artifacts within the first 60 seconds of the "Architecture
-                    Stress" loop, it confirms hardware instability.</p>
-            </div>
-
-            <!-- Related Articles -->
-            <section class="related-articles">
-                <h3 style="margin-bottom: 1.5rem;">Related Technical Guides</h3>
-                <div class="guide-list-grid">
-
-                    <a href="gpu-vrm-thermal-soak.html" class="guide-list-card">
-                        <div class="guide-list-thumb" style="background: linear-gradient(135deg, #cb2d3e, #ef473a); color: white;">
-                            🔥
-                        </div>
-                        <div class="guide-list-content">
-                            <div class="guide-list-meta">Power Delivery</div>
-                            <h4 class="guide-list-title">VRM Thermal Soak: The Silent Crasher</h4>
-                        </div>
-                    </a>
-                    <a href="detecting-spoofed-gpu-bios.html" class="guide-list-card">
-                        <div class="guide-list-thumb" style="background: linear-gradient(135deg, #232526, #414345); color: white;">
-                            🕵️‍♀️
-                        </div>
-                        <div class="guide-list-content">
-                            <div class="guide-list-meta">Forensics</div>
-                            <h4 class="guide-list-title">Detecting Spoofed GPU BIOS</h4>
-                        </div>
-                    </a>
-                    <a href="gpu-stress-test-explained.html" class="guide-list-card">
-                        <div class="guide-list-thumb" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white;">
-                            ⚡
-                        </div>
-                        <div class="guide-list-content">
-                            <div class="guide-list-meta">Diagnostics</div>
-                            <h4 class="guide-list-title">How to Interpret GPU Stress Test Results</h4>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Bottom Ad Slot -->
-            <div
-                style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                [ADSENSE_MULTIPLEX]
-            </div>
-
+        <div class="shop-gear-ad"
+            style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
+            [ADSENSE_MULTIPLEX]</div>
         </article>
-    </main>
+        </main>
 
-    <footer class="lab-footer">
-        <div class="container footer-columns">
-            <div class="footer-column">
-                <h4>Related Tools</h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 0.6rem;"><a href="../gpu/"
-                            style="color: var(--text-secondary); text-decoration: none;">Launch GPU Lab</a></li>
-                </ul>
+        <footer class="lab-footer">
+            <div class="container footer-columns">
+                <div class="footer-column">
+                    <h4>Related Tools</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.6rem;"><a href="../gpu/"
+                                style="color: var(--text-secondary); text-decoration: none;">Launch GPU Lab</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal & Lab</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.6rem;"><a href="../methodology.html"
+                                style="color: var(--text-secondary); text-decoration: none;">Methodology</a></li>
+                        <li style="margin-bottom: 0.6rem;"><a href="../contributors.html"
+                                style="color: var(--text-secondary); text-decoration: none;">Contributors</a></li>
+                        <li style="margin-bottom: 0.6rem;"><a href="../privacy.html"
+                                style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 0.6rem;"><a href="../privacy.html"
-                            style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a></li>
-                </ul>
+            <div class="container"
+                style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; color:var(--text-secondary); font-size: 0.8rem;">
+                &copy; 2026 GearVerify Laboratory <br> As an Amazon Associate, GearVerify earns from qualifying
+                purchases.
             </div>
-        </div>
-        <div class="container"
-            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; color:var(--text-secondary); font-size: 0.8rem;">
-            &copy; 2026 GearVerify Laboratory <br> As an Amazon Associate, GearVerify earns from qualifying purchases.
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

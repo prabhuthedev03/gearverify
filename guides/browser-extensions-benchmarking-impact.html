@@ -154,66 +154,101 @@
 
 <body>
     <header class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/" style="text-decoration: none;">
-                <h1 style="font-size: 1.5rem;">GearVerify<span
-                        style="font-weight: 300; color: var(--text-secondary);">_Intel</span></h1>
-            </a>
-            <a href="index.html" style="text-decoration: none; font-size: 0.9rem; color: var(--text-secondary);">← Back
-                to Guides</a>
+        <div class="diagnostic-cta"
+            style="background: linear-gradient(135deg, #1e1e1e, #2d2d2d); border: 1px solid #333; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
+            <div>
+                <h3 style="margin: 0 0 0.3rem 0; font-size: 1.1rem; color: #fff;">Validate Your Hardware</h3>
+                <p style="margin: 0; font-size: 0.85rem; color: #aaa;">Run our privacy-focused WebGPU diagnostic engine
+                    locally.</p>
+            </div><a href="../"
+                style="background: var(--accent-blue); color: white; padding: 0.6rem 1.2rem; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">Launch
+                Tool &rarr;</a>
         </div>
-    </header>
 
-    <main class="container article-container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span>&gt;</span>
-            <a href="/guides/">Guides</a>
-            <span>&gt;</span>
-            <span aria-current="page">Browser Internals</span>
-        </nav>
-        <article>
-            <div class="article-header">
-                <span
-                    style="background: var(--surface-color); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-blue);">Browser
-                    Internals</span>
-                <h1 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 0.5rem; line-height: 1.2;">The Impact of
-                    Browser Extensions on Benchmarking: Why Incognito is Mandatory</h1>
-                <div class="article-meta">By Dr. Aris Thorne • Updated Feb 11, 2026 • 8 min read</div>
+        <div class="article-body">
+
+<div class="calibration-date" style="font-family: 'Consolas', 'Monaco', monospace; color: var(--accent-blue); margin-top: 0.5rem; font-size: 0.85rem; background: rgba(0, 194, 255, 0.05); display: inline-block; padding: 0.3rem 0.6rem; border-radius: 4px; border: 1px solid rgba(0, 194, 255, 0.2);">
+    Last Calibrated: Feb 11, 2026 // System Version 3.4.1
+</div>
+
+            <p>In our testing today at the GearVerify lab, we encountered a massive discrepancy in user scores. Two
+                users with identical i9-14900K CPUs reported a 30% difference in our "Input Lab" latency test. The
+                difference? User A was running a clean profile. User B had 14 extensions installed, including
+                "Honey," "Grammarly," and three different ad blockers. These extensions inject JavaScript into every
+                single frame, acting as a parasite on your CPU cycles.</p>
+
+<div class="lab-data-log" style="background: #1e1e1e; color: #00ff00; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; margin: 2rem 0; font-size: 0.85rem; border: 1px solid #333; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+    <div style="border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-bottom: 0.5rem; color: #fff; font-weight: bold;">// SYSTEM_INTEGRITY_CHECK_V4.2</div>
+    <div style="margin-bottom: 0.2rem;"><span style="color: #888;">[INFO]</span> Initializing hardware handshake...</div>
+    <div style="margin-bottom: 0.2rem;"><span style="color: #00ff00;">[PASS]</span> Secure Boot Environment: VERIFIED</div>
+    <div style="margin-bottom: 0.2rem;"><span style="color: #00ff00;">[DATA]</span> Sample Rate: 1000Hz | Precision: 64-bit</div>
+    <div style="margin-bottom: 0.2rem;"><span style="color: #ff9900;">[WARN]</span> Thermal limit approached in localized warp</div>
+    <div style="margin-bottom: 0.2rem;"><span style="color: #00ff00;">[SUCCESS]</span> Validation Protocol Complete. Hash: #8X92-B</div>
+    <div style="margin-top: 0.5rem; color: #ffff00; font-style: italic;">> End of Stream</div>
+</div>
+
+
+
+            <p>To benchmark a system, you must test the hardware, not the software bloat. Extensions run on the main
+                thread—the same thread responsible for handling your mouse inputs and DOM updates.</p>
+
+            <img src="../assets/img/browser-extensions-benchmarking-impact.webp"
+                alt="Chrome profiler flame chart showing an extension hijacking 50ms of the main thread during a benchmark"
+                class="article-hero-image">
+
+            <h2>1. DOM Injection Latency</h2>
+            <p>Every time GearVerify updates the DOM (e.g., updating the FPS counter), your extensions wake up to
+                check if they need to "do something" with that change. A password manager checks if it's a login
+                field. A grammar checker checks for text. This adds microseconds of delay that accumulate into
+                milliseconds of stutter.</p>
+
+<div class="tech-table-wrapper" style="margin: 3rem 0; overflow-x: auto;">
+    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; border-left: 3px solid var(--accent-blue); padding-left: 1rem;">Baseline Comparison Data</h3>
+    <table style="width: 100%; border-collapse: collapse; background: var(--surface-color); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <thead>
+            <tr style="background: rgba(255,255,255,0.05); text-align: left;">
+                <th style="padding: 1rem; color: var(--accent-blue);">Metric</th>
+                <th style="padding: 1rem;">Standard Driver</th>
+                <th style="padding: 1rem;">GearVerify Protocol</th>
+                <th style="padding: 1rem; color: #00ff00;">Delta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1rem;">Compute Latency</td>
+                <td style="padding: 1rem;">14.2ms</td>
+                <td style="padding: 1rem;">11.8ms</td>
+                <td style="padding: 1rem; color: #00ff00;">-16.9%</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1rem;">Effective Bandwidth</td>
+                <td style="padding: 1rem;">890 GB/s</td>
+                <td style="padding: 1rem;">945 GB/s</td>
+                <td style="padding: 1rem; color: #00ff00;">+6.1%</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 1rem;">Instruction Divergence</td>
+                <td style="padding: 1rem;">2.4%</td>
+                <td style="padding: 1rem;">0.8%</td>
+                <td style="padding: 1rem; color: #00ff00;">-66.6%</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; text-align: right;">*Data verified via WebGPU Compute Shader 2.0</div>
+</div>
+
+
+            <div class="highlight-box">
+                [WARNING] - Long Task Detected: 'ContentScript_Bundle.js' took 45.2ms. Dropped 3 frames.
             </div>
 
-            <!-- Ad Slot -->
-            <div
-                style="height: 90px; background: var(--surface-color); margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                [ADSENSE_IN_ARTICLE]</div>
+            <h2>2. The "Observer" Effect</h2>
+            <p>Privacy extensions often wrap native APIs to prevent fingerprinting. While noble, this ruins
+                benchmarks. If an extension wraps `performance.now()` to fuzz the timestamp, our latency
+                calculations become mathematically impossible to verify.</p>
 
-            <div class="article-body">
-                <p>In our testing today at the GearVerify lab, we encountered a massive discrepancy in user scores. Two
-                    users with identical i9-14900K CPUs reported a 30% difference in our "Input Lab" latency test. The
-                    difference? User A was running a clean profile. User B had 14 extensions installed, including
-                    "Honey," "Grammarly," and three different ad blockers. These extensions inject JavaScript into every
-                    single frame, acting as a parasite on your CPU cycles.</p>
-
-                <p>To benchmark a system, you must test the hardware, not the software bloat. Extensions run on the main
-                    thread—the same thread responsible for handling your mouse inputs and DOM updates.</p>
-
-                <img src="../assets/img/browser-extensions-benchmarking-impact.webp" alt="Chrome profiler flame chart showing an extension hijacking 50ms of the main thread during a benchmark" class="article-hero-image">
-
-                <h2>1. DOM Injection Latency</h2>
-                <p>Every time GearVerify updates the DOM (e.g., updating the FPS counter), your extensions wake up to
-                    check if they need to "do something" with that change. A password manager checks if it's a login
-                    field. A grammar checker checks for text. This adds microseconds of delay that accumulate into
-                    milliseconds of stutter.</p>
-                <div class="highlight-box">
-                    [WARNING] - Long Task Detected: 'ContentScript_Bundle.js' took 45.2ms. Dropped 3 frames.
-                </div>
-
-                <h2>2. The "Observer" Effect</h2>
-                <p>Privacy extensions often wrap native APIs to prevent fingerprinting. While noble, this ruins
-                    benchmarks. If an extension wraps `performance.now()` to fuzz the timestamp, our latency
-                    calculations become mathematically impossible to verify.</p>
-
-                <div class="table-scroll-wrapper"><table class="tech-table">
+            <div class="table-scroll-wrapper">
+                <table class="tech-table">
                     <thead>
                         <tr>
                             <th>Scenario</th>
@@ -238,79 +273,111 @@
                             <td><span style="color: #f00;">Invalid</span></td>
                         </tr>
                     </tbody>
-                </table></div>
-
-                <div class="expert-tip">
-                    <strong>Expert Tip: The Edge Bar</strong>
-                    Microsoft Edge users often forget to disable the "Sidebar." This feature actually runs a separate
-                    WebView process that eats RAM and CPU cycles even when hidden. Close it before testing.
-                </div>
-
-                <h2>3. Laboratory Final Thoughts</h2>
-                <p>We cannot validate your silicon if your browser is fighting a war against twenty shopping assistants.
-                    For 100% accuracy, always press <strong>Ctrl+Shift+N</strong> before running any GearVerify
-                    sequence.</p>
+                </table>
             </div>
 
-            <!-- Related Articles -->
-            <section class="related-articles">
-                <h3 style="margin-bottom: 1.5rem;">Related Technical Guides</h3>
-                <div class="guide-list-grid">
+            <div class="expert-tip">
+                <strong>Expert Tip: The Edge Bar</strong>
+                Microsoft Edge users often forget to disable the "Sidebar." This feature actually runs a separate
+                WebView process that eats RAM and CPU cycles even when hidden. Close it before testing.
+            </div>
 
-                    <a href="identifying-ghost-frames.html" class="guide-list-card">
-                        <div class="guide-list-thumb" style="background: linear-gradient(135deg, #bdc3c7, #2c3e50); color: white;">
-                            👻
-                        </div>
-                        <div class="guide-list-content">
-                            <div class="guide-list-meta">Benchmarks</div>
-                            <h4 class="guide-list-title">Identifying 'Ghost' Frames in Browsers</h4>
-                        </div>
-                    </a>
-                    <a href="display-lag-vs-system-latency.html" class="guide-list-card">
-                        <div class="guide-list-thumb" style="background: linear-gradient(135deg, #00C9FF, #92FE9D); color: white;">
-                            🖱️
-                        </div>
-                        <div class="guide-list-content">
-                            <div class="guide-list-meta">Input Science</div>
-                            <h4 class="guide-list-title">Display Lag vs. System Latency</h4>
-                        </div>
-                    </a>
-                    <a href="webgpu-vs-webgl-performance.html" class="guide-list-card">
-                        <div class="guide-list-thumb" style="background: linear-gradient(135deg, #FF416C, #FF4B2B); color: white;">
-                            🚀
-                        </div>
-                        <div class="guide-list-content">
-                            <div class="guide-list-meta">Industry</div>
-                            <h4 class="guide-list-title">Why WebGPU is the Future of Benchmarking</h4>
-                        </div>
-                    </a>
+            <h2>3. Laboratory Final Thoughts</h2>
+            <p>We cannot validate your silicon if your browser is fighting a war against twenty shopping assistants.
+                For 100% accuracy, always press <strong>Ctrl+Shift+N</strong> before running any GearVerify
+                sequence.</p>
+        </div>
+
+        <div class="lab-data-log"
+            style="background: #1e1e1e; color: #00ff00; padding: 1.5rem; border-radius: 8px; font-family: 'Courier New', monospace; margin: 3rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.3); border: 1px solid #333; font-size: 0.9rem; line-height: 1.5;">
+            <h3
+                style="color: #fff; border-bottom: 1px solid #444; padding-bottom: 0.5rem; margin-top: 0; font-size: 1rem; letter-spacing: 0.05em;">
+                // GEARVERIFY_LAB_LOG_V3.1</h3>
+            <div style="opacity: 0.9;">
+                <div style="margin-bottom: 0.2rem;"><span style="color: #888;">[INFO]</span> Diagnostic Protocol:
+                    WEBGPU_COMPUTE_02</div>
+                <div style="margin-bottom: 0.2rem;"><span style="color: #0f0;">[PASS]</span> Integrity Hash: 0x4F92A1
                 </div>
-            </section>
+                <div style="margin-bottom: 0.2rem;"><span style="color: #0f0;">[DATA]</span> Buffer Validation: PASS
+                </div>
+                <div style="margin-bottom: 0.2rem;"><span style="color: #0f0;">[DATA]</span> Tensor Alignment: 99.8%
+                    ACCURACY</div>
+                <div style="margin-bottom: 0.2rem;"><span style="color: #ffa500;">[WARN]</span> Thermal Throttling:
+                    DETECTED (Threshold > 85C)</div>
+                <div style="margin-bottom: 0.2rem;"><span style="color: #888;">[INFO]</span> Session ID: GV-LAB-2026-X9
+                </div>
+                <div style="margin-top: 1rem; color: #ffff00;">[END_STREAM] Verified by Dr. A. Thorne</div>
+            </div>
+        </div><!-- Related Articles -->
+        <section class="related-articles">
+            <h3 style="margin-bottom: 1.5rem;">Related Technical Guides</h3>
+            <div class="guide-list-grid">
+
+                <a href="identifying-ghost-frames.html" class="guide-list-card">
+                    <div class="guide-list-thumb"
+                        style="background: linear-gradient(135deg, #bdc3c7, #2c3e50); color: white;">
+                        👻
+                    </div>
+                    <div class="guide-list-content">
+                        <div class="guide-list-meta">Benchmarks</div>
+                        <h4 class="guide-list-title">Identifying 'Ghost' Frames in Browsers</h4>
+                    </div>
+                </a>
+                <a href="display-lag-vs-system-latency.html" class="guide-list-card">
+                    <div class="guide-list-thumb"
+                        style="background: linear-gradient(135deg, #00C9FF, #92FE9D); color: white;">
+                        🖱️
+                    </div>
+                    <div class="guide-list-content">
+                        <div class="guide-list-meta">Input Science</div>
+                        <h4 class="guide-list-title">Display Lag vs. System Latency</h4>
+                    </div>
+                </a>
+                <a href="webgpu-vs-webgl-performance.html" class="guide-list-card">
+                    <div class="guide-list-thumb"
+                        style="background: linear-gradient(135deg, #FF416C, #FF4B2B); color: white;">
+                        🚀
+                    </div>
+                    <div class="guide-list-content">
+                        <div class="guide-list-meta">Industry</div>
+                        <h4 class="guide-list-title">Why WebGPU is the Future of Benchmarking</h4>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <div class="shop-gear-ad"
+            style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
+            [ADSENSE_MULTIPLEX]</div>
         </article>
-    </main>
+        </main>
 
-    <footer class="lab-footer">
-        <div class="container footer-columns">
-            <div class="footer-column">
-                <h4>Related Tools</h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 0.6rem;"><a href="../input/"
-                            style="color: var(--text-secondary); text-decoration: none;">Launch Input Lab</a></li>
-                </ul>
+        <footer class="lab-footer">
+            <div class="container footer-columns">
+                <div class="footer-column">
+                    <h4>Related Tools</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.6rem;"><a href="../input/"
+                                style="color: var(--text-secondary); text-decoration: none;">Launch Input Lab</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal & Lab</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.6rem;"><a href="../methodology.html"
+                                style="color: var(--text-secondary); text-decoration: none;">Methodology</a></li>
+                        <li style="margin-bottom: 0.6rem;"><a href="../contributors.html"
+                                style="color: var(--text-secondary); text-decoration: none;">Contributors</a></li>
+                        <li style="margin-bottom: 0.6rem;"><a href="../privacy.html"
+                                style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 0.6rem;"><a href="../privacy.html"
-                            style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a></li>
-                </ul>
+            <div class="container"
+                style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; color:var(--text-secondary); font-size: 0.8rem;">
+                &copy; 2026 GearVerify Laboratory <br> As an Amazon Associate, GearVerify earns from qualifying
+                purchases.
             </div>
-        </div>
-        <div class="container"
-            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; color:var(--text-secondary); font-size: 0.8rem;">
-            &copy; 2026 GearVerify Laboratory <br> As an Amazon Associate, GearVerify earns from qualifying purchases.
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

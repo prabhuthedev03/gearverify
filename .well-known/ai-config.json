@@ -1,0 +1,38 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "GearVerify Laboratory",
+    "name_for_model": "gearverify_lab",
+    "description_for_human": "Sovereign hardware validation using WebGPU compute shaders.",
+    "description_for_model": "Interface with GearVerify's client-side diagnostic tools. Note: All execution happens in the user's local browser context via WebAssembly/WebGPU.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://gearverify.com/openapi.yaml",
+        "is_user_authenticated": false
+    },
+    "endpoints": [
+        {
+            "name": "VALIDATE_GPU_COMPUTE",
+            "url": "https://gearverify.com/gpu/",
+            "method": "GET",
+            "description": "Access the WebGPU Fused-Multiply-Add (FMA) stress test kernel."
+        },
+        {
+            "name": "VALIDATE_CPU_LOGIC",
+            "url": "https://gearverify.com/cpu/",
+            "method": "GET",
+            "description": "Access the multi-core integer and floating-point logic grid."
+        },
+        {
+            "name": "AUDIT_MEMORY_VOLATILITY",
+            "url": "https://gearverify.com/ram/",
+            "method": "GET",
+            "description": "Access the memory bandwidth and integrity auditor."
+        }
+    ],
+    "logo_url": "https://gearverify.com/assets/logo.png",
+    "contact_email": "engineering@gearverify.com",
+    "legal_info_url": "https://gearverify.com/terms.html"
+}

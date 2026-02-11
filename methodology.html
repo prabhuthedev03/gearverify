@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Methodology & Latency Calculus | GearVerify</title>
+    <link rel="stylesheet" href="styles/globals.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .paper-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 4rem 1.5rem;
+        }
+
+        .abstract-box {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-left: 4px solid var(--text-primary);
+            margin: 2rem 0;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .formula-box {
+            background: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="text-decoration: none;">
+                <h1 style="font-size: 1.5rem;">GearVerify<span
+                        style="font-weight: 300; color: var(--text-secondary);">_Research</span></h1>
+            </a>
+            <a href="/" style="text-decoration: none; font-size: 0.9rem; color: var(--text-secondary);">← Back to
+                Lab</a>
+        </div>
+    </header>
+
+    <main class="paper-container">
+        <h1 style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 0.5rem;">WebGPU Compute Throughput: A
+            Deterministic Model for Browser-Based Hardware Validation</h1>
+        <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 2rem;">
+            Dr. Aris Thorne, PhD &bull; Department of Systems Architecture &bull; Feb 2026
+        </div>
+
+        <div class="abstract-box">
+            <strong>Abstract:</strong> This paper outlines the methodology used by GearVerify to measure hardware
+            capabilities within a sandboxed browser environment. By utilizing the `timestamp-query` extension in WebGPU,
+            we decouple JavaScript event loop latency from the actual GPU command execution time, allowing for
+            sub-millisecond precision in measuring Floating Point Operations (FLOPS) and memory bandwidth without native
+            OS hooks.
+        </div>
+
+        <h2>1. The Latency Problem</h2>
+        <p>Traditional browser benchmarks rely on `performance.now()`, which measures time on the CPU timeline. This
+            introduces jitter caused by the browser's main thread layout and garbage collection. To solve this,
+            GearVerify measures the <strong>Total System Latency ($L_{total}$)</strong> as a sum of discrete GPU
+            timeline events plus driver overhead.</p>
+
+        <div class="formula-box">
+            $$ L_{total} = \sum_{i=0}^{n} (T_{dispatch} + T_{execution} + T_{readback}) + \epsilon_{driver} $$
+        </div>
+
+        <p>Where:</p>
+        <ul>
+            <li>$T_{dispatch}$: The time to encode commands into the command buffer.</li>
+            <li>$T_{execution}$: The raw silicon execution time measured by GPU timestamp queries.</li>
+            <li>$T_{readback}$: The cost of mapping the `GPUBuffer` back to CPU-readable memory.</li>
+            <li>$\epsilon_{driver}$: The non-deterministic noise introduced by the WDDM (Windows) or Metal (macOS)
+                kernel scheduler.</li>
+        </ul>
+
+        <h2>2. Measuring GPU Throughput (TFLOPS)</h2>
+        <p>To calculate the theoretical maximum throughput, we saturate the ALUs with a fused multiply-add (FMA)
+            workload. The compute shader calculates a $1024 \times 1024$ matrix multiplication. The throughput $P$ is
+            derived as:</p>
+
+        <div class="formula-box">
+            $$ P_{TFLOPS} = \frac{2 \times M \times N \times K}{T_{execution} \times 10^{12}} $$
+        </div>
+
+        <p>This formula accounts for the accumulator (multiply + add = 2 operations). By isolating $T_{execution}$ using
+            hardware timestamps, we eliminate the "Browser Tax" typically associated with WebGL.</p>
+
+        <h2>3. Zero-Server Privacy Protocol</h2>
+        <p>GearVerify executes this math entirely within a local V8 Isolate. The results ($P_{TFLOPS}$) are rendered to
+            the DOM but never transmitted via POST/GET requests. This ensures cryptographic certainty that your hardware
+            fingerprint remains local.</p>
+
+    </main>
+
+    <footer class="lab-footer">
+        <div class="container" style="text-align: center; color: var(--text-secondary); font-size: 0.8rem;">
+            &copy; 2026 GearVerify Laboratory // Methodology Version 3.1
+        </div>
+    </footer>
+</body>
+
+</html>
