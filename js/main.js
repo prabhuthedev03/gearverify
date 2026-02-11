@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initEnvironmentIntel();
     initMicroPulses();
     initHighDensityInteractions();
+    initTestConsole();
 });
 
 /**
@@ -66,6 +67,47 @@ function initHighDensityInteractions() {
             // Optional: Dynamic data logging on hover
             const label = node.querySelector('.micro-label').textContent;
             // console.log(`[H_PROBE] ${label} :: STREAM_ENGAGED`);
+        });
+    });
+}
+
+/**
+ * Test Console Interaction (Visual Only)
+ */
+function initTestConsole() {
+    const startTestBtns = document.querySelectorAll('.start-test-btn');
+    startTestBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const originalText = this.innerText;
+            this.innerText = 'Initializing...';
+            this.style.opacity = '0.8';
+            this.disabled = true;
+            this.style.cursor = 'wait';
+
+            // Simulate initialization sequence
+            setTimeout(() => {
+                this.innerText = 'Analyzing Hardware...';
+
+                // Scroll to terminal if it exists
+                const terminal = document.querySelector('.lab-terminal');
+                if (terminal) {
+                    terminal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Visual pulse on terminal
+                    terminal.style.transition = 'box-shadow 0.3s ease';
+                    terminal.style.boxShadow = '0 0 0 4px rgba(41, 151, 255, 0.3)';
+                    setTimeout(() => {
+                        terminal.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+                    }, 1500);
+                }
+
+                // Reset button state
+                setTimeout(() => {
+                    this.innerText = originalText;
+                    this.disabled = false;
+                    this.style.opacity = '1';
+                    this.style.cursor = 'pointer';
+                }, 2500);
+            }, 800);
         });
     });
 }
