@@ -77,6 +77,10 @@ body {
 .logo-icon {
     width: 28px;
     height: 28px;
+    min-width: 28px;
+    /* Force minimum size */
+    max-width: 28px;
+    /* Prevent expansion */
     color: var(--text-primary);
 }
 
