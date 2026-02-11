@@ -39,7 +39,8 @@
                 "@type": "ServiceChannel",
                 "serviceUrl": "https://gearverify.com/gpu/"
             },
-            "serviceType": "Hardware Validation"
+            "serviceType": "Hardware Validation",
+            "integrityPolicy": "https://gearverify.com/laboratory/methodology.html#coi"
         }
     ]
 }

@@ -516,3 +516,222 @@ body .guide-list-title {
     color: var(--text-primary);
     font-weight: 500;
 }
+
+/* --- Laboratory Aesthetic Extension --- */
+
+/* Metadata Header Box */
+.metadata-box {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    border-left: 3px solid var(--accent-blue);
+}
+
+.metadata-item {
+    display: inline-flex;
+    gap: 0.4rem;
+}
+
+.metadata-label {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Terminal Log Block */
+.lab-terminal {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    margin: 2.5rem 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+    position: relative;
+}
+
+.lab-terminal::before {
+    content: "GEARVERIFY_DIAGNOSTIC_CLI // SUPERUSER_MODE";
+    display: block;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.log-entry {
+    display: block;
+    white-space: pre-wrap;
+    margin-bottom: 0.2rem;
+}
+
+.log-time {
+    color: #666;
+    margin-right: 0.8rem;
+    user-select: none;
+}
+
+.log-info {
+    color: #4fc3f7;
+}
+
+.log-warn {
+    color: #ffca28;
+}
+
+.log-err {
+    color: #ef5350;
+}
+
+.log-pass {
+    color: #66bb6a;
+    font-weight: bold;
+}
+
+.log-cmd {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Technical Specifications Table */
+.tech-spec-wrapper {
+    margin: 3rem 0;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-color);
+}
+
+.tech-spec-header {
+    background: var(--surface-color);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tech-spec-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tech-spec-table th {
+    text-align: left;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tech-spec-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+}
+
+.tech-spec-table tr:last-child td {
+    border-bottom: none;
+}
+
+.spec-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.badge-pass {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+.badge-fail {
+    background: #ffebee;
+    color: #b71c1c;
+}
+
+.badge-warn {
+    background: #fff8e1;
+    color: #f57f17;
+}
+
+.badge-info {
+    background: #e1f5fe;
+    color: #01579b;
+}
+
+@media (max-width: 600px) {
+    .metadata-box {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .tech-spec-table td,
+    .tech-spec-table th {
+        padding: 0.8rem 1rem;
+    }
+}
+
+/* Certificate Style Box for Integrity Disclosure */
+.certificate-box {
+    border: 3px double var(--accent-blue);
+    background: #fdfdfd;
+    padding: 2rem;
+    margin: 3rem 0;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.certificate-box::after {
+    content: "VERIFIED PROTOCOL";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-color);
+    padding: 0 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    letter-spacing: 0.1em;
+}
+
+/* Footer Disclosure Block */
+.footer-disclosure-block {
+    background: rgba(0, 0, 0, 0.02);
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.footer-disclosure-block a {
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-decoration: underline;
+}

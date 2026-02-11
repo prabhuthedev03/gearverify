@@ -102,7 +102,58 @@
         <div class="shop-gear-ad"
             style="height: 250px; background: var(--surface-color); margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
             [ADSENSE_MULTIPLEX]</div>
-        </article>
+        
+
+
+
+
+    
+
+
+<div class="tech-spec-wrapper">
+    <div class="tech-spec-header">
+        <span>Technical Specifications // Generic Gen5 NVMe 2TB</span>
+        <span class="spec-badge badge-info">VERIFIED</span>
+    </div>
+    <table class="tech-spec-table">
+        <thead>
+            <tr>
+                <th>Component / Metric</th>
+                <th>Expected Value</th>
+                <th>Measured Result</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Seq Read Speed</td>
+                <td>14,000 MB/s</td>
+                <td>13,850 MB/s</td>
+                <td><span class="spec-badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Seq Write (Burst)</td>
+                <td>12,000 MB/s</td>
+                <td>12,400 MB/s</td>
+                <td><span class="spec-badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+                <td>Seq Write (Sustained)</td>
+                <td>12,000 MB/s</td>
+                <td>800 MB/s</td>
+                <td><span class="spec-badge badge-fail">FAIL</span></td>
+            </tr>
+            <tr>
+                <td>Peak Temp</td>
+                <td>< 70°C</td>
+                <td>81°C</td>
+                <td><span class="spec-badge badge-fail">FAIL</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</article>
         </main>
 
         <footer class="lab-footer">
@@ -119,8 +170,8 @@
                 <div class="footer-column">
                     <h4>Legal & Lab</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.6rem;"><a href="../methodology.html"
-                                style="color: var(--text-secondary); text-decoration: none;">Methodology</a></li>
+                        <li style="margin-bottom: 0.6rem;"><a href="../laboratory/methodology.html"
+                                style="color: var(--text-secondary); text-decoration: none;">[View Laboratory Protocol v1.2]</a></li>
                         <li style="margin-bottom: 0.6rem;"><a href="../contributors.html"
                                 style="color: var(--text-secondary); text-decoration: none;">Contributors</a></li>
                         <li style="margin-bottom: 0.6rem;"><a href="../privacy.html"
@@ -135,7 +186,14 @@
                 &copy; 2026 GearVerify Laboratory <br> As an Amazon Associate, GearVerify earns from qualifying
                 purchases.
             </div>
-        </footer>
+        
+    <div class="footer-disclosure-block">
+        <div class="container">
+            <p>GearVerify is a participant in the Amazon Associates Program. Technical validations are performed independently of commercial relationships. <a href="https://gearverify.com/laboratory/methodology.html#coi">[Read our Full Integrity Protocol]</a>.</p>
+        </div>
+    </div>
+
+    </footer>
 </body>
 
 </html>
