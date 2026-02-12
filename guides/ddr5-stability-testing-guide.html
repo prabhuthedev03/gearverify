@@ -169,26 +169,23 @@
 </head>
 
 <body>
-    <!-- Nuclear Obsidian Favicon -->
+    <!-- Apple/Tesla Light Header -->
 <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 30 L50 80 L80 30' stroke='%23007AFF' stroke-width='12' fill='none'/></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 30 L50 80 L80 30' stroke='%23007AFF' stroke-width='10' fill='none'/></svg>">
 
 <header class="master-header">
     <div class="header-content">
         <a href="/" class="logo-container">
-            <!-- Glowing Blue V Logo -->
-            <svg class="site-logo" width="36" height="36" viewBox="0 0 100 100" fill="none"
+            <!-- Blue V Logo -->
+            <svg class="site-logo" width="32" height="32" viewBox="0 0 100 100" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 30 L50 80 L80 30" stroke="#007AFF" stroke-width="10" stroke-linecap="round"
+                <path d="M20 30 L50 80 L80 30" stroke="#007AFF" stroke-width="12" stroke-linecap="round"
                     stroke-linejoin="round" />
-                <!-- Glow -->
-                <path d="M20 30 L50 80 L80 30" stroke="rgba(0, 122, 255, 0.6)" stroke-width="20" stroke-linecap="round"
-                    stroke-linejoin="round" filter="blur(10px)" />
             </svg>
             <span class="site-title">GearVerify</span>
         </a>
 
-        <!-- Functional Burger Trigger -->
+        <!-- Burger Trigger -->
         <button class="hamburger-btn" aria-label="Menu" id="menu-trigger">
             <span></span>
             <span></span>
@@ -196,6 +193,278 @@
         </button>
     </div>
 </header>
+
+<!-- Right-Side Slide-Out Menu -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<aside class="sidebar-menu" id="sidebar-menu">
+    <div class="sidebar-header">
+        <span class="sidebar-title">Menu</span>
+        <button class="close-btn" id="menu-close">&times;</button>
+    </div>
+
+    <nav class="sidebar-nav">
+        <!-- 1. Diagnostic Labs -->
+        <div class="nav-section">
+            <button class="nav-label" onclick="toggleSection('labs')">
+                <span>Diagnostic Labs</span>
+                <span class="icon">+</span>
+            </button>
+            <ul class="nav-list" id="labs">
+                <li><a href="/gpu/">GPU Stress Lab</a></li>
+                <li><a href="/cpu/">CPU Core Audit</a></li>
+                <li><a href="/ram/">Memory Integrity</a></li>
+            </ul>
+        </div>
+
+        <!-- 2. Verification Guides -->
+        <div class="nav-section">
+            <button class="nav-label" onclick="toggleSection('guides')">
+                <span>Verification Guides</span>
+                <span class="icon">+</span>
+            </button>
+            <ul class="nav-list" id="guides">
+                <li><a href="/guides/">All Technical Guides</a></li>
+                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
+                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
+                <li><a href="/guides/detecting-spoofed-gpu-bios.html">Detecting Spoofed GPU</a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Transparency -->
+        <div class="nav-section">
+            <button class="nav-label" onclick="toggleSection('transparency')">
+                <span>Transparency</span>
+                <span class="icon">+</span>
+            </button>
+            <ul class="nav-list" id="transparency">
+                <li><a href="/methodology.html">Methodology</a></li>
+                <li><a href="/contributors.html">Contributors</a></li>
+                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
+            </ul>
+        </div>
+
+        <!-- 4. Support -->
+        <div class="nav-section">
+            <button class="nav-label" onclick="toggleSection('support')">
+                <span>Support</span>
+                <span class="icon">+</span>
+            </button>
+            <ul class="nav-list" id="support">
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
+<script>
+    // Explicit global function for inline onclick to ensure reliability
+    window.toggleSection = function (id) {
+        const list = document.getElementById(id);
+        const btn = list.previousElementSibling;
+        const icon = btn.querySelector('.icon');
+
+        if (list.classList.contains('expanded')) {
+            list.classList.remove('expanded');
+            icon.textContent = '+';
+            btn.style.color = '#1D1D1F';
+        } else {
+            list.classList.add('expanded');
+            icon.textContent = '-';
+            btn.style.color = '#007AFF';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuTrigger = document.getElementById('menu-trigger');
+        const menuClose = document.getElementById('menu-close');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function toggleMenu() {
+            const isActive = sidebarMenu.classList.contains('active');
+
+            if (isActive) {
+                sidebarMenu.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                sidebarMenu.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        if (menuTrigger) menuTrigger.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', toggleMenu);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
+    });
+</script>
+
+<style>
+    /* Header Styles */
+    .master-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.85);
+        /* Light Blur */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1rem 2rem;
+    }
+
+    .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #1D1D1F;
+        text-decoration: none;
+    }
+
+    .hamburger-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: #1D1D1F;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* Sidebar Styles */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar-menu {
+        position: fixed;
+        top: 0;
+        right: -340px;
+        width: 340px;
+        height: 100%;
+        background: #FFFFFF;
+        /* Apple White */
+        z-index: 2001;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Apple Ease */
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar-menu.active {
+        right: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .sidebar-title {
+        color: #1D1D1F;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: #86868B;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    /* Tree Menu */
+    .nav-label {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        color: #1D1D1F;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 1rem 0;
+        cursor: pointer;
+        transition: color 0.2s;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-label:hover {
+        color: #007AFF;
+    }
+
+    .nav-list {
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        padding-left: 0.5rem;
+    }
+
+    .nav-list.expanded {
+        max-height: 500px;
+    }
+
+    .nav-list li {
+        margin: 0.8rem 0;
+    }
+
+    .nav-list a {
+        color: #86868B;
+        font-size: 0.95rem;
+        text-decoration: none;
+        display: block;
+        padding: 0.2rem 0;
+    }
+
+    .nav-list a:hover {
+        color: #007AFF;
+    }
+</style>
 
 <!-- Right-Side Slide-Out Menu -->
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
