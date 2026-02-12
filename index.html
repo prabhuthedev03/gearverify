@@ -32,21 +32,25 @@
 
 <body>
 
-    <header class="master-header">
+    <!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+<header class="master-header">
     <div class="header-content">
         <a href="/" class="logo-container">
-            <!-- Minimalist SVG Logo Placeholder -->
+            <!-- New Sleek Minimalist SVG Icon -->
             <svg class="site-logo" width="32" height="32" viewBox="0 0 32 32" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="4" width="24" height="24" stroke="var(--accent-cyan)" stroke-width="2" />
-                <path d="M10 16L14 20L22 12" stroke="var(--accent-cyan)" stroke-width="2" />
+                <circle cx="16" cy="16" r="14" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M10 16.5L14 20.5L22 11.5" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
             </svg>
             <span class="site-title">GearVerify</span>
         </a>
 
-        <!-- Hamburger Menu Container -->
+        <!-- Hamburger Menu Button -->
         <div class="hamburger-container">
-            <button class="hamburger-btn" aria-label="Menu">
+            <button class="hamburger-btn" aria-label="Menu" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -54,15 +58,77 @@
         </div>
     </div>
 </header>
+
+<!-- Slide-in Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar-menu" id="sidebarMenu">
+    <div class="sidebar-header">
+        <span class="sidebar-title">Menu</span>
+        <button class="close-btn" id="menuClose">&times;</button>
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-section">
+            <span class="nav-label">Laboratory Labs</span>
+            <ul class="nav-list">
+                <li><a href="/gpu/">GPU Stress Lab</a></li>
+                <li><a href="/cpu/">CPU Core Audit</a></li>
+                <li><a href="/ram/">Memory Integrity</a></li>
+            </ul>
+        </div>
+        <div class="nav-section">
+            <span class="nav-label">Hardware Guides</span>
+            <ul class="nav-list">
+                <li><a href="/guides/">All Technical Guides</a></li>
+                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
+                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
+            </ul>
+        </div>
+        <div class="nav-section">
+            <span class="nav-label">Resources</span>
+            <ul class="nav-list">
+                <li><a href="/methodology.html">Methodology</a></li>
+                <li><a href="/contributors.html">Contributors</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menuToggle');
+        const menuClose = document.getElementById('menuClose');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleMenu() {
+            const isActive = sidebarMenu.classList.contains('active');
+            if (isActive) {
+                sidebarMenu.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            } else {
+                sidebarMenu.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+        }
+
+        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', toggleMenu);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
+    });
+</script>
+
 <style>
     .master-header {
         position: sticky;
         top: 0;
         z-index: 1000;
         background: var(--glass-bg);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        /* Lighter border for light theme */
         padding: 1rem 2rem;
     }
 
@@ -81,13 +147,14 @@
         font-weight: 700;
         font-size: 1.25rem;
         letter-spacing: -0.02em;
+        color: #1D1D1F;
+        /* Force dark text for logo */
     }
 
     .site-title {
-        background: linear-gradient(90deg, #fff, #ccc);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: #1D1D1F;
     }
 
     .hamburger-btn {
@@ -98,14 +165,114 @@
         flex-direction: column;
         gap: 6px;
         padding: 0.5rem;
+        z-index: 1001;
     }
 
     .hamburger-btn span {
         display: block;
         width: 24px;
         height: 2px;
-        background-color: #fff;
+        background-color: #1D1D1F;
+        /* Dark bars for light theme */
         transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    /* Sidebar Styles */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(4px);
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100%;
+        background: #FFFFFF;
+        z-index: 2001;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .sidebar-menu.active {
+        right: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 1rem;
+    }
+
+    .sidebar-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1D1D1F;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+        color: #86868b;
+    }
+
+    .nav-section {
+        margin-bottom: 2rem;
+    }
+
+    .nav-label {
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #86868b;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+
+    .nav-list {
+        list-style: none;
+    }
+
+    .nav-list li {
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-list a {
+        font-size: 1.05rem;
+        color: #1D1D1F;
+        font-weight: 500;
+        display: block;
+        transition: color 0.2s;
+    }
+
+    .nav-list a:hover {
+        color: #007AFF;
     }
 </style>
 <style>
