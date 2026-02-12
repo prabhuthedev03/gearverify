@@ -20,19 +20,139 @@
       ]
     }
     </script>
+    <link rel="stylesheet" href="/css/theme.css">
 </head>
 
 <body>
-    <header class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="../" style="text-decoration: none;">
-                <h1 style="font-size: 1.5rem;">GearVerify<span
-                        style="font-weight: 300; color: var(--text-secondary);">_Lab</span></h1>
-            </a>
-            <p style="color: var(--text-secondary); letter-spacing: 2px; font-size: 0.7rem; font-weight: 700;">
-                DISPLAY_VALIDATION_V1</p>
+    <header class="master-header">
+    <div class="header-content">
+        <a href="/" class="logo-container">
+            <!-- Minimalist SVG Logo Placeholder -->
+            <svg class="site-logo" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="24" height="24" stroke="var(--accent-cyan)" stroke-width="2" />
+                <path d="M10 16L14 20L22 12" stroke="var(--accent-cyan)" stroke-width="2" />
+            </svg>
+            <span class="site-title">GearVerify</span>
+        </a>
+
+        <!-- Hamburger Menu Container -->
+        <div class="hamburger-container">
+            <button class="hamburger-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
+<style>
+    .master-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+    }
+
+    .site-title {
+        background: linear-gradient(90deg, #fff, #ccc);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hamburger-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 0.5rem;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: #fff;
+        transition: 0.3s;
+    }
+</style>
+<style>
+    .master-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+    }
+
+    .site-title {
+        background: linear-gradient(90deg, #fff, #ccc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hamburger-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 0.5rem;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: #fff;
+        transition: 0.3s;
+    }
+</style>
 
     <main class="container">
         <!-- Featured Ad Slot -->
@@ -209,26 +329,179 @@
     </main>
 
     <!-- E-E-A-T Footer -->
-    <footer class="lab-footer">
-        <div class="container footer-columns">
-            <div class="footer-column">
-                <h4>Validation Methodology</h4>
-                <p>GearVerify Display Lab utilizes high-frequency requestAnimationFrame monitoring to detect signal
-                    transmission rates and browser-compositor synchronization. Color fidelity is assessed via
-                    CSS4-compliant rendering contexts.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Expert Oversight</h4>
-                <p>Monthly peer reviews ensure diagnostic scientific accuracy and E-E-A-T compliance for all testing
-                    modules. Led by Dr. Aris Thorne, PhD.</p>
+    <footer class="master-footer">
+    <div class="footer-content">
+        <!-- Column 1: Mission -->
+        <div class="footer-col">
+            <h3>GearVerify</h3>
+            <p>Browser-based hardware validation. Empowering users with transparent, client-side diagnostics for modern
+                hardware.</p>
+        </div>
+
+        <!-- Column 2: Links -->
+        <div class="footer-col">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+                <li><a href="/methodology.html">Methodology</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/contributors.html">Contributors</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Trust -->
+        <div class="footer-col">
+            <h3>Transparency</h3>
+            <div class="trust-content">
+                <p class="disclosure">Amazon Associate Disclosure: As an Amazon Associate, we earn from qualifying
+                    purchases.</p>
+                <a href="/about.html#conflict" class="conflict-link">Conflict of Interest Policy</a>
             </div>
         </div>
-        <div class="container"
-            style="border-top:1px solid var(--border-color); margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.7rem; color:var(--text-secondary);">
-            &copy; 2026 GearVerify Laboratory // Frontier Hardware Intel // All Data stays Local. <br> As an Amazon
-            Associate, GearVerify earns from qualifying purchases.
-        </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 GearVerify. All rights reserved.</p>
+    </div>
+</footer>
+<style>
+    .master-footer {
+        background: rgba(0, 0, 0, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 4rem 2rem 2rem;
+        margin-top: auto;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .footer-col h3 {
+        color: var(--accent-cyan);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-col p {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        font-size: 0.9rem;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent-cyan);
+    }
+
+    .trust-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .disclosure {
+        font-size: 0.8rem !important;
+        opacity: 0.6;
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+    }
+</style>
+<style>
+    .master-footer {
+        background: rgba(0, 0, 0, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 4rem 2rem 2rem;
+        margin-top: auto;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .footer-col h3 {
+        color: var(--accent-cyan);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-col p {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        font-size: 0.9rem;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent-cyan);
+    }
+
+    .trust-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .disclosure {
+        font-size: 0.8rem !important;
+        opacity: 0.6;
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+    }
+</style>
 
     <script src="display.js"></script>
 </body>
