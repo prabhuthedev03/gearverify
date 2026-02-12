@@ -24,18 +24,25 @@
 </head>
 
 <body>
-    <!-- CDN Favicon -->
-<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5973/5973595.png">
+    <!-- V-Shaped Favicon -->
+<link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 30 L50 80 L80 30' stroke='%23007AFF' stroke-width='12' fill='none' stroke-linecap='round'/></svg>">
 
 <header class="master-header">
     <div class="header-content">
         <a href="/" class="logo-container">
-            <!-- Azure Blue Circle with Checkmark -->
-            <svg class="site-logo" width="32" height="32" viewBox="0 0 32 32" fill="none"
+            <!-- Hexagonal Shield with Glowing V -->
+            <svg class="site-logo" width="40" height="40" viewBox="0 0 100 100" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
-                <circle cx="16" cy="16" r="14" fill="#007AFF" />
-                <path d="M10 16.5L14 20.5L22 11.5" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                <!-- Hexagon Shield -->
+                <path d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z" fill="rgba(0, 122, 255, 0.15)"
+                    stroke="#007AFF" stroke-width="3" />
+                <!-- Glowing V -->
+                <path d="M30 35 L50 75 L70 35" stroke="#007AFF" stroke-width="6" fill="none" stroke-linecap="round"
                     stroke-linejoin="round" />
+                <!-- Glow effect -->
+                <path d="M30 35 L50 75 L70 35" stroke="rgba(0, 122, 255, 0.4)" stroke-width="12" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" filter="blur(8px)" />
             </svg>
             <span class="site-title">GearVerify</span>
         </a>
@@ -48,6 +55,316 @@
         </button>
     </div>
 </header>
+
+<!-- Sidebar Overlay with Blur -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<aside class="sidebar-menu" id="sidebar-menu">
+    <div class="sidebar-header">
+        <span class="sidebar-title">Navigation</span>
+        <button class="close-btn" id="menu-close">&times;</button>
+    </div>
+    <nav class="sidebar-nav">
+        <!-- Hardware Guides -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="guides">
+                <span class="nav-icon">📊</span>
+                <span>Hardware Guides</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="guides">
+                <li><a href="/guides/">All Technical Guides</a></li>
+                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
+                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
+                <li><a href="/guides/gpu-stress-test-explained.html">GPU Stress Testing</a></li>
+                <li><a href="/guides/detecting-spoofed-gpu-bios.html">Detecting Spoofed GPU</a></li>
+            </ul>
+        </div>
+
+        <!-- Laboratory Labs -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="labs">
+                <span class="nav-icon">🔬</span>
+                <span>Laboratory Labs</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="labs">
+                <li><a href="/gpu/">GPU Stress Lab</a></li>
+                <li><a href="/cpu/">CPU Core Audit</a></li>
+                <li><a href="/ram/">Memory Integrity</a></li>
+            </ul>
+        </div>
+
+        <!-- Sovereignty & Legal -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="legal">
+                <span class="nav-icon">⚖️</span>
+                <span>Sovereignty & Legal</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="legal">
+                <li><a href="/methodology.html">Methodology</a></li>
+                <li><a href="/contributors.html">Contributors</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuTrigger = document.getElementById('menu-trigger');
+        const menuClose = document.getElementById('menu-close');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const collapsibles = document.querySelectorAll('.collapsible');
+
+        // Toggle sidebar with background blur
+        function toggleMenu() {
+            sidebarMenu.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            document.body.classList.toggle('sidebar-open');
+            document.body.style.overflow = sidebarMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        if (menuTrigger) menuTrigger.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', toggleMenu);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
+
+        // Collapsible tree menu
+        collapsibles.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = this.querySelector('.toggle-icon');
+
+                if (content.classList.contains('expanded')) {
+                    content.classList.remove('expanded');
+                    icon.textContent = '+';
+                } else {
+                    content.classList.add('expanded');
+                    icon.textContent = '−';
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .master-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(5, 5, 5, 0.9);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-bottom: 1px solid rgba(0, 122, 255, 0.2);
+        padding: 1rem 2rem;
+    }
+
+    .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 800;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    .site-title {
+        color: #FFFFFF;
+    }
+
+    .hamburger-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 0.5rem;
+        z-index: 9999;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: #007AFF;
+        transition: 0.3s;
+        border-radius: 2px;
+        box-shadow: 0 0 8px rgba(0, 122, 255, 0.6);
+    }
+
+    /* Sidebar Overlay with Blur */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Beautiful Sidebar */
+    .sidebar-menu {
+        position: fixed;
+        top: 0;
+        right: -380px;
+        width: 380px;
+        height: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        z-index: 2001;
+        border-left: 1px solid rgba(0, 122, 255, 0.3);
+        box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 2.5rem;
+        overflow-y: auto;
+    }
+
+    .sidebar-menu.active {
+        right: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+        border-bottom: 1px solid rgba(0, 122, 255, 0.2);
+        padding-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        line-height: 1;
+        cursor: pointer;
+        color: #007AFF;
+        transition: 0.3s;
+    }
+
+    .close-btn:hover {
+        color: #FFFFFF;
+        text-shadow: 0 0 20px rgba(0, 122, 255, 0.8);
+    }
+
+    .nav-section {
+        margin-bottom: 2rem;
+    }
+
+    .nav-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        margin-bottom: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 1rem 0;
+        text-align: left;
+        transition: 0.3s;
+    }
+
+    .nav-label:hover {
+        color: #007AFF;
+        text-shadow: 0 0 15px rgba(0, 122, 255, 0.6);
+    }
+
+    .nav-icon {
+        font-size: 1.5rem;
+        margin-right: 0.8rem;
+        filter: drop-shadow(0 0 8px rgba(0, 122, 255, 0.5));
+    }
+
+    .toggle-icon {
+        font-size: 1.4rem;
+        transition: transform 0.3s;
+        font-weight: 400;
+        color: #007AFF;
+    }
+
+    .nav-list {
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .nav-list.expanded {
+        max-height: 1000px;
+    }
+
+    .nav-list li {
+        margin-bottom: 1rem;
+        padding-left: 2.5rem;
+    }
+
+    .nav-list a {
+        font-size: 1rem;
+        color: #A1A1A6;
+        font-weight: 500;
+        display: block;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+    .nav-list a:hover {
+        color: #007AFF;
+        text-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
+        transform: translateX(5px);
+    }
+
+    /* Blur main content when sidebar is open */
+    body.sidebar-open main,
+    body.sidebar-open .hero-section,
+    body.sidebar-open .bento-grid {
+        filter: blur(8px);
+        transition: filter 0.4s;
+    }
+</style>
 
 <!-- Sidebar Menu -->
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
