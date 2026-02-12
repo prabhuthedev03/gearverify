@@ -115,30 +115,26 @@
 </head>
 
 <body>
-        <!-- V-Shaped Favicon -->
+        <!-- Nuclear Obsidian Favicon -->
 <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 30 L50 80 L80 30' stroke='%23007AFF' stroke-width='12' fill='none' stroke-linecap='round'/></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 30 L50 80 L80 30' stroke='%23007AFF' stroke-width='12' fill='none'/></svg>">
 
 <header class="master-header">
     <div class="header-content">
         <a href="/" class="logo-container">
-            <!-- Hexagonal Shield with Glowing V -->
-            <svg class="site-logo" width="40" height="40" viewBox="0 0 100 100" fill="none"
+            <!-- Glowing Blue V Logo -->
+            <svg class="site-logo" width="36" height="36" viewBox="0 0 100 100" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
-                <!-- Hexagon Shield -->
-                <path d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z" fill="rgba(0, 122, 255, 0.15)"
-                    stroke="#007AFF" stroke-width="3" />
-                <!-- Glowing V -->
-                <path d="M30 35 L50 75 L70 35" stroke="#007AFF" stroke-width="6" fill="none" stroke-linecap="round"
+                <path d="M20 30 L50 80 L80 30" stroke="#007AFF" stroke-width="10" stroke-linecap="round"
                     stroke-linejoin="round" />
-                <!-- Glow effect -->
-                <path d="M30 35 L50 75 L70 35" stroke="rgba(0, 122, 255, 0.4)" stroke-width="12" fill="none"
-                    stroke-linecap="round" stroke-linejoin="round" filter="blur(8px)" />
+                <!-- Glow -->
+                <path d="M20 30 L50 80 L80 30" stroke="rgba(0, 122, 255, 0.6)" stroke-width="20" stroke-linecap="round"
+                    stroke-linejoin="round" filter="blur(10px)" />
             </svg>
             <span class="site-title">GearVerify</span>
         </a>
 
-        <!-- Hamburger Menu Trigger -->
+        <!-- Functional Burger Trigger -->
         <button class="hamburger-btn" aria-label="Menu" id="menu-trigger">
             <span></span>
             <span></span>
@@ -146,6 +142,267 @@
         </button>
     </div>
 </header>
+
+<!-- Right-Side Slide-Out Menu -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<aside class="sidebar-menu" id="sidebar-menu">
+    <div class="sidebar-header">
+        <span class="sidebar-title">Menu</span>
+        <button class="close-btn" id="menu-close">&times;</button>
+    </div>
+
+    <nav class="sidebar-nav">
+        <!-- 1. Diagnostic Labs -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="labs">
+                <span>[+] Diagnostic Labs</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="labs">
+                <li><a href="/gpu/">GPU Stress Lab</a></li>
+                <li><a href="/cpu/">CPU Core Audit</a></li>
+                <li><a href="/ram/">Memory Integrity</a></li>
+            </ul>
+        </div>
+
+        <!-- 2. Verification Guides -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="guides">
+                <span>[+] Verification Guides</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="guides">
+                <li><a href="/guides/">All Technical Guides</a></li>
+                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
+                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
+                <li><a href="/guides/detecting-spoofed-gpu-bios.html">Detecting Spoofed GPU</a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Transparency -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="transparency">
+                <span>[+] Transparency</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="transparency">
+                <li><a href="/methodology.html">Methodology</a></li>
+                <li><a href="/contributors.html">Contributors</a></li>
+                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
+            </ul>
+        </div>
+
+        <!-- 4. Support -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="support">
+                <span>[+] Support</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="support">
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuTrigger = document.getElementById('menu-trigger');
+        const menuClose = document.getElementById('menu-close');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const collapsibles = document.querySelectorAll('.collapsible');
+
+        function toggleMenu() {
+            sidebarMenu.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            document.body.style.overflow = sidebarMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        if (menuTrigger) menuTrigger.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', toggleMenu);
+        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
+
+        collapsibles.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const span = this.querySelector('span');
+
+                if (content.classList.contains('expanded')) {
+                    content.classList.remove('expanded');
+                    span.textContent = span.textContent.replace('[-]', '[+]');
+                    this.classList.remove('active');
+                } else {
+                    content.classList.add('expanded');
+                    span.textContent = span.textContent.replace('[+]', '[-]');
+                    this.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    /* Header Styles */
+    .master-header {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        background: rgba(5, 5, 5, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1rem 2rem;
+    }
+
+    .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    .hamburger-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 10001;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 28px;
+        height: 2px;
+        background-color: #007AFF;
+        border-radius: 2px;
+        transition: 0.3s;
+        box-shadow: 0 0 8px rgba(0, 122, 255, 0.5);
+    }
+
+    /* Sidebar Styles */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar-menu {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 320px;
+        height: 100%;
+        background: #0A0A0A;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 10002;
+        transition: right 0.3s ease;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar-menu.active {
+        right: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 1rem;
+    }
+
+    .sidebar-title {
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        color: #007AFF;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    /* Tree Menu */
+    .nav-label {
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        cursor: pointer;
+        transition: color 0.2s;
+        letter-spacing: 0.05em;
+    }
+
+    .nav-label:hover,
+    .nav-label.active {
+        color: #007AFF;
+    }
+
+    .nav-list {
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding-left: 1rem;
+    }
+
+    .nav-list.expanded {
+        max-height: 500px;
+    }
+
+    .nav-list li {
+        margin-bottom: 0.8rem;
+    }
+
+    .nav-list a {
+        color: #FFFFFF;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+    .nav-list a:hover {
+        color: #007AFF;
+        padding-left: 5px;
+    }
+</style>
 
 <!-- Sidebar Overlay with Blur -->
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
