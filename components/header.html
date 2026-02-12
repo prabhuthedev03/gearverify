@@ -1,13 +1,14 @@
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<!-- Inline SVG Favicon -->
+<link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23007AFF'/><path d='M30 50 l15 15 l30-30' stroke='white' stroke-width='10' fill='none'/></svg>">
 
 <header class="master-header">
     <div class="header-content">
         <a href="/" class="logo-container">
-            <!-- New Sleek Minimalist SVG Icon -->
+            <!-- Quartz Logo: Circuit-Circle with Checkmark -->
             <svg class="site-logo" width="32" height="32" viewBox="0 0 32 32" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
-                <circle cx="16" cy="16" r="14" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="16" cy="16" r="14" stroke="#007AFF" stroke-width="2.5" />
                 <path d="M10 16.5L14 20.5L22 11.5" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round"
                     stroke-linejoin="round" />
             </svg>
@@ -15,17 +16,15 @@
         </a>
 
         <!-- Hamburger Menu Button -->
-        <div class="hamburger-container">
-            <button class="hamburger-btn" aria-label="Menu" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+        <button class="hamburger-btn" aria-label="Menu" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
 </header>
 
-<!-- Slide-in Sidebar -->
+<!-- Slide-in Sidebar with Tree Menu -->
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 <aside class="sidebar-menu" id="sidebarMenu">
     <div class="sidebar-header">
@@ -33,27 +32,55 @@
         <button class="close-btn" id="menuClose">&times;</button>
     </div>
     <nav class="sidebar-nav">
+        <!-- Laboratory Labs -->
         <div class="nav-section">
-            <span class="nav-label">Laboratory Labs</span>
-            <ul class="nav-list">
+            <button class="nav-label collapsible" data-target="labs">
+                <span>Laboratory Labs</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="labs">
                 <li><a href="/gpu/">GPU Stress Lab</a></li>
                 <li><a href="/cpu/">CPU Core Audit</a></li>
                 <li><a href="/ram/">Memory Integrity</a></li>
             </ul>
         </div>
+
+        <!-- Hardware Guides -->
         <div class="nav-section">
-            <span class="nav-label">Hardware Guides</span>
-            <ul class="nav-list">
+            <button class="nav-label collapsible" data-target="guides">
+                <span>Hardware Guides</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="guides">
                 <li><a href="/guides/">All Technical Guides</a></li>
                 <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
                 <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
             </ul>
         </div>
+
+        <!-- Resources -->
         <div class="nav-section">
-            <span class="nav-label">Resources</span>
-            <ul class="nav-list">
+            <button class="nav-label collapsible" data-target="resources">
+                <span>Resources</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="resources">
                 <li><a href="/methodology.html">Methodology</a></li>
                 <li><a href="/contributors.html">Contributors</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Legal & Trust -->
+        <div class="nav-section">
+            <button class="nav-label collapsible" data-target="legal">
+                <span>Legal & Trust</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <ul class="nav-list collapsible-content" id="legal">
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
             </ul>
         </div>
     </nav>
@@ -65,19 +92,38 @@
         const menuClose = document.getElementById('menuClose');
         const sidebarMenu = document.getElementById('sidebarMenu');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const collapsibles = document.querySelectorAll('.collapsible');
 
+        // Toggle sidebar
         function toggleMenu() {
             const isActive = sidebarMenu.classList.contains('active');
             if (isActive) {
                 sidebarMenu.classList.remove('active');
                 sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
+                document.body.style.overflow = '';
             } else {
                 sidebarMenu.classList.add('active');
                 sidebarOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                document.body.style.overflow = 'hidden';
             }
         }
+
+        // Collapsible tree menu
+        collapsibles.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = this.querySelector('.toggle-icon');
+
+                if (content.classList.contains('expanded')) {
+                    content.classList.remove('expanded');
+                    icon.textContent = '+';
+                } else {
+                    content.classList.add('expanded');
+                    icon.textContent = '−';
+                }
+            });
+        });
 
         if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
         if (menuClose) menuClose.addEventListener('click', toggleMenu);
@@ -90,11 +136,10 @@
         position: sticky;
         top: 0;
         z-index: 1000;
-        background: var(--glass-bg);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        /* Lighter border for light theme */
+        border-bottom: 1px solid #f0f0f0;
         padding: 1rem 2rem;
     }
 
@@ -114,12 +159,10 @@
         font-size: 1.25rem;
         letter-spacing: -0.02em;
         color: #1D1D1F;
-        /* Force dark text for logo */
+        text-decoration: none;
     }
 
     .site-title {
-        background: none;
-        -webkit-text-fill-color: initial;
         color: #1D1D1F;
     }
 
@@ -139,12 +182,11 @@
         width: 24px;
         height: 2px;
         background-color: #1D1D1F;
-        /* Dark bars for light theme */
         transition: 0.3s;
         border-radius: 2px;
     }
 
-    /* Sidebar Styles */
+    /* Glassmorphic Sidebar */
     .sidebar-overlay {
         position: fixed;
         top: 0;
@@ -170,13 +212,16 @@
         right: -300px;
         width: 300px;
         height: 100%;
-        background: #FFFFFF;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         z-index: 2001;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
         transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
         padding: 2rem;
+        overflow-y: auto;
     }
 
     .sidebar-menu.active {
@@ -188,7 +233,7 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 2rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid #f0f0f0;
         padding-bottom: 1rem;
     }
 
@@ -208,33 +253,59 @@
     }
 
     .nav-section {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     .nav-label {
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
         font-size: 0.75rem;
         text-transform: uppercase;
         color: #86868b;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         font-weight: 600;
         letter-spacing: 0.05em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        text-align: left;
+    }
+
+    .nav-label:hover {
+        color: #007AFF;
+    }
+
+    .toggle-icon {
+        font-size: 1.2rem;
+        transition: transform 0.3s;
     }
 
     .nav-list {
         list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-list.expanded {
+        max-height: 500px;
     }
 
     .nav-list li {
         margin-bottom: 0.8rem;
+        padding-left: 1rem;
     }
 
     .nav-list a {
-        font-size: 1.05rem;
+        font-size: 1rem;
         color: #1D1D1F;
         font-weight: 500;
         display: block;
         transition: color 0.2s;
+        text-decoration: none;
     }
 
     .nav-list a:hover {
