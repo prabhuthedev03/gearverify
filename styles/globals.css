@@ -86,11 +86,15 @@ body {
 
 /* Technical Blueprint Hero */
 .hero-section {
-    padding: 2rem 0 1.5rem;
-    /* Further reduced for mobile */
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    padding: 2rem 1.5rem;
 }
 
 h1 {
@@ -99,8 +103,8 @@ h1 {
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin-bottom: 0.5rem;
-    /* Reduced from 1rem */
     background: linear-gradient(180deg, #1d1d1f 0%, #424245 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -109,32 +113,32 @@ h1 {
     font-size: clamp(1.1rem, 3vw, 1.35rem);
     color: var(--text-secondary);
     font-weight: 400;
-    margin-bottom: 1.5rem;
-    /* Reduced from 3rem */
+    margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Start Express Scan Button */
+/* Start Express Scan Button - Large & High Contrast */
 .hero-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--accent-blue);
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 1rem 2.5rem;
+    background: #007AFF !important;
+    color: white !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1.2rem 3rem;
     border-radius: 999px;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(41, 151, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.35);
 }
 
 .hero-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(41, 151, 255, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 122, 255, 0.45);
+    background: #0066CC !important;
 }
 
 /* Bento Grid */
