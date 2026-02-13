@@ -1,0 +1,57 @@
+/* -------------------------------------------------------------------------- */
+/* Blue Theme & Polish Updates */
+/* -------------------------------------------------------------------------- */
+
+/* Hero Text Gradient (Blue) */
+.hero-section h1 {
+    background: linear-gradient(180deg, #007AFF 0%, #0056B3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    /* Reduced space */
+}
+
+/* Reduced Hero Padding */
+.hero-section {
+    padding-bottom: 1rem !important;
+    min-height: 40vh;
+}
+
+/* Sidebar Beautification */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.sidebar-link:hover {
+    background: rgba(0, 122, 255, 0.05);
+    /* Light Blue Tint */
+    transform: translateX(5px);
+    border-color: rgba(0, 122, 255, 0.1);
+}
+
+.link-icon {
+    font-size: 1.4rem;
+    filter: grayscale(100%);
+    transition: filter 0.2s;
+}
+
+.sidebar-link:hover .link-icon {
+    filter: grayscale(0%);
+}
+
+.link-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}

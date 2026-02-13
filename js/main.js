@@ -107,7 +107,62 @@ function initTestConsole() {
                     this.style.opacity = '1';
                     this.style.cursor = 'pointer';
                 }, 2500);
+
             }, 800);
         });
     });
 }
+
+/**
+ * Global Navigation & Sidebar Logic
+ * Handles Mobile Burger Menu and Collapsible Tree
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const menuTrigger = document.getElementById('menu-trigger');
+    const menuClose = document.getElementById('menu-close');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const collapsibles = document.querySelectorAll('.collapsible');
+
+    // 1. Sidebar Toggle
+    function toggleMenu() {
+        if (!sidebarMenu || !sidebarOverlay) return;
+
+        const isActive = sidebarMenu.classList.contains('active');
+
+        if (isActive) {
+            sidebarMenu.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        } else {
+            sidebarMenu.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    if (menuTrigger) menuTrigger.addEventListener('click', toggleMenu);
+    if (menuClose) menuClose.addEventListener('click', toggleMenu);
+    if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
+
+    // 2. Collapsible Tree Logic
+    if (collapsibles) {
+        collapsibles.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const targetId = this.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = this.querySelector('.toggle-icon');
+
+                if (content && content.classList.contains('expanded')) {
+                    content.classList.remove('expanded');
+                    if (icon) icon.textContent = '+';
+                    this.style.color = 'var(--text-primary)';
+                } else if (content) {
+                    content.classList.add('expanded');
+                    if (icon) icon.textContent = '-';
+                    this.style.color = 'var(--accent-blue)';
+                }
+            });
+        });
+    }
+});

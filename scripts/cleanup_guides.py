@@ -1,62 +1,70 @@
-import os
 import re
+import os
 
-GUIDES_DIR = r"c:\Users\prabh\OneDrive\Documents\GitHub\gearverify\guides"
+guide_files = [
+    "apple-silicon-m-series-validation.html",
+    "browser-extensions-benchmarking-impact.html",
+    "browser-gpu-stress-testing.html",
+    "client-side-vs-server-diagnostics.html",
+    "ddr5-stability-testing-guide.html",
+    "detecting-spoofed-gpu-bios.html",
+    "display-lag-vs-system-latency.html",
+    "gpu-stress-test-explained.html",
+    "gpu-vrm-thermal-soak.html",
+    "hardware-level-privacy-audit.html",
+    "identifying-ghost-frames.html",
+    "latency-metrics-gaming.html",
+    "nvme-gen5-controller-heat.html",
+    "nvme-gen5-throttling.html",
+    "signs-graphics-card-failing.html",
+    "silicon-lottery-webgpu.html",
+    "webgpu-vs-cuda-deep-dive.html",
+    "webgpu-vs-webgl-performance.html"
+]
 
-def cleanup_file(filepath):
-    with open(filepath, 'r', encoding='utf-8') as f:
-        content = f.read()
+guides_dir = r"c:\Users\prabh\OneDrive\Documents\GitHub\gearverify\guides"
+
+# Pattern to match lab-terminal blocks
+lab_terminal_pattern = r'<div class="lab-terminal">.*?</div>\s*\r?\n?'
+
+for guide_file in guide_files:
+    filepath = os.path.join(guides_dir, guide_file)
     
-    filename = os.path.basename(filepath)
-    original_len = len(content)
-    
-    # Debug: print snippet if detecting-spoofed-gpu-bios
-    if filename == "detecting-spoofed-gpu-bios.html":
-        # Look for the debris anchor
-        if "Integrity Hash" in content:
-            print(f"Debug: Found anchor in {filename}")
+    if os.path.exists(filepath):
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Remove lab-terminal blocks
+        original_content = content
+        content = re.sub(lab_terminal_pattern, '', content, flags=re.DOTALL)
+        
+        # Add table borders to tech-table
+        content = re.sub(
+            r'<table class="tech-table">',
+            '<table class="tech-table" style="border: 1px solid rgba(0,0,0,0.1); border-collapse: collapse; width: 100%;">',
+            content
+        )
+        
+        # Add borders to th and td in tech-table
+        content = re.sub(
+            r'<th>',
+            '<th style="border: 1px solid rgba(0,0,0,0.1); padding: 0.75rem; background: var(--surface-color);">',
+            content
+        )
+        
+        content = re.sub(
+            r'<td>',
+            '<td style="border: 1px solid rgba(0,0,0,0.1); padding: 0.75rem;">',
+            content
+        )
+        
+        if content != original_content:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print(f"✅ Updated: {guide_file}")
         else:
-             print(f"Debug: Anchor NOT found in {filename}")
+            print(f"⏭️  No changes: {guide_file}")
+    else:
+        print(f"❌ Not found: {guide_file}")
 
-    # Revised Pattern 1: Debris with more flexible start
-    # The div style might be matched loosely
-    pattern1 = re.compile(
-        r'<div[^>]*>\s*<span[^>]*>\[INFO\]</span> Initializing hardware handshake.*?> End of Stream</div>\s*</div>',
-        re.DOTALL
-    )
-    
-    # Revised Pattern 2: 
-    # The starting div might be: <div style="margin-bottom: 0.2rem;">
-    # And there might be previous siblings?
-    # Let's target the inner content specifically
-    
-    # Block start: <div style="margin-bottom: 0.2rem;"><span style="color: #0f0;">[PASS]</span> Integrity Hash:
-    pattern2 = re.compile(
-        r'(<div[^>]*>\s*<span[^>]*>\[PASS\]</span> Integrity Hash:.*?\[END_STREAM\] Verified by Dr. A. Thorne</div>\s*</div>\s*</div>)',
-        re.DOTALL
-    )
-    
-    match2 = pattern2.search(content)
-    if match2:
-        print(f"Match found in {filename} for Pattern 2")
-        content = content.replace(match2.group(1), "") # clear it
-    
-    # Pattern 1 target
-    match1 = pattern1.search(content)
-    if match1:
-        print(f"Match found in {filename} for Pattern 1")
-        content = content.replace(match1.group(0), "")
-
-    if len(content) < original_len:
-        print(f"Cleaned {filename}")
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(content)
-
-def main():
-    print("Starting cleanup...")
-    for filename in os.listdir(GUIDES_DIR):
-        if filename.endswith(".html") and filename != "index.html":
-            cleanup_file(os.path.join(GUIDES_DIR, filename))
-
-if __name__ == "__main__":
-    main()
+print("\n✅ Lab-terminal elements removed and table borders added!")

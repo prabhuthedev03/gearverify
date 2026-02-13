@@ -4,2101 +4,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Validation Guides | GearVerify</title>
-    <link rel="stylesheet" href="../styles/globals.css">
-    <style>
-        .guide-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto 4rem auto;
-        }
-
-        @media (min-width: 768px) {
-            .guide-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .guide-card {
-            background: var(--bg-color);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: row;
-            /* List view style */
-            align-items: stretch;
-            height: 100%;
-        }
-
-        .guide-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .guide-image {
-            width: 120px;
-            min-width: 120px;
-            background: var(--surface-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 2.5rem;
-        }
-
-        .guide-content {
-            padding: 1.25rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .guide-meta {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
-
-        .guide-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-
-        .guide-excerpt {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 0;
-            display: -webkit-box;
-            line-clamp: 2;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .read-more {
-            display: none;
-            /* Hide read more for cleaner list view */
-        }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://gearverify.com/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Guides",
-        "item": "https://gearverify.com/guides/"
-      }]
-    }
-    </script>
-    <link rel="stylesheet" href="/css/theme.css">
+    <title>GearVerify Laboratory</title>
+    <link rel="stylesheet" href="/styles/globals.css">
 </head>
 
 <body>
-        <!-- Apple/Tesla Light Header -->
-<link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 30 L50 80 L80 30' stroke='%23007AFF' stroke-width='10' fill='none'/></svg>">
+    <!-- Blue Icon Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<header class="master-header">
-    <div class="header-content">
-        <a href="/" class="logo-container">
-            <!-- Blue V Logo -->
-            <svg class="site-logo" width="32" height="32" viewBox="0 0 100 100" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 30 L50 80 L80 30" stroke="#007AFF" stroke-width="12" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-            <span class="site-title">GearVerify</span>
-        </a>
+    <header class="master-header">
+        <div class="header-content">
+            <a href="/" class="logo-container">
+                <img src="/favicon.svg" alt="GearVerify" class="logo-icon" style="width: 42px; height: 42px;">
+                <span class="site-title" style="color: #007AFF;">GearVerify</span>
+            </a>
 
-        <!-- Burger Trigger -->
-        <button class="hamburger-btn" aria-label="Menu" id="menu-trigger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</header>
+            <!-- Desktop Navigation (Apple Style) -->
+            <nav class="desktop-nav">
+                <a href="/guides/">Guides</a>
+                <a href="/about.html">About Us</a>
+                <a href="/contact.html">Contact Us</a>
+            </nav>
 
-<!-- Right-Side Slide-Out Menu -->
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-<aside class="sidebar-menu" id="sidebar-menu">
-    <div class="sidebar-header">
-        <span class="sidebar-title">Menu</span>
-        <button class="close-btn" id="menu-close">&times;</button>
-    </div>
-
-    <nav class="sidebar-nav">
-        <!-- 1. Diagnostic Labs -->
-        <div class="nav-section">
-            <button class="nav-label" onclick="toggleSection('labs')">
-                <span>Diagnostic Labs</span>
-                <span class="icon">+</span>
+            <!-- Mobile Burger Trigger -->
+            <button class="hamburger-btn" aria-label="Menu" id="menu-trigger">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
-            <ul class="nav-list" id="labs">
-                <li><a href="/gpu/">GPU Stress Lab</a></li>
-                <li><a href="/cpu/">CPU Core Audit</a></li>
-                <li><a href="/ram/">Memory Integrity</a></li>
-            </ul>
+        </div>
+    </header>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Menu (Simplified & Beautified) -->
+    <aside class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Menu</span>
+            <button class="close-btn" id="menu-close">&times;</button>
         </div>
 
-        <!-- 2. Verification Guides -->
-        <div class="nav-section">
-            <button class="nav-label" onclick="toggleSection('guides')">
-                <span>Verification Guides</span>
-                <span class="icon">+</span>
-            </button>
-            <ul class="nav-list" id="guides">
-                <li><a href="/guides/">All Technical Guides</a></li>
-                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
-                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
-                <li><a href="/guides/detecting-spoofed-gpu-bios.html">Detecting Spoofed GPU</a></li>
+        <nav class="sidebar-nav">
+            <ul class="nav-list" style="max-height: none; padding-left: 0; padding-top: 1rem;">
+                <li>
+                    <a href="/guides/" class="sidebar-link">
+                        <span class="link-icon">📚</span>
+                        <span class="link-text">Guides</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/about.html" class="sidebar-link">
+                        <span class="link-icon">🏢</span>
+                        <span class="link-text">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/contact.html" class="sidebar-link">
+                        <span class="link-icon">📩</span>
+                        <span class="link-text">Contact Us</span>
+                    </a>
+                </li>
             </ul>
-        </div>
-
-        <!-- 3. Transparency -->
-        <div class="nav-section">
-            <button class="nav-label" onclick="toggleSection('transparency')">
-                <span>Transparency</span>
-                <span class="icon">+</span>
-            </button>
-            <ul class="nav-list" id="transparency">
-                <li><a href="/methodology.html">Methodology</a></li>
-                <li><a href="/contributors.html">Contributors</a></li>
-                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
-            </ul>
-        </div>
-
-        <!-- 4. Support -->
-        <div class="nav-section">
-            <button class="nav-label" onclick="toggleSection('support')">
-                <span>Support</span>
-                <span class="icon">+</span>
-            </button>
-            <ul class="nav-list" id="support">
-                <li><a href="/contact.html">Contact</a></li>
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-            </ul>
-        </div>
-    </nav>
-</aside>
-
-<script>
-    // Explicit global function for inline onclick to ensure reliability
-    window.toggleSection = function (id) {
-        const list = document.getElementById(id);
-        const btn = list.previousElementSibling;
-        const icon = btn.querySelector('.icon');
-
-        if (list.classList.contains('expanded')) {
-            list.classList.remove('expanded');
-            icon.textContent = '+';
-            btn.style.color = '#1D1D1F';
-        } else {
-            list.classList.add('expanded');
-            icon.textContent = '-';
-            btn.style.color = '#007AFF';
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuTrigger = document.getElementById('menu-trigger');
-        const menuClose = document.getElementById('menu-close');
-        const sidebarMenu = document.getElementById('sidebar-menu');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-
-        function toggleMenu() {
-            const isActive = sidebarMenu.classList.contains('active');
-
-            if (isActive) {
-                sidebarMenu.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            } else {
-                sidebarMenu.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        if (menuTrigger) menuTrigger.addEventListener('click', toggleMenu);
-        if (menuClose) menuClose.addEventListener('click', toggleMenu);
-        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
-    });
-</script>
-
-<style>
-    /* Header Styles */
-    .master-header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.85);
-        /* Light Blur */
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        padding: 1rem 2rem;
-    }
-
-    .header-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        font-weight: 600;
-        font-size: 1.25rem;
-        color: #1D1D1F;
-        text-decoration: none;
-    }
-
-    .hamburger-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        padding: 10px;
-    }
-
-    .hamburger-btn span {
-        display: block;
-        width: 22px;
-        height: 2px;
-        background-color: #1D1D1F;
-        border-radius: 2px;
-        transition: 0.3s;
-    }
-
-    /* Sidebar Styles */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(4px);
-        z-index: 2000;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .sidebar-menu {
-        position: fixed;
-        top: 0;
-        right: -340px;
-        width: 340px;
-        height: 100%;
-        background: #FFFFFF;
-        /* Apple White */
-        z-index: 2001;
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        /* Apple Ease */
-        padding: 2.5rem;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .sidebar-menu.active {
-        right: 0;
-    }
-
-    .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2.5rem;
-    }
-
-    .sidebar-title {
-        color: #1D1D1F;
-        font-weight: 700;
-        font-size: 1.5rem;
-    }
-
-    .close-btn {
-        background: none;
-        border: none;
-        color: #86868B;
-        font-size: 2rem;
-        cursor: pointer;
-        line-height: 1;
-    }
-
-    /* Tree Menu */
-    .nav-label {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: none;
-        border: none;
-        color: #1D1D1F;
-        font-size: 1rem;
-        font-weight: 600;
-        padding: 1rem 0;
-        cursor: pointer;
-        transition: color 0.2s;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .nav-label:hover {
-        color: #007AFF;
-    }
-
-    .nav-list {
-        list-style: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        padding-left: 0.5rem;
-    }
-
-    .nav-list.expanded {
-        max-height: 500px;
-    }
-
-    .nav-list li {
-        margin: 0.8rem 0;
-    }
-
-    .nav-list a {
-        color: #86868B;
-        font-size: 0.95rem;
-        text-decoration: none;
-        display: block;
-        padding: 0.2rem 0;
-    }
-
-    .nav-list a:hover {
-        color: #007AFF;
-    }
-</style>
-
-<!-- Right-Side Slide-Out Menu -->
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-<aside class="sidebar-menu" id="sidebar-menu">
-    <div class="sidebar-header">
-        <span class="sidebar-title">Menu</span>
-        <button class="close-btn" id="menu-close">&times;</button>
-    </div>
-
-    <nav class="sidebar-nav">
-        <!-- 1. Diagnostic Labs -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="labs">
-                <span>[+] Diagnostic Labs</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="labs">
-                <li><a href="/gpu/">GPU Stress Lab</a></li>
-                <li><a href="/cpu/">CPU Core Audit</a></li>
-                <li><a href="/ram/">Memory Integrity</a></li>
-            </ul>
-        </div>
-
-        <!-- 2. Verification Guides -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="guides">
-                <span>[+] Verification Guides</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="guides">
-                <li><a href="/guides/">All Technical Guides</a></li>
-                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
-                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
-                <li><a href="/guides/detecting-spoofed-gpu-bios.html">Detecting Spoofed GPU</a></li>
-            </ul>
-        </div>
-
-        <!-- 3. Transparency -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="transparency">
-                <span>[+] Transparency</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="transparency">
-                <li><a href="/methodology.html">Methodology</a></li>
-                <li><a href="/contributors.html">Contributors</a></li>
-                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
-            </ul>
-        </div>
-
-        <!-- 4. Support -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="support">
-                <span>[+] Support</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="support">
-                <li><a href="/contact.html">Contact</a></li>
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-            </ul>
-        </div>
-    </nav>
-</aside>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuTrigger = document.getElementById('menu-trigger');
-        const menuClose = document.getElementById('menu-close');
-        const sidebarMenu = document.getElementById('sidebar-menu');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-        const collapsibles = document.querySelectorAll('.collapsible');
-
-        function toggleMenu() {
-            sidebarMenu.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            document.body.style.overflow = sidebarMenu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        if (menuTrigger) menuTrigger.addEventListener('click', toggleMenu);
-        if (menuClose) menuClose.addEventListener('click', toggleMenu);
-        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
-
-        collapsibles.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const targetId = this.getAttribute('data-target');
-                const content = document.getElementById(targetId);
-                const span = this.querySelector('span');
-
-                if (content.classList.contains('expanded')) {
-                    content.classList.remove('expanded');
-                    span.textContent = span.textContent.replace('[-]', '[+]');
-                    this.classList.remove('active');
-                } else {
-                    content.classList.add('expanded');
-                    span.textContent = span.textContent.replace('[+]', '[-]');
-                    this.classList.add('active');
-                }
-            });
-        });
-    });
-</script>
-
-<style>
-    /* Header Styles */
-    .master-header {
-        position: sticky;
-        top: 0;
-        z-index: 9999;
-        background: rgba(5, 5, 5, 0.8);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 1rem 2rem;
-    }
-
-    .header-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-weight: 700;
-        font-size: 1.25rem;
-        color: #FFFFFF;
-        text-decoration: none;
-    }
-
-    .hamburger-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        z-index: 10001;
-    }
-
-    .hamburger-btn span {
-        display: block;
-        width: 28px;
-        height: 2px;
-        background-color: #007AFF;
-        border-radius: 2px;
-        transition: 0.3s;
-        box-shadow: 0 0 8px rgba(0, 122, 255, 0.5);
-    }
-
-    /* Sidebar Styles */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(5px);
-        z-index: 10000;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .sidebar-menu {
-        position: fixed;
-        top: 0;
-        right: -320px;
-        width: 320px;
-        height: 100%;
-        background: #0A0A0A;
-        border-left: 1px solid rgba(255, 255, 255, 0.08);
-        z-index: 10002;
-        transition: right 0.3s ease;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .sidebar-menu.active {
-        right: 0;
-    }
-
-    .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding-bottom: 1rem;
-    }
-
-    .sidebar-title {
-        color: #fff;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-    }
-
-    .close-btn {
-        background: none;
-        border: none;
-        color: #007AFF;
-        font-size: 2rem;
-        cursor: pointer;
-    }
-
-    /* Tree Menu */
-    .nav-label {
-        width: 100%;
-        text-align: left;
-        background: none;
-        border: none;
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        padding: 1rem 0;
-        cursor: pointer;
-        transition: color 0.2s;
-        letter-spacing: 0.05em;
-    }
-
-    .nav-label:hover,
-    .nav-label.active {
-        color: #007AFF;
-    }
-
-    .nav-list {
-        list-style: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        padding-left: 1rem;
-    }
-
-    .nav-list.expanded {
-        max-height: 500px;
-    }
-
-    .nav-list li {
-        margin-bottom: 0.8rem;
-    }
-
-    .nav-list a {
-        color: #FFFFFF;
-        font-size: 1rem;
-        text-decoration: none;
-        transition: 0.2s;
-    }
-
-    .nav-list a:hover {
-        color: #007AFF;
-        padding-left: 5px;
-    }
-</style>
-
-<!-- Sidebar Overlay with Blur -->
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-<aside class="sidebar-menu" id="sidebar-menu">
-    <div class="sidebar-header">
-        <span class="sidebar-title">Navigation</span>
-        <button class="close-btn" id="menu-close">&times;</button>
-    </div>
-    <nav class="sidebar-nav">
-        <!-- Hardware Guides -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="guides">
-                <span class="nav-icon">📊</span>
-                <span>Hardware Guides</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="guides">
-                <li><a href="/guides/">All Technical Guides</a></li>
-                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
-                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
-                <li><a href="/guides/gpu-stress-test-explained.html">GPU Stress Testing</a></li>
-                <li><a href="/guides/detecting-spoofed-gpu-bios.html">Detecting Spoofed GPU</a></li>
-            </ul>
-        </div>
-
-        <!-- Laboratory Labs -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="labs">
-                <span class="nav-icon">🔬</span>
-                <span>Laboratory Labs</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="labs">
-                <li><a href="/gpu/">GPU Stress Lab</a></li>
-                <li><a href="/cpu/">CPU Core Audit</a></li>
-                <li><a href="/ram/">Memory Integrity</a></li>
-            </ul>
-        </div>
-
-        <!-- Sovereignty & Legal -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="legal">
-                <span class="nav-icon">⚖️</span>
-                <span>Sovereignty & Legal</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="legal">
-                <li><a href="/methodology.html">Methodology</a></li>
-                <li><a href="/contributors.html">Contributors</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
-            </ul>
-        </div>
-    </nav>
-</aside>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuTrigger = document.getElementById('menu-trigger');
-        const menuClose = document.getElementById('menu-close');
-        const sidebarMenu = document.getElementById('sidebar-menu');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-        const collapsibles = document.querySelectorAll('.collapsible');
-
-        // Toggle sidebar with background blur
-        function toggleMenu() {
-            sidebarMenu.classList.toggle('active');
-            sidebarOverlay.classList.toggle('active');
-            document.body.classList.toggle('sidebar-open');
-            document.body.style.overflow = sidebarMenu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        if (menuTrigger) menuTrigger.addEventListener('click', toggleMenu);
-        if (menuClose) menuClose.addEventListener('click', toggleMenu);
-        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
-
-        // Collapsible tree menu
-        collapsibles.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const targetId = this.getAttribute('data-target');
-                const content = document.getElementById(targetId);
-                const icon = this.querySelector('.toggle-icon');
-
-                if (content.classList.contains('expanded')) {
-                    content.classList.remove('expanded');
-                    icon.textContent = '+';
-                } else {
-                    content.classList.add('expanded');
-                    icon.textContent = '−';
-                }
-            });
-        });
-    });
-</script>
-
-<style>
-    .master-header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: rgba(5, 5, 5, 0.9);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        border-bottom: 1px solid rgba(0, 122, 255, 0.2);
-        padding: 1rem 2rem;
-    }
-
-    .header-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-weight: 800;
-        font-size: 1.3rem;
-        letter-spacing: -0.02em;
-        color: #FFFFFF;
-        text-decoration: none;
-    }
-
-    .site-title {
-        color: #FFFFFF;
-    }
-
-    .hamburger-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 0.5rem;
-        z-index: 9999;
-    }
-
-    .hamburger-btn span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #007AFF;
-        transition: 0.3s;
-        border-radius: 2px;
-        box-shadow: 0 0 8px rgba(0, 122, 255, 0.6);
-    }
-
-    /* Sidebar Overlay with Blur */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        z-index: 2000;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s ease;
-    }
-
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Beautiful Sidebar */
-    .sidebar-menu {
-        position: fixed;
-        top: 0;
-        right: -380px;
-        width: 380px;
-        height: 100%;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(40px);
-        -webkit-backdrop-filter: blur(40px);
-        z-index: 2001;
-        border-left: 1px solid rgba(0, 122, 255, 0.3);
-        box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        padding: 2.5rem;
-        overflow-y: auto;
-    }
-
-    .sidebar-menu.active {
-        right: 0;
-    }
-
-    .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 3rem;
-        border-bottom: 1px solid rgba(0, 122, 255, 0.2);
-        padding-bottom: 1.5rem;
-    }
-
-    .sidebar-title {
-        font-size: 1.4rem;
-        font-weight: 800;
-        color: #FFFFFF;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-    }
-
-    .close-btn {
-        background: none;
-        border: none;
-        font-size: 2.5rem;
-        line-height: 1;
-        cursor: pointer;
-        color: #007AFF;
-        transition: 0.3s;
-    }
-
-    .close-btn:hover {
-        color: #FFFFFF;
-        text-shadow: 0 0 20px rgba(0, 122, 255, 0.8);
-    }
-
-    .nav-section {
-        margin-bottom: 2rem;
-    }
-
-    .nav-label {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        font-size: 1rem;
-        text-transform: uppercase;
-        color: #FFFFFF;
-        margin-bottom: 0.8rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 1rem 0;
-        text-align: left;
-        transition: 0.3s;
-    }
-
-    .nav-label:hover {
-        color: #007AFF;
-        text-shadow: 0 0 15px rgba(0, 122, 255, 0.6);
-    }
-
-    .nav-icon {
-        font-size: 1.5rem;
-        margin-right: 0.8rem;
-        filter: drop-shadow(0 0 8px rgba(0, 122, 255, 0.5));
-    }
-
-    .toggle-icon {
-        font-size: 1.4rem;
-        transition: transform 0.3s;
-        font-weight: 400;
-        color: #007AFF;
-    }
-
-    .nav-list {
-        list-style: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-    }
-
-    .nav-list.expanded {
-        max-height: 1000px;
-    }
-
-    .nav-list li {
-        margin-bottom: 1rem;
-        padding-left: 2.5rem;
-    }
-
-    .nav-list a {
-        font-size: 1rem;
-        color: #A1A1A6;
-        font-weight: 500;
-        display: block;
-        transition: all 0.3s;
-        text-decoration: none;
-    }
-
-    .nav-list a:hover {
-        color: #007AFF;
-        text-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
-        transform: translateX(5px);
-    }
-
-    /* Blur main content when sidebar is open */
-    body.sidebar-open main,
-    body.sidebar-open .hero-section,
-    body.sidebar-open .bento-grid {
-        filter: blur(8px);
-        transition: filter 0.4s;
-    }
-</style>
-
-<!-- Sidebar Menu -->
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-<aside class="sidebar-menu" id="sidebar-menu">
-    <div class="sidebar-header">
-        <span class="sidebar-title">Menu</span>
-        <button class="close-btn" id="menu-close">&times;</button>
-    </div>
-    <nav class="sidebar-nav">
-        <!-- Hardware Guides -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="guides">
-                <span>Hardware Guides</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="guides">
-                <li><a href="/guides/">All Technical Guides</a></li>
-                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
-                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
-                <li><a href="/guides/gpu-stress-test-explained.html">GPU Stress Testing</a></li>
-                <li><a href="/guides/detecting-spoofed-gpu-bios.html">Detecting Spoofed GPU</a></li>
-            </ul>
-        </div>
-
-        <!-- Laboratory Labs -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="labs">
-                <span>Laboratory Labs</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="labs">
-                <li><a href="/gpu/">GPU Stress Lab</a></li>
-                <li><a href="/cpu/">CPU Core Audit</a></li>
-                <li><a href="/ram/">Memory Integrity</a></li>
-            </ul>
-        </div>
-
-        <!-- Resources -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="resources">
-                <span>Resources</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="resources">
-                <li><a href="/methodology.html">Methodology</a></li>
-                <li><a href="/contributors.html">Contributors</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Legal -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="legal">
-                <span>Legal</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="legal">
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
-            </ul>
-        </div>
-    </nav>
-</aside>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuTrigger = document.getElementById('menu-trigger');
-        const menuClose = document.getElementById('menu-close');
-        const sidebarMenu = document.getElementById('sidebar-menu');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-        const collapsibles = document.querySelectorAll('.collapsible');
-
-        // Toggle sidebar
-        if (menuTrigger) {
-            menuTrigger.addEventListener('click', function () {
-                sidebarMenu.classList.toggle('active');
-                sidebarOverlay.classList.toggle('active');
-                document.body.style.overflow = sidebarMenu.classList.contains('active') ? 'hidden' : '';
-            });
-        }
-
-        if (menuClose) {
-            menuClose.addEventListener('click', function () {
-                sidebarMenu.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        }
-
-        if (sidebarOverlay) {
-            sidebarOverlay.addEventListener('click', function () {
-                sidebarMenu.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        }
-
-        // Collapsible tree menu
-        collapsibles.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const targetId = this.getAttribute('data-target');
-                const content = document.getElementById(targetId);
-                const icon = this.querySelector('.toggle-icon');
-
-                if (content.classList.contains('expanded')) {
-                    content.classList.remove('expanded');
-                    icon.textContent = '+';
-                } else {
-                    content.classList.add('expanded');
-                    icon.textContent = '−';
-                }
-            });
-        });
-    });
-</script>
-
-<style>
-    .master-header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid #E5E7EB;
-        padding: 1rem 2rem;
-    }
-
-    .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-weight: 700;
-        font-size: 1.25rem;
-        letter-spacing: -0.02em;
-        color: #1D1D1F;
-        text-decoration: none;
-    }
-
-    .site-title {
-        color: #1D1D1F;
-    }
-
-    .hamburger-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 0.5rem;
-        z-index: 9999;
-    }
-
-    .hamburger-btn span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #1D1D1F;
-        transition: 0.3s;
-        border-radius: 2px;
-    }
-
-    /* Sidebar Overlay */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(4px);
-        z-index: 2000;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Sidebar Menu */
-    .sidebar-menu {
-        position: fixed;
-        top: 0;
-        right: -320px;
-        width: 320px;
-        height: 100%;
-        background: #FFFFFF;
-        z-index: 2001;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-        overflow-y: auto;
-    }
-
-    .sidebar-menu.active {
-        right: 0;
-    }
-
-    .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
-        border-bottom: 1px solid #E5E7EB;
-        padding-bottom: 1rem;
-    }
-
-    .sidebar-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #1D1D1F;
-    }
-
-    .close-btn {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        line-height: 1;
-        cursor: pointer;
-        color: #86868b;
-    }
-
-    .nav-section {
-        margin-bottom: 1.5rem;
-    }
-
-    .nav-label {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        color: #007AFF;
-        margin-bottom: 0.5rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.75rem 0;
-        text-align: left;
-    }
-
-    .nav-label:hover {
-        color: #0066CC;
-    }
-
-    .toggle-icon {
-        font-size: 1.2rem;
-        transition: transform 0.3s;
-        font-weight: 400;
-    }
-
-    .nav-list {
-        list-style: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .nav-list.expanded {
-        max-height: 1000px;
-    }
-
-    .nav-list li {
-        margin-bottom: 0.8rem;
-        padding-left: 1rem;
-    }
-
-    .nav-list a {
-        font-size: 0.95rem;
-        color: #1D1D1F;
-        font-weight: 500;
-        display: block;
-        transition: color 0.2s;
-        text-decoration: none;
-    }
-
-    .nav-list a:hover {
-        color: #007AFF;
-    }
-</style>
-
-<!-- Slide-in Sidebar with Tree Menu -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-<aside class="sidebar-menu" id="sidebarMenu">
-    <div class="sidebar-header">
-        <span class="sidebar-title">Menu</span>
-        <button class="close-btn" id="menuClose">&times;</button>
-    </div>
-    <nav class="sidebar-nav">
-        <!-- Laboratory Labs -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="labs">
-                <span>Laboratory Labs</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="labs">
-                <li><a href="/gpu/">GPU Stress Lab</a></li>
-                <li><a href="/cpu/">CPU Core Audit</a></li>
-                <li><a href="/ram/">Memory Integrity</a></li>
-            </ul>
-        </div>
-
-        <!-- Hardware Guides -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="guides">
-                <span>Hardware Guides</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="guides">
-                <li><a href="/guides/">All Technical Guides</a></li>
-                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
-                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
-            </ul>
-        </div>
-
-        <!-- Resources -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="resources">
-                <span>Resources</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="resources">
-                <li><a href="/methodology.html">Methodology</a></li>
-                <li><a href="/contributors.html">Contributors</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Legal & Trust -->
-        <div class="nav-section">
-            <button class="nav-label collapsible" data-target="legal">
-                <span>Legal & Trust</span>
-                <span class="toggle-icon">+</span>
-            </button>
-            <ul class="nav-list collapsible-content" id="legal">
-                <li><a href="/privacy.html">Privacy Policy</a></li>
-                <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="/about.html#conflict">Conflict of Interest</a></li>
-            </ul>
-        </div>
-    </nav>
-</aside>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menuToggle');
-        const menuClose = document.getElementById('menuClose');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-        const collapsibles = document.querySelectorAll('.collapsible');
-
-        // Toggle sidebar
-        function toggleMenu() {
-            const isActive = sidebarMenu.classList.contains('active');
-            if (isActive) {
-                sidebarMenu.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            } else {
-                sidebarMenu.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        // Collapsible tree menu
-        collapsibles.forEach(btn => {
-            btn.addEventListener('click', function () {
-                const targetId = this.getAttribute('data-target');
-                const content = document.getElementById(targetId);
-                const icon = this.querySelector('.toggle-icon');
-
-                if (content.classList.contains('expanded')) {
-                    content.classList.remove('expanded');
-                    icon.textContent = '+';
-                } else {
-                    content.classList.add('expanded');
-                    icon.textContent = '−';
-                }
-            });
-        });
-
-        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
-        if (menuClose) menuClose.addEventListener('click', toggleMenu);
-        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
-    });
-</script>
-
-<style>
-    .master-header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid #f0f0f0;
-        padding: 1rem 2rem;
-    }
-
-    .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-weight: 700;
-        font-size: 1.25rem;
-        letter-spacing: -0.02em;
-        color: #1D1D1F;
-        text-decoration: none;
-    }
-
-    .site-title {
-        color: #1D1D1F;
-    }
-
-    .hamburger-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 0.5rem;
-        z-index: 1001;
-    }
-
-    .hamburger-btn span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #1D1D1F;
-        transition: 0.3s;
-        border-radius: 2px;
-    }
-
-    /* Glassmorphic Sidebar */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(4px);
-        z-index: 2000;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .sidebar-menu {
-        position: fixed;
-        top: 0;
-        right: -300px;
-        width: 300px;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        z-index: 2001;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-        overflow-y: auto;
-    }
-
-    .sidebar-menu.active {
-        right: 0;
-    }
-
-    .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
-        border-bottom: 1px solid #f0f0f0;
-        padding-bottom: 1rem;
-    }
-
-    .sidebar-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #1D1D1F;
-    }
-
-    .close-btn {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        line-height: 1;
-        cursor: pointer;
-        color: #86868b;
-    }
-
-    .nav-section {
-        margin-bottom: 1.5rem;
-    }
-
-    .nav-label {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        color: #86868b;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem 0;
-        text-align: left;
-    }
-
-    .nav-label:hover {
-        color: #007AFF;
-    }
-
-    .toggle-icon {
-        font-size: 1.2rem;
-        transition: transform 0.3s;
-    }
-
-    .nav-list {
-        list-style: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .nav-list.expanded {
-        max-height: 500px;
-    }
-
-    .nav-list li {
-        margin-bottom: 0.8rem;
-        padding-left: 1rem;
-    }
-
-    .nav-list a {
-        font-size: 1rem;
-        color: #1D1D1F;
-        font-weight: 500;
-        display: block;
-        transition: color 0.2s;
-        text-decoration: none;
-    }
-
-    .nav-list a:hover {
-        color: #007AFF;
-    }
-</style>
-
-<!-- Slide-in Sidebar -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-<aside class="sidebar-menu" id="sidebarMenu">
-    <div class="sidebar-header">
-        <span class="sidebar-title">Menu</span>
-        <button class="close-btn" id="menuClose">&times;</button>
-    </div>
-    <nav class="sidebar-nav">
-        <div class="nav-section">
-            <span class="nav-label">Laboratory Labs</span>
-            <ul class="nav-list">
-                <li><a href="/gpu/">GPU Stress Lab</a></li>
-                <li><a href="/cpu/">CPU Core Audit</a></li>
-                <li><a href="/ram/">Memory Integrity</a></li>
-            </ul>
-        </div>
-        <div class="nav-section">
-            <span class="nav-label">Hardware Guides</span>
-            <ul class="nav-list">
-                <li><a href="/guides/">All Technical Guides</a></li>
-                <li><a href="/guides/webgpu-vs-cuda-deep-dive.html">WebGPU vs CUDA</a></li>
-                <li><a href="/guides/silicon-lottery-webgpu.html">Silicon Lottery</a></li>
-            </ul>
-        </div>
-        <div class="nav-section">
-            <span class="nav-label">Resources</span>
-            <ul class="nav-list">
-                <li><a href="/methodology.html">Methodology</a></li>
-                <li><a href="/contributors.html">Contributors</a></li>
-            </ul>
-        </div>
-    </nav>
-</aside>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menuToggle');
-        const menuClose = document.getElementById('menuClose');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-        function toggleMenu() {
-            const isActive = sidebarMenu.classList.contains('active');
-            if (isActive) {
-                sidebarMenu.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
-            } else {
-                sidebarMenu.classList.add('active');
-                sidebarOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            }
-        }
-
-        if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
-        if (menuClose) menuClose.addEventListener('click', toggleMenu);
-        if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleMenu);
-    });
-</script>
-
-<style>
-    .master-header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        /* Lighter border for light theme */
-        padding: 1rem 2rem;
-    }
-
-    .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-weight: 700;
-        font-size: 1.25rem;
-        letter-spacing: -0.02em;
-        color: #1D1D1F;
-        /* Force dark text for logo */
-    }
-
-    .site-title {
-        background: none;
-        -webkit-text-fill-color: initial;
-        color: #1D1D1F;
-    }
-
-    .hamburger-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 0.5rem;
-        z-index: 1001;
-    }
-
-    .hamburger-btn span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #1D1D1F;
-        /* Dark bars for light theme */
-        transition: 0.3s;
-        border-radius: 2px;
-    }
-
-    /* Sidebar Styles */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(4px);
-        z-index: 2000;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .sidebar-menu {
-        position: fixed;
-        top: 0;
-        right: -300px;
-        width: 300px;
-        height: 100%;
-        background: #FFFFFF;
-        z-index: 2001;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-    }
-
-    .sidebar-menu.active {
-        right: 0;
-    }
-
-    .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        padding-bottom: 1rem;
-    }
-
-    .sidebar-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #1D1D1F;
-    }
-
-    .close-btn {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        line-height: 1;
-        cursor: pointer;
-        color: #86868b;
-    }
-
-    .nav-section {
-        margin-bottom: 2rem;
-    }
-
-    .nav-label {
-        display: block;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        color: #86868b;
-        margin-bottom: 1rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
-    }
-
-    .nav-list {
-        list-style: none;
-    }
-
-    .nav-list li {
-        margin-bottom: 0.8rem;
-    }
-
-    .nav-list a {
-        font-size: 1.05rem;
-        color: #1D1D1F;
-        font-weight: 500;
-        display: block;
-        transition: color 0.2s;
-    }
-
-    .nav-list a:hover {
-        color: #007AFF;
-    }
-</style>
-<style>
-    .master-header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: var(--glass-bg);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1rem 2rem;
-    }
-
-    .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-weight: 700;
-        font-size: 1.25rem;
-        letter-spacing: -0.02em;
-    }
-
-    .site-title {
-        background: linear-gradient(90deg, #fff, #ccc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .hamburger-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 0.5rem;
-    }
-
-    .hamburger-btn span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #fff;
-        transition: 0.3s;
-    }
-</style>
-
-    <main class="container">
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span>&gt;</span>
-            <span aria-current="page">Guides</span>
         </nav>
+    </aside>
+    <main class="container">
+        <article class="article-body">
+            <h1 class="guide-title"
+                style="background: linear-gradient(180deg, #007AFF 0%, #0056B3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                GearVerify Laboratory</h1>
 
-        <!-- Featured Ad Slot -->
-        <div class="ad-slot-featured">
-            <span class="ad-label">Featured Verification Partner</span>
-            <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
-                [ADSENSE_LEADERBOARD_728x90]
+
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span>&gt;</span>
+                <span aria-current="page">Guides</span>
+            </nav>
+
+            <!-- Featured Ad Slot -->
+            <div class="ad-slot-featured">
+                <span class="ad-label">Featured Verification Partner</span>
+                <div style="height: 90px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+                    [ADSENSE_LEADERBOARD_728x90]
+                </div>
             </div>
-        </div>
 
-        <section
-            style="margin-bottom: 3rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Laboratory Insights</h2>
-            <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6;">
-                Deep-dive technical analysis on hardware validation, browser-based compute performance, and the future
-                of sovereign silicon diagnostics.
-            </p>
-        </section>
+            <section
+                style="margin-bottom: 3rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Laboratory Insights</h2>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6;">
+                    Deep-dive technical analysis on hardware validation, browser-based compute performance, and the
+                    future
+                    of sovereign silicon diagnostics.
+                </p>
+            </section>
 
-        <div class="guide-grid">
+            <div id="bento-grid" class="bento-grid">
 
-            <!-- Guide 15: Privacy -->
-            <a href="hardware-level-privacy-audit.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #FFD700, #000000); color: white;">
-                    🛡️
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Sovereignty • Feb 2026</div>
-                    <h3 class="guide-title">Hardware-Level Privacy: Why 'Zero-Server-Side' is Future</h3>
-                    <p class="guide-excerpt">Why your benchmark shouldn't be uploading your serial numbers to the cloud.
-                    </p>
-                </div>
-            </a>
+                <a href="hardware-level-privacy-audit.html" class="bento-card" style="background: #F7DD74 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🛡️</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Hardware-Level Privacy: Why 'Zero-Server-Side' is Future</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Why your benchmark shouldn't be uploading your serial numbers to the cloud.
+                    </div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 14: NVMe Heat -->
-            <a href="nvme-gen5-controller-heat.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #ff4b1f, #ff9068); color: white;">
-                    🌡️
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Storage Forensics • Feb 2026</div>
-                    <h3 class="guide-title">NVMe Gen5 Controller Heat-Creep</h3>
-                    <p class="guide-excerpt">Why passive cooling fails under sustained 4K random write workloads.</p>
-                </div>
-            </a>
+                <a href="nvme-gen5-controller-heat.html" class="bento-card" style="background: #FFA37A !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🌡️</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">NVMe Gen5 Controller Heat-Creep</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Why passive cooling fails under sustained 4K random write workloads.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 13: Browser Ext -->
-            <a href="browser-extensions-benchmarking-impact.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #f2994a, #f2c94c); color: white;">
-                    🧩
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Browser Internals • Feb 2026</div>
-                    <h3 class="guide-title">The Impact of Browser Extensions on Benchmarking</h3>
-                    <p class="guide-excerpt">Why you must run diagnostics in 'Incognito' mode for 100% accuracy.</p>
-                </div>
-            </a>
+                <a href="browser-extensions-benchmarking-impact.html" class="bento-card" style="background: #FFD98A !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🧩</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">The Impact of Browser Extensions on Benchmarking</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Why you must run diagnostics in 'Incognito' mode for 100% accuracy.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 12: DDR5 -->
-            <a href="ddr5-stability-testing-guide.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #833ab4, #fd1d1d); color: white;">
-                    🧠
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Memory Science • Feb 2026</div>
-                    <h3 class="guide-title">DDR5 Stability Testing: XMP/EXPO Validation</h3>
-                    <p class="guide-excerpt">Using heavy memory-compute cycles to find errors in factory profiles.</p>
-                </div>
-            </a>
+                <a href="ddr5-stability-testing-guide.html" class="bento-card" style="background: #C09DD6 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🧠</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">DDR5 Stability Testing: XMP/EXPO Validation</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Using heavy memory-compute cycles to find errors in factory profiles.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 11: Ghost Frames -->
-            <a href="identifying-ghost-frames.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #bdc3c7, #2c3e50); color: white;">
-                    👻
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Benchmarks • Feb 2026</div>
-                    <h3 class="guide-title">Identifying 'Ghost' Frames in Browsers</h3>
-                    <p class="guide-excerpt">How browser hardware acceleration can sometimes fake performance metrics.
-                    </p>
-                </div>
-            </a>
+                <a href="identifying-ghost-frames.html" class="bento-card" style="background: #BDE3E5 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">👻</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Identifying 'Ghost' Frames in Browsers</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">How browser hardware acceleration can sometimes fake performance metrics.
+                    </div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 10: WebGPU vs CUDA -->
-            <a href="webgpu-vs-cuda-deep-dive.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: white;">
-                    ⚔️
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Compute APIs • Feb 2026</div>
-                    <h3 class="guide-title">WebGPU vs. CUDA: Deep Technical Dive</h3>
-                    <p class="guide-excerpt">Why browser-based compute is finally ready for professional stress testing.
-                    </p>
-                </div>
-            </a>
+                <a href="webgpu-vs-cuda-deep-dive.html" class="bento-card" style="background: #A8DDBA !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">⚔️</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">WebGPU vs. CUDA: Deep Technical Dive</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Why browser-based compute is finally ready for professional stress testing.
+                    </div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 9: Display Lag -->
-            <a href="display-lag-vs-system-latency.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #00C9FF, #92FE9D); color: white;">
-                    🖱️
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Input Science • Feb 2026</div>
-                    <h3 class="guide-title">Display Lag vs. System Latency</h3>
-                    <p class="guide-excerpt">Isolating monitor response time from CPU/GPU input lag chains.</p>
-                </div>
-            </a>
+                <a href="display-lag-vs-system-latency.html" class="bento-card" style="background: #7FCFE6 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🖱️</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Display Lag vs. System Latency</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Isolating monitor response time from CPU/GPU input lag chains.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 8: VRM Soak -->
-            <a href="gpu-vrm-thermal-soak.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #cb2d3e, #ef473a); color: white;">
-                    🔥
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Power Delivery • Feb 2026</div>
-                    <h3 class="guide-title">VRM Thermal Soak: The Silent Crasher</h3>
-                    <p class="guide-excerpt">Why your GPU crashes after 2 hours even if Core Temp is 70°C.</p>
-                </div>
-            </a>
+                <a href="gpu-vrm-thermal-soak.html" class="bento-card" style="background: #E8817F !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🔥</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">VRM Thermal Soak: The Silent Crasher</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Why your GPU crashes after 2 hours even if Core Temp is 70°C.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 7: Apple Silicon -->
-            <a href="apple-silicon-m-series-validation.html" class="guide-card">
-                <div class="guide-image"
-                    style="background: linear-gradient(135deg, #E0EAFC, #CFDEF3, #8e9eab); color: #333;">
-                    🍎
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Apple Silicon • Feb 2026</div>
-                    <h3 class="guide-title">M-Series Compute Throughput Validation</h3>
-                    <p class="guide-excerpt">Analyzing TBDR architecture performance via WebGPU compute shaders.</p>
-                </div>
-            </a>
+                <a href="apple-silicon-m-series-validation.html" class="bento-card" style="background: #C7C7C7 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🍎</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">M-Series Compute Throughput Validation</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Analyzing TBDR architecture performance via WebGPU compute shaders.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Guide 6: Spoofed BIOS -->
-            <a href="detecting-spoofed-gpu-bios.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #232526, #414345); color: white;">
-                    🕵️‍♀️
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Forensics • Feb 2026</div>
-                    <h3 class="guide-title">Detecting Spoofed GPU BIOS</h3>
-                    <p class="guide-excerpt">Identifying fake 'GTX 1050 Ti' cards using hardware signature analysis.</p>
-                </div>
-            </a>
+                <a href="detecting-spoofed-gpu-bios.html" class="bento-card" style="background: #96A3AD !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🕵️‍♀️</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Detecting Spoofed GPU BIOS</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Identifying fake 'GTX 1050 Ti' cards using hardware signature analysis.
+                    </div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 8 - Latest -->
-            <a href="client-side-vs-server-diagnostics.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #1CB5E0, #000851); color: white;">
-                    🌐
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Network • Feb 2026</div>
-                    <h3 class="guide-title">Client-Side vs Server-Ping Benchmarks</h3>
-                    <p class="guide-excerpt">Why local execution is the only way to measure true hardware performance.
-                    </p>
-                </div>
-            </a>
+                <a href="client-side-vs-server-diagnostics.html" class="bento-card" style="background: #73CFF9 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🌐</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Client-Side vs Server-Ping Benchmarks</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Why local execution is the only way to measure true hardware performance.
+                    </div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 7 -->
-            <a href="latency-metrics-gaming.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #000000, #434343); color: white;">
-                    🎯
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Esports • Feb 2026</div>
-                    <h3 class="guide-title">Interpreting Latency Metrics for Gaming</h3>
-                    <p class="guide-excerpt">Understand the input lag chain from mouse click to photon emission.</p>
-                </div>
-            </a>
+                <a href="latency-metrics-gaming.html" class="bento-card" style="background: #93A1AD !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🎯</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Interpreting Latency Metrics for Gaming</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Understand the input lag chain from mouse click to photon emission.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 6 -->
-            <a href="browser-gpu-stress-testing.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #8E2DE2, #4A00E0); color: white;">
-                    🧪
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Diagnostics • Feb 2026</div>
-                    <h3 class="guide-title">Guide to Browser-Based GPU Stress Testing</h3>
-                    <p class="guide-excerpt">Stress test your GPU safely without installing risky kernel-level software.
-                    </p>
-                </div>
-            </a>
+                <a href="browser-gpu-stress-testing.html" class="bento-card" style="background: #AA91D6 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🧪</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Guide to Browser-Based GPU Stress Testing</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Stress test your GPU safely without installing risky kernel-level software.
+                    </div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 5 -->
-            <a href="silicon-lottery-webgpu.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #FFD700, #FDB931); color: white;">
-                    💎
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Hardware Science • Feb 2026</div>
-                    <h3 class="guide-title">Understanding Silicon Lottery: WebGPU Validation</h3>
-                    <p class="guide-excerpt">Use compute shaders to find your chip's voltage/frequency sweet spot.</p>
-                </div>
-            </a>
+                <a href="silicon-lottery-webgpu.html" class="bento-card" style="background: #FFEC8E !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">💎</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Understanding Silicon Lottery: WebGPU Validation</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Use compute shaders to find your chip's voltage/frequency sweet spot.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 4 -->
-            <a href="nvme-gen5-throttling.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #11998e, #38ef7d); color: white;">
-                    💾
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Storage • Feb 2026</div>
-                    <h3 class="guide-title">How to Detect Thermal Throttling in NVMe Gen5 SSDs</h3>
-                    <p class="guide-excerpt">Identify if your PCIe 5.0 drive is slowing down due to controller
-                        overheating.</p>
-                </div>
-            </a>
+                <a href="nvme-gen5-throttling.html" class="bento-card" style="background: #70C4BC !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">💾</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">How to Detect Thermal Throttling in NVMe Gen5 SSDs</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Identify if your PCIe 5.0 drive is slowing down due to controller
+                        overheating.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 3 -->
-            <a href="signs-graphics-card-failing.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #cb2d3e, #ef473a); color: white;">
-                    ⚠️
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Hardware Health • Feb 2026</div>
-                    <h3 class="guide-title">Top 5 Signs Your Graphics Card is Failing</h3>
-                    <p class="guide-excerpt">Identify artifacts, thermal issues, and VRM failures before your GPU dies
-                        completely.</p>
-                </div>
-            </a>
+                <a href="signs-graphics-card-failing.html" class="bento-card" style="background: #F381A7 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">⚠️</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Top 5 Signs Your Graphics Card is Failing</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Identify artifacts, thermal issues, and VRM failures before your GPU dies
+                        completely.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 1 -->
-            <a href="gpu-stress-test-explained.html" class="guide-card">
-                <div class="guide-image"
-                    style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white;">
-                    ⚡
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Diagnostics • Feb 2026</div>
-                    <h3 class="guide-title">How to Interpret GPU Stress Test Results</h3>
-                    <p class="guide-excerpt">Understanding thermal throttling patterns, artifacting, and stability
-                        metrics in WebGPU environments.</p>
-                </div>
-            </a>
+                <a href="gpu-stress-test-explained.html" class="bento-card" style="background: #93A0D8 !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">⚡</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">How to Interpret GPU Stress Test Results</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Understanding thermal throttling patterns, artifacting, and stability
+                        metrics in WebGPU environments.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-            <!-- Article 2 -->
-            <a href="webgpu-vs-webgl-performance.html" class="guide-card">
-                <div class="guide-image" style="background: linear-gradient(135deg, #FF416C, #FF4B2B); color: white;">
-                    🚀
-                </div>
-                <div class="guide-content">
-                    <div class="guide-meta">Industry • Jan 2026</div>
-                    <h3 class="guide-title">Why WebGPU is the Future of Benchmarking</h3>
-                    <p class="guide-excerpt">Comparing the raw compute throughput of next-gen browser APIs versus legacy
-                        WebGL rasterization.</p>
-                </div>
-            </a>
+                <a href="webgpu-vs-webgl-performance.html" class="bento-card" style="background: #FF8C6B !important; border: none;">
+                    <div class="bento-icon" style="color: rgba(0,0,0,0.8);">🚀</div>
+                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Why WebGPU is the Future of Benchmarking</div>
+                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Comparing the raw compute throughput of next-gen browser APIs versus legacy
+                        WebGL rasterization.</div>
+                    <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Read Guide →</div>
+                </a>
 
-        </div>
+            </div>
 
+
+
+            <!-- E-E-A-T Footer -->
+
+        </article>
     </main>
-
-    <!-- E-E-A-T Footer -->
     <footer class="master-footer">
     <div class="footer-content">
         <!-- Column 1: Mission -->
@@ -2115,7 +263,6 @@
                 <li><a href="/methodology.html">Methodology</a></li>
                 <li><a href="/privacy.html">Privacy Policy</a></li>
                 <li><a href="/terms.html">Terms of Service</a></li>
-                <li><a href="/contact.html">Contact</a></li>
                 <li><a href="/contributors.html">Contributors</a></li>
             </ul>
         </div>
@@ -2124,8 +271,7 @@
         <div class="footer-col">
             <h3>Transparency</h3>
             <div class="trust-content">
-                <p class="disclosure">Amazon Associate Disclosure: As an Amazon Associate, we earn from qualifying
-                    purchases.</p>
+                <p class="disclosure">Support GearVerify via PayPal donations.</p>
                 <a href="/about.html#conflict" class="conflict-link">Conflict of Interest Policy</a>
             </div>
         </div>
@@ -2138,212 +284,8 @@
     // Update copyright year dynamically
     document.getElementById('current-year').textContent = new Date().getFullYear();
 </script>
-<style>
-    .master-footer {
-        background: rgba(0, 0, 0, 0.2);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 4rem 2rem 2rem;
-        margin-top: auto;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-col h3 {
-        color: var(--accent-cyan);
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 1.5rem;
-    }
-
-    .footer-col p {
-        color: rgba(255, 255, 255, 0.7);
-        line-height: 1.6;
-        font-size: 0.9rem;
-    }
-
-    .footer-links {
-        list-style: none;
-    }
-
-    .footer-links li {
-        margin-bottom: 0.75rem;
-    }
-
-    .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-    }
-
-    .footer-links a:hover {
-        color: var(--accent-cyan);
-    }
-
-    .trust-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .disclosure {
-        font-size: 0.8rem !important;
-        opacity: 0.6;
-    }
-
-    .footer-bottom {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        text-align: center;
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 0.8rem;
-    }
-</style><style>
-    .master-footer {
-        background: rgba(0, 0, 0, 0.2);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 4rem 2rem 2rem;
-        margin-top: auto;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-col h3 {
-        color: var(--accent-cyan);
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 1.5rem;
-    }
-
-    .footer-col p {
-        color: rgba(255, 255, 255, 0.7);
-        line-height: 1.6;
-        font-size: 0.9rem;
-    }
-
-    .footer-links {
-        list-style: none;
-    }
-
-    .footer-links li {
-        margin-bottom: 0.75rem;
-    }
-
-    .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-    }
-
-    .footer-links a:hover {
-        color: var(--accent-cyan);
-    }
-
-    .trust-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .disclosure {
-        font-size: 0.8rem !important;
-        opacity: 0.6;
-    }
-
-    .footer-bottom {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        text-align: center;
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 0.8rem;
-    }
-</style>
-<style>
-    .master-footer {
-        background: rgba(0, 0, 0, 0.2);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 4rem 2rem 2rem;
-        margin-top: auto;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    .footer-col h3 {
-        color: var(--accent-cyan);
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 1.5rem;
-    }
-
-    .footer-col p {
-        color: rgba(255, 255, 255, 0.7);
-        line-height: 1.6;
-        font-size: 0.9rem;
-    }
-
-    .footer-links {
-        list-style: none;
-    }
-
-    .footer-links li {
-        margin-bottom: 0.75rem;
-    }
-
-    .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-    }
-
-    .footer-links a:hover {
-        color: var(--accent-cyan);
-    }
-
-    .trust-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .disclosure {
-        font-size: 0.8rem !important;
-        opacity: 0.6;
-    }
-
-    .footer-bottom {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        text-align: center;
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 0.8rem;
-    }
-</style>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
+</body>
