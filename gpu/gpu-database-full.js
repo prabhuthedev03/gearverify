@@ -162,6 +162,7 @@ const COMPREHENSIVE_GPU_DB = {
     "APPLE M1": { vendor: "Apple", vram: "System Shared", release: "Nov 2020", year: 2020, month: 11, vramGB: 16, score: 2900 },
 
     // ========== Apple A-Series (iPhone/iPad) ==========
+    "APPLE GPU (A18 PRO)": { vendor: "Apple", vram: "System Shared", release: "Sep 2024", year: 2024, month: 9, vramGB: 8, score: 3400 },
     "APPLE GPU (A17 PRO)": { vendor: "Apple", vram: "System Shared", release: "Sep 2023", year: 2023, month: 9, vramGB: 8, score: 3100 },
     "APPLE GPU (A16)": { vendor: "Apple", vram: "System Shared", release: "Sep 2022", year: 2022, month: 9, vramGB: 6, score: 2700 },
     "APPLE GPU (A15)": { vendor: "Apple", vram: "System Shared", release: "Sep 2021", year: 2021, month: 9, vramGB: 6, score: 2400 },

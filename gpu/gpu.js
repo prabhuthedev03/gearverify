@@ -98,6 +98,7 @@ const GpuLab = {
         "ADRENO 730": { vendor: "Qualcomm", vram: "System Shared", release: "May 2022", year: 2022, month: 5, vramGB: 8, score: 9234 },
 
         // Apple Silicon
+        "APPLE GPU (A18 PRO)": { vendor: "Apple", vram: "System Shared", release: "Sep 2024", year: 2024, month: 9, vramGB: 8, score: 3400 },
         "APPLE GPU (A17)": { vendor: "Apple", vram: "System Shared", release: "Sep 2023", year: 2023, month: 9, vramGB: 8, score: 3100 },
         "APPLE GPU (A16)": { vendor: "Apple", vram: "System Shared", release: "Sep 2022", year: 2022, month: 9, vramGB: 6, score: 2700 },
         "APPLE M4": { vendor: "Apple", vram: "System Shared", release: "May 2024", year: 2024, month: 5, vramGB: 16, score: 17234 },
