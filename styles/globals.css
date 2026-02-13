@@ -1240,3 +1240,31 @@ textarea::placeholder {
         padding: 2rem 0 1rem 0;
     }
 }
+/* Responsive Hero Images for Guide Articles */
+.article-hero-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem 0;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .article-hero-image {
+        margin: 1.5rem 0;
+        border-radius: 8px;
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .article-hero-image {
+        margin: 1rem 0;
+        border-radius: 6px;
+    }
+}
