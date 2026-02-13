@@ -1,0 +1,82 @@
+# create a simple HTML file with an SVG canvas that we can screenshot to get a PNG
+import http.server
+import socketserver
+
+# Simple script to create favicon.png from SVG
+html_content = """
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: white;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="32" height="32"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Clear with transparency
+        ctx.clearRect(0, 0, 32, 32);
+
+        // Draw shield
+        ctx.beginPath();
+        ctx.moveTo(16, 3);
+        ctx.lineTo(27, 8);
+        ctx.lineTo(27, 16);
+        ctx.lineTo(22, 27);
+        ctx.lineTo(16, 30);
+        ctx.lineTo(10, 27);
+        ctx.lineTo(5, 16);
+        ctx.lineTo(5, 8);
+        ctx.closePath();
+
+        // Fill with semi-transparent blue
+        ctx.fillStyle = 'rgba(0, 122, 255, 0.1)';
+        ctx.fill();
+
+        // Stroke with blue
+        ctx.strokeStyle = 'rgb(0, 122, 255)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw checkmark
+        ctx.beginPath();
+        ctx.moveTo(11, 14);
+        ctx.lineTo(14, 17);
+        ctx.lineTo(21, 11);
+        ctx.strokeStyle = 'rgb(0, 122, 255)';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+
+        // Convert to PNG and download
+        canvas.toBlob(function (blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'favicon.png';
+            a.click();
+        });
+    </script>
+</body>
+
+</html>
+"""
+
+with open('generate_favicon.html', 'w') as f:
+f.write(html_content)
+print('Created generate_favicon.html - Open in browser to download favicon.png')

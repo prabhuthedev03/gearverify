@@ -1,0 +1,29 @@
+{
+    "name": "GearVerify",
+    "short_name": "GearVerify",
+    "description": "Professional hardware validation laboratory for browser-based diagnostics",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007AFF",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/favicon.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        }
+    ],
+    "categories": [
+        "utilities",
+        "productivity"
+    ],
+    "lang": "en-US",
+    "dir": "ltr"
+}
