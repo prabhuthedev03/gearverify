@@ -19,6 +19,7 @@ standard_footer = '''<footer class="master-footer">
                 <li><a href="/privacy.html">Privacy Policy</a></li>
                 <li><a href="/terms.html">Terms of Service</a></li>
                 <li><a href="/contributors.html">Contributors</a></li>
+                <li><a href="/conflict-of-interest.html">Conflict of Interest Policy</a></li>
             </ul>
         </div>
 
@@ -28,7 +29,7 @@ standard_footer = '''<footer class="master-footer">
             <div class="trust-content">
                 <p class="disclosure">Amazon Associate Disclosure: As an Amazon Associate, we earn from qualifying
                     purchases.</p>
-                <a href="/about.html#conflict" class="conflict-link">Conflict of Interest Policy</a>
+                <a href="/conflict-of-interest.html" class="conflict-link">Integrity Policy</a>
             </div>
         </div>
     </div>
@@ -44,6 +45,7 @@ standard_footer = '''<footer class="master-footer">
 # All files to update
 files_to_update = [
     "about.html",
+    "conflict-of-interest.html",
     "contact.html",
     "contributors.html",
     "index.html",
@@ -73,7 +75,6 @@ files_to_update = [
     "guides/webgpu-vs-cuda-deep-dive.html",
     "guides/webgpu-vs-webgl-performance.html",
     "input/index.html",
-    "laboratory/methodology.html",
     "ram/index.html",
     "webcam/index.html"
 ]

@@ -4,22 +4,39 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Strict Monetization Hiding */
+.m-slot {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+}
+
 :root {
     --bg-color: #ffffff;
-    --surface-color: #f5f5f7;
-    --surface-dark: #1d1d1f;
-    --text-primary: #1d1d1f;
-    --text-secondary: #86868b;
-    --accent-blue: #007AFF;
+    /* Pure White Light Theme */
+    --surface-color: #ffffff;
+    --surface-dark: #f8f9fa;
+    --text-primary: #1a1a1a;
+    /* High Contrast Neutral */
+    --text-secondary: #4a4a4a;
+    --accent-blue: #2E5BFF;
+    /* Cobalt Blue */
+    --accent-mint: #00FFC2;
     --accent-cyan: #00d9ff;
-    --accent-gradient: linear-gradient(135deg, #2997ff 0%, #007aff 100%);
-    --brand-gradient: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --border-color: #d2d2d7;
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    --bento-border: 1px solid rgba(0, 0, 0, 0.05);
+    --accent-gradient: linear-gradient(135deg, #2E5BFF 0%, #1A3FB5 100%);
+    --brand-gradient: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --border-color: #E0E0E0;
+    /* 1px solid Gray */
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    --bento-border: 1px solid #E0E0E0;
 }
 
 * {
@@ -29,7 +46,8 @@ html {
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: #ffffff !important;
+    /* Strict Light Theme */
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.5;
@@ -52,7 +70,7 @@ body {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color);
     padding: 1rem 0;
     transition: all 0.3s ease;
 }
@@ -86,99 +104,322 @@ body {
 }
 
 /* Tesla Impact Hero Section */
+/* Unified Laboratory Branding */
 .hero-section {
-    min-height: 60vh;
+    padding: 2.5rem 0 !important;
+    min-height: 25vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
+    background: #ffffff;
 }
 
-h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    margin-bottom: 3rem;
-    background: linear-gradient(180deg, #FFFFFF 0%, #6E6E73 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.guide-title,
+.hero-section h1 {
+    background: linear-gradient(180deg, #2E5BFF 0%, #1A1A1A 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 0.5rem !important;
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    line-height: 1.1 !important;
+    text-align: center;
 }
 
-/* Glassmorphic Pill Button */
-.hero-btn {
-    display: inline-flex;
+/* Home Page Specific Scaling (20% Increase) */
+.home-hero-title {
+    font-size: clamp(3rem, 6vw, 4.8rem) !important;
+}
+
+.hero-subhead {
+    margin-bottom: 2rem !important;
+    color: #4A4A4A !important;
+    font-size: 1.15rem !important;
+    font-weight: 400 !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    line-height: 1.6 !important;
+    text-align: center;
+}
+
+/* High-Gravity Primary CTA */
+#primary-cta {
+    background: #0052FF !important;
+    color: #ffffff !important;
+    border: none;
+    font-weight: 700;
+    padding: 18px 42px;
+    /* Dominant Padding */
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(0, 82, 255, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+#primary-cta:hover {
+    background-color: #0041cc !important;
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 82, 255, 0.3);
+}
+
+/* Credibility Strip */
+.credibility-strip {
+    margin-top: 1.5rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    width: 100%;
+    max-width: 600px;
+}
+
+.credibility-content {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    color: #888;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.credibility-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Strict Monetization Hiding (All Pages) */
+.m-slot,
+.m-wrapper,
+.ad-slot-featured,
+.ad-slot-horizontal,
+.ad-slot-sidebar,
+.shop-gear-ad,
+.ad-label,
+.disclosure,
+.m-banner,
+[id*="google_ads"],
+[class*="ad-slot"],
+.ad-wrapper {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Methodology Section (High-Density) */
+.methodology-section {
+    padding: 1.75rem 0;
+    /* Reduced by 50% from previous 3.5rem */
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background: #ffffff;
+    margin-bottom: 64px;
+    /* Semantic vertical margin for visual rhythm */
+}
+
+.methodology-trust-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    opacity: 0.8;
+}
+
+#methodology-title {
+    text-align: center;
+    font-size: 2rem;
+    /* Compressed */
+    margin-bottom: 2.5rem;
+    color: var(--text-primary);
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
+}
+
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    /* Compressed */
+}
+
+/* Card as Link Wrapper */
+.methodology-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.methodology-card {
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.2s ease;
+    height: 100%;
+}
+
+.methodology-link:hover .methodology-card {
+    background: #fcfcfc;
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+.methodology-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1.25rem;
+    color: var(--accent-blue);
+    display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent !important;
-    color: var(--accent-azure) !important;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 1.2rem 3.5rem;
-    border-radius: 999px;
-    border: 3px solid var(--accent-azure);
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow:
-        0 0 30px rgba(0, 122, 255, 0.4),
-        inset 0 0 20px rgba(0, 122, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
-.hero-btn:hover {
-    transform: scale(1.05);
-    box-shadow:
-        0 0 50px rgba(0, 122, 255, 0.8),
-        inset 0 0 30px rgba(0, 122, 255, 0.2);
-    background: rgba(0, 122, 255, 0.1) !important;
+.methodology-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
 }
 
-/* Bento Grid */
+.methodology-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+    .methodology-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Bento Grid (High-Density) */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 4rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    /* Compressed from 1.5rem */
+    margin: 2.5rem 0;
+    /* Compressed from 4rem */
 }
 
 .bento-card {
-    background: #fff;
+    background: var(--surface-color);
     border: var(--bento-border);
-    border-radius: 24px;
+    border-radius: 12px;
     padding: 2rem;
+    /* Increased for centered looks */
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    /* Center-align content */
+    text-align: center;
     height: 100%;
     text-decoration: none;
     color: inherit;
 }
 
+/* Vibrant Utility Variations - Synchronized with Laboratory Palette */
+.bento-card.gpu {
+    background: #93A0D8 !important;
+    color: white !important;
+}
+
+.bento-card.cpu {
+    background: #E8817F !important;
+    color: white !important;
+}
+
+.bento-card.memory {
+    background: #C09DD6 !important;
+    color: white !important;
+}
+
+.bento-card.display {
+    background: #7FCFE6 !important;
+    color: #1a1a1a !important;
+}
+
+.bento-card.input {
+    background: #F7DD74 !important;
+    color: #1a1a1a !important;
+}
+
+.bento-card.webcam {
+    background: #AA91D6 !important;
+    color: white !important;
+}
+
+/* Invert text/action for vibrant cards */
+.bento-card.gpu .bento-title,
+.bento-card.cpu .bento-title,
+.bento-card.memory .bento-title,
+.bento-card.display .bento-title,
+.bento-card.webcam .bento-title {
+    color: inherit !important;
+}
+
+.bento-card.gpu .bento-desc,
+.bento-card.cpu .bento-desc,
+.bento-card.memory .bento-desc,
+.bento-card.display .bento-desc,
+.bento-card.webcam .bento-desc {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.bento-card.gpu .bento-action,
+.bento-card.cpu .bento-action,
+.bento-card.memory .bento-action,
+.bento-card.display .bento-action,
+.bento-card.webcam .bento-action {
+    color: inherit !important;
+}
+
+/* For dark background cards, ensure sub-elements are white */
+.bento-card.gpu .bento-desc,
+.bento-card.cpu .bento-desc,
+.bento-card.memory .bento-desc,
+.bento-card.webcam .bento-desc {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
 .bento-card:hover {
-    transform: scale(1.02);
-    box-shadow: var(--hover-shadow);
-    border-color: rgba(41, 151, 255, 0.3);
+    transform: translateY(-4px);
+    /* Hover lift */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: #0052FF;
 }
 
 .bento-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--surface-color);
-    border-radius: 12px;
+    width: 64px;
+    /* Scaled Up */
+    height: 64px;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+}
+
+.bento-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .bento-title {
@@ -462,6 +703,30 @@ h1 {
 
 .nav-label:hover {
     color: var(--accent-blue);
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: #94a3b8;
+    /* Slate */
+    margin-left: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.info-icon:hover {
+    color: #0052FF;
+    /* Cobalt */
+}
+
+.info-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .nav-list {
@@ -1240,6 +1505,7 @@ textarea::placeholder {
         padding: 2rem 0 1rem 0;
     }
 }
+
 /* Responsive Hero Images for Guide Articles */
 .article-hero-image {
     width: 100%;
@@ -1267,4 +1533,44 @@ textarea::placeholder {
         margin: 1rem 0;
         border-radius: 6px;
     }
+}
+
+/* Audience Section ("Who Is This For?") */
+.audience-section {
+    padding: 4rem 0;
+    background: #fdfdfd;
+    border-top: 1px solid var(--border-color);
+    margin-top: 64px;
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.audience-item {
+    padding: 1rem;
+}
+
+.audience-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.audience-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.methodology-benefit {
+    display: block;
+    font-weight: 700;
+    color: #0052FF;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
 }

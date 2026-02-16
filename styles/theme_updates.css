@@ -2,20 +2,19 @@
 /* Blue Theme & Polish Updates */
 /* -------------------------------------------------------------------------- */
 
-/* Hero Text Gradient (Blue) */
+/* Hero Text High-Density (Cobalt) */
 .hero-section h1 {
-    background: linear-gradient(180deg, #007AFF 0%, #0056B3 100%);
+    background: linear-gradient(180deg, #2E5BFF 0%, #1A1A1A 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1.5rem;
-    /* Reduced space */
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
 }
 
-/* Reduced Hero Padding */
+/* Compressed Hero Padding */
 .hero-section {
-    padding-bottom: 1rem !important;
-    min-height: 40vh;
+    padding: 2rem 0 !important;
+    min-height: 25vh;
 }
 
 /* Sidebar Beautification */

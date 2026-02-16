@@ -1,18 +1,20 @@
 :root {
-    --bg-apple: #F5F5F7;
-    --text-primary: #1D1D1F;
-    --text-secondary: #86868B;
-    --accent-azure: #007AFF;
+    --bg-apple: #ffffff;
+    /* Unified for Light Theme */
+    --text-primary: #1A1A1A;
+    --text-secondary: #4a4a4a;
+    --accent-azure: #2E5BFF;
+    /* Mapped to Cobalt Blue */
 
     /* Apple Glass/Card Definition */
     --card-bg: #FFFFFF;
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --card-hover-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-    --card-border: 1px solid rgba(0, 0, 0, 0.05);
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --card-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    --card-border: 1px solid #E0E0E0;
     /* Subtle border */
     --glass-blur: blur(20px);
 
-    --font-display: 'SF Pro Display', 'Inter', system-ui, sans-serif;
+    --font-display: 'Inter', system-ui, sans-serif;
 }
 
 * {

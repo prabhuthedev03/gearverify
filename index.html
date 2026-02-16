@@ -33,7 +33,8 @@
 
     <!-- OpenGraph Meta Tags -->
     <meta property="og:title" content="GearVerify | The Browser-Based Hardware Laboratory">
-    <meta property="og:description" content="Zero-install hardware validation. Detect fake BIOS, verify VRAM signatures, and audit silicon integrity directly in your browser.">
+    <meta property="og:description"
+        content="Zero-install hardware validation. Detect fake BIOS, verify VRAM signatures, and audit silicon integrity directly in your browser.">
     <meta property="og:image" content="https://gearverify.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -45,7 +46,8 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="GearVerify | The Browser-Based Hardware Laboratory">
-    <meta name="twitter:description" content="Zero-install hardware validation. Detect fake BIOS, verify VRAM signatures, and audit silicon integrity directly in your browser.">
+    <meta name="twitter:description"
+        content="Zero-install hardware validation. Detect fake BIOS, verify VRAM signatures, and audit silicon integrity directly in your browser.">
     <meta name="twitter:image" content="https://gearverify.com/og-image.png">
     <meta name="twitter:image:alt" content="GearVerify Hardware Validation Laboratory">
 
@@ -99,13 +101,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/about.html" class="sidebar-link">
+                    <a href="/about.html" class="sidebar-link" title="Learn about GearVerify">
                         <span class="link-icon">🏢</span>
                         <span class="link-text">About Us</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/contact.html" class="sidebar-link">
+                    <a href="/contact.html" class="sidebar-link" title="Get in touch with GearVerify">
                         <span class="link-icon">📩</span>
                         <span class="link-text">Contact Us</span>
                     </a>
@@ -118,165 +120,361 @@
         <!-- Hero Section -->
         <!-- Hero Section -->
         <!-- Hero Section -->
-        <section class="hero-section" style="padding-bottom: 0 !important; min-height: 30vh; margin-bottom: 0;">
-            <h1
-                style="background: linear-gradient(180deg, #007AFF 0%, #0056B3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">
-                One Click to Verify<br>Your Hardware.</h1>
-            <p class="hero-subhead" style="margin-bottom: 2rem;">The browser-based lab for instant GPU, CPU, and System
-                integrity validation. No
-                downloads. No installs. Just the truth.</p>
-            <a href="/gpu/" class="hero-btn" style="margin-top: 0.5rem; margin-bottom: 2rem;">Start Express Scan</a>
+        <section class="hero-section">
+            <h1 class="home-hero-title" title="GearVerify Platform">
+                Stop Hardware Scams — Verify Used GPUs in 60 Seconds.</h1>
+            <h2 class="hero-subhead">
+                Detect flashed BIOS, VRAM errors, and hidden defects before you pay. No installs. No risks. Just the
+                truth.</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                <a href="/gpu/" id="primary-cta" class="hero-btn" data-cta="hero_launch_test"
+                    title="Launch Hardware Validation Lab"
+                    style="margin-top: 0; display: inline-flex; align-items: center; gap: 10px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Run Free Hardware Scan (60s)
+                </a>
+
+                <div class="credibility-strip">
+                    <div class="credibility-content">
+                        <div class="credibility-item">
+                            <span>2,400+ Scans Completed</span>
+                        </div>
+                        <div class="credibility-item">
+                            <span>0 Data Stored</span>
+                        </div>
+                        <div class="credibility-item">
+                            <span>100% WebGPU Sandboxed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-wrapper">
+                <div class="m-slot" aria-hidden="true">
+                    <!-- MONEY_GHOST_PLACEMENT_HERO -->
+                </div>
+            </div>
+        </section>
+
+        <section class="methodology-section" aria-labelledby="methodology-title">
+            <div class="container">
+                <h2 id="methodology-title" style="text-align: center; margin-bottom: 2.5rem;">Hardware Diagnostic
+                    Methodology</h2>
+                <div class="methodology-grid">
+                    <a href="https://gearverify.com/methodology" class="methodology-link"
+                        title="Read about WebGPU Isolation">
+                        <article class="methodology-card">
+                            <div class="methodology-trust-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0052FF"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <div class="methodology-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <h3>WebGPU Isolation <span data-tooltip="Isolated Virtual Sandbox"><i class="info-icon"><svg
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="12" y1="16" x2="12" y2="12" />
+                                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                                        </svg></i>
+                                    <div class="tooltip-box">WebGPU creates a hardware-level sandbox, preventing any
+                                        direct access to your local file system.</div>
+                                </span></h3>
+                            <p>Tests run in a sandboxed environment via WebGPU, ensuring 100% isolation from system
+                                files.</p>
+                            <span class="methodology-benefit">Safe: Prevents malware-level system access.</span>
+                        </article>
+                    </a>
+                    <a href="https://gearverify.com/methodology" class="methodology-link"
+                        title="Read about Silicon Signatures">
+                        <article class="methodology-card">
+                            <div class="methodology-trust-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0052FF"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                                    <rect x="9" y="9" width="6" height="6" />
+                                    <line x1="9" y1="1" x2="9" y2="4" />
+                                    <line x1="15" y1="1" x2="15" y2="4" />
+                                </svg>
+                            </div>
+                            <div class="methodology-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                                    <rect x="9" y="9" width="6" height="6" />
+                                    <line x1="9" y1="1" x2="9" y2="4" />
+                                    <line x1="15" y1="1" x2="15" y2="4" />
+                                    <line x1="9" y1="20" x2="9" y2="23" />
+                                    <line x1="15" y1="20" x2="15" y2="23" />
+                                    <line x1="20" y1="9" x2="23" y2="9" />
+                                    <line x1="20" y1="14" x2="23" y2="14" />
+                                    <line x1="1" y1="9" x2="4" y2="9" />
+                                    <line x1="1" y1="14" x2="4" y2="14" />
+                                </svg>
+                            </div>
+                            <h3>Silicon Signature Check <span data-tooltip="Hardware ID Audit"><i class="info-icon"><svg
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="12" y1="16" x2="12" y2="12" />
+                                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                                        </svg></i>
+                                    <div class="tooltip-box">We verify the physical silicon stepping against
+                                        manufacturer databases to detect flashed BIOS.</div>
+                                </span></h3>
+                            <p>The lab reads hardware-level Silicon IDs to detect fake BIOS flashes instantly.</p>
+                            <span class="methodology-benefit">Anti-Fraud: Cross-checks hardware IDs against manufacturer
+                                databases.</span>
+                        </article>
+                    </a>
+                    <a href="https://gearverify.com/methodology" class="methodology-link"
+                        title="Read about Client-Side Privacy">
+                        <article class="methodology-card">
+                            <div class="methodology-trust-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0052FF"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </div>
+                            <div class="methodology-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </div>
+                            <h3>Client-Side Privacy <span data-tooltip="Zero Server Log"><i class="info-icon"><svg
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="12" y1="16" x2="12" y2="12" />
+                                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                                        </svg></i>
+                                    <div class="tooltip-box">All diagnostic math happens in your RAM. Sensitive hardware
+                                        serials never leave your local browser.</div>
+                                </span></h3>
+                            <p>Diagnostics are processed locally. No hardware serials ever leave your device.</p>
+                            <span class="methodology-benefit">Private: All math happens in your RAM; nothing is
+                                uploaded.</span>
+                        </article>
+                    </a>
+                </div>
+            </div>
         </section>
         <!-- Bento Grid Services -->
-        <div id="bento-grid" class="bento-grid">
-            <!-- GPU Card -->
-            <a href="gpu/" class="bento-card" style="background: #7BA5DD !important; border: none;">
-                <div class="bento-icon" style="color: rgba(0,0,0,0.8);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="2" width="20" height="20" rx="3" />
-                        <path d="M12 2v20" />
-                        <path d="M2 12h20" />
-                        <circle cx="7" cy="7" r="1.5" />
-                        <circle cx="17" cy="17" r="1.5" />
-                    </svg>
+        <section class="utility-section">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2.5rem; color: #1a1a1a;">Comprehensive
+                    Hardware Diagnostics</h2>
+                <!-- Restored 6-Card Bento Grid -->
+                <div id="bento-grid" class="bento-grid" style="margin: 1rem 0;">
+                    <!-- GPU Card (Blue) -->
+                    <a href="gpu/" class="bento-card gpu">
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="5" width="20" height="14" rx="2" />
+                                <circle cx="7" cy="12" r="3" />
+                                <circle cx="12" cy="12" r="3" />
+                                <circle cx="17" cy="12" r="3" />
+                                <path d="M2 9h20M2 15h20" />
+                            </svg>
+                        </div>
+                        <div class="bento-title">GPU Stress Lab</div>
+                        <div class="bento-desc">VRAM parity, memory clock, and architecture verification.</div>
+                        <div class="bento-action">Run Test &rarr;</div>
+                    </a>
+
+                    <!-- CPU Card (Red) -->
+                    <a href="cpu/" class="bento-card cpu">
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                                <rect x="9" y="9" width="6" height="6" />
+                                <line x1="9" y1="1" x2="9" y2="4" />
+                                <line x1="15" y1="1" x2="15" y2="4" />
+                                <line x1="9" y1="20" x2="9" y2="23" />
+                                <line x1="15" y1="20" x2="15" y2="23" />
+                                <line x1="20" y1="9" x2="23" y2="9" />
+                                <line x1="20" y1="14" x2="23" y2="14" />
+                                <line x1="1" y1="9" x2="4" y2="9" />
+                                <line x1="1" y1="14" x2="4" y2="14" />
+                            </svg>
+                        </div>
+                        <div class="bento-title">CPU Core Audit</div>
+                        <div class="bento-desc">Microcode leak detection and instruction set stability checks.</div>
+                        <div class="bento-action">Run Test &rarr;</div>
+                    </a>
+
+                    <!-- Memory Card (Green) -->
+                    <a href="ram/" class="bento-card memory">
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="10" rx="1" />
+                                <path d="M6 17v2M10 17v2M14 17v2M18 17v2" />
+                                <rect x="5" y="9" width="3" height="4" />
+                                <rect x="10" y="9" width="3" height="4" />
+                                <rect x="15" y="9" width="3" height="4" />
+                            </svg>
+                        </div>
+                        <div class="bento-title">Memory Integrity</div>
+                        <div class="bento-desc">DMA boundary testing and bit-flip parity analysis.</div>
+                        <div class="bento-action">Run Test &rarr;</div>
+                    </a>
+
+                    <!-- Display Card (Pink) -->
+                    <a href="display/" class="bento-card display">
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="13" rx="2" />
+                                <path d="M12 16v4" />
+                                <line x1="8" y1="20" x2="16" y2="20" />
+                            </svg>
+                        </div>
+                        <div class="bento-title">Display Analysis</div>
+                        <div class="bento-desc">Dead pixel mapping and backlight bleed identification.</div>
+                        <div class="bento-action">Run Test &rarr;</div>
+                    </a>
+
+                    <!-- Input Card (Yellow) -->
+                    <a href="input/" class="bento-card input">
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="7" />
+                                <path d="M12 2v10M5 10h14" />
+                                <path d="M19 5l3-3M19 19l3 3M5 5L2 2M5 19l-3 3" />
+                            </svg>
+                        </div>
+                        <div class="bento-title">Input Latency</div>
+                        <div class="bento-desc">Polling rate verification and switch bounce detection.</div>
+                        <div class="bento-action">Run Test &rarr;</div>
+                    </a>
+
+                    <!-- WebCam Card (Purple) -->
+                    <a href="webcam/" class="bento-card webcam">
+                        <div class="bento-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="10" r="8" />
+                                <circle cx="12" cy="10" r="3" />
+                                <path d="M7 22h10" />
+                                <path d="M12 18v4" />
+                            </svg>
+                        </div>
+                        <div class="bento-title">WebCam Optical</div>
+                        <div class="bento-desc">Sensor noise floor and lens focal consistency.</div>
+                        <div class="bento-action">Run Test &rarr;</div>
+                    </a>
                 </div>
-                <div class="bento-title" style="color: rgba(0,0,0,0.9);">GPU Stress Lab</div>
-                <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Silicon-level compute validation, VRAM integrity
-                    check, and WebGPU stress
-                    testing.</div>
-                <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Run Test &rarr;</div>
-            </a>
-            <!-- CPU Card -->
-            <a href="cpu/" class="bento-card" style="background: #E8817F !important; border: none;">
-                <div class="bento-icon" style="color: rgba(0,0,0,0.8);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="4" y="4" width="16" height="16" rx="2" />
-                        <path d="M9 9h6v6H9z" />
-                        <path d="M9 1V4" />
-                        <path d="M15 1V4" />
-                        <path d="M9 20V23" />
-                        <path d="M15 20V23" />
-                        <path d="M20 9H23" />
-                        <path d="M20 14H23" />
-                        <path d="M1 9H4" />
-                        <path d="M1 14H4" />
-                    </svg>
-                </div>
-                <div class="bento-title" style="color: rgba(0,0,0,0.9);">CPU Core Audit</div>
-                <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Multi-core logic stress, floating-point
-                    arithmetic, and thermal throttling
-                    detection.</div>
-                <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Run Test &rarr;</div>
-            </a>
-            <!-- RAM Card -->
-            <a href="ram/" class="bento-card" style="background: #83DAB8 !important; border: none;">
-                <div class="bento-icon" style="color: rgba(0,0,0,0.8);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M2 12h20" />
-                        <path d="M2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6" />
-                        <path d="M5 15v3" />
-                        <path d="M19 15v3" />
-                        <path d="M12 15v3" />
-                    </svg>
-                </div>
-                <div class="bento-title" style="color: rgba(0,0,0,0.9);">Memory Integrity</div>
-                <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Volatile memory bandwidth analysis, pressure
-                    testing, and error detection.</div>
-                <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Run Test &rarr;</div>
-            </a>
-            <!-- Display Card -->
-            <a href="display/" class="bento-card" style="background: #EB95C6 !important; border: none;">
-                <div class="bento-icon" style="color: rgba(0,0,0,0.8);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="3" width="20" height="14" rx="2" />
-                        <path d="M8 21h8" />
-                        <path d="M12 17v4" />
-                    </svg>
-                </div>
-                <div class="bento-title" style="color: rgba(0,0,0,0.9);">Display Analysis</div>
-                <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Dead pixel search, refresh rate validation, and
-                    color accuracy tests.</div>
-                <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Run Test &rarr;</div>
-            </a>
-            <!-- Input Card -->
-            <a href="input/" class="bento-card" style="background: #F7DD74 !important; border: none;">
-                <div class="bento-icon" style="color: rgba(0,0,0,0.8);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="4" width="20" height="16" rx="2" />
-                        <path d="M6 8h.01" />
-                        <path d="M10 8h.01" />
-                        <path d="M14 8h.01" />
-                        <path d="M18 8h.01" />
-                        <path d="M6 12h.01" />
-                        <path d="M10 12h.01" />
-                        <path d="M14 12h.01" />
-                        <path d="M18 12h.01" />
-                        <path d="M7 16h10" />
-                    </svg>
-                </div>
-                <div class="bento-title" style="color: rgba(0,0,0,0.9);">Input Latency</div>
-                <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Keyboard ghosting check, mouse polling rate
-                    (Hz), and click latency.</div>
-                <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Run Test &rarr;</div>
-            </a>
-            <!-- WebCam Card -->
-            <a href="webcam/" class="bento-card" style="background: #AF90DD !important; border: none;">
-                <div class="bento-icon" style="color: rgba(0,0,0,0.8);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="10" r="3" />
-                        <circle cx="12" cy="10" r="9" />
-                        <path d="M12 19v3" />
-                        <path d="M8 22h8" />
-                    </svg>
-                </div>
-                <div class="bento-title" style="color: rgba(0,0,0,0.9);">WebCam Optical</div>
-                <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Sensor resolution verification, frame rate
-                    consistency, and mic lag.</div>
-                <div class="bento-action" style="color: rgba(0,0,0,0.8); font-weight: 600;">Run Test &rarr;</div>
-            </a>
-        </div>
+            </div>
+        </section>
         <!-- Mid-Page Featured Content (Ad) -->
-        <div class="ad-slot-featured">
+        <div class="ad-slot-featured" aria-hidden="true" style="display: none !important;">
             <span class="ad-label">Laboratory Validation Partner</span>
-            <div style="height: 250px; color: #ccc; display: flex; align-items: center; justify-content: center;">
+            <div style="height: 0; overflow: hidden;">
                 AD_NATIVE_ARTICLE_PLACEMENT
             </div>
         </div>
+
+        <div class="m-wrapper">
+            <div class="m-slot" aria-hidden="true">
+                <!-- MONEY_GHOST_PLACEMENT_CONTENT -->
+            </div>
+        </div>
         <!-- Affiliate Section (Redesigned 3-Col Bento) -->
-        <section class="affiliate-section" style="margin: 4rem 0;">
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align:center;">Validated Hardware Tier List</h2>
-            <div class="bento-grid-3col">
+        <section class="affiliate-section" style="margin: 2rem 0;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 2.5rem; text-align:center; color: #1a1a1a;">Lab-Recommended
+                Hardware Tiers</h2>
+            <div class="bento-grid" style="margin: 0;">
                 <!-- Product 1 -->
-                <div class="bento-card">
+                <div class="bento-card"
+                    style="background: #ffffff !important; border: 1px solid #e0e0e0; align-items: stretch; text-align: left; padding: 1.5rem;">
+                    <div class="bento-tag" style="background: rgba(46, 91, 255, 0.1); color: var(--accent-blue);">BEST
+                        OVERALL</div>
                     <div
-                        style="height: 150px; background: #f5f5f7; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                        IMG_PLACEHOLDER
+                        style="height: 160px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #f8f9fa 0%, #ffffff 100%); border-radius: 12px;">
+                        <img src="/assets/img/hardware/rtx-4070.png" alt="RTX 4070 SUPER"
+                            style="max-width: 90%; max-height: 90%; object-fit: contain;">
                     </div>
-                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Precision Thermal Paste</div>
-                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Verified for Gen5 Speed thermal
-                        conductivity.</div>
-                    <a href="#" class="bento-action">Shop Gear &rarr;</a>
+                    <div class="bento-title"
+                        style="color: #1a1a1a; display: flex; align-items: center; gap: 8px; justify-content: center;">
+                        RTX 4070 SUPER
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#0052FF"
+                            style="border-radius: 50%; padding: 2px;">
+                            <circle cx="12" cy="12" r="11" fill="#0052FF" />
+                            <polyline points="17 9 10 16 7 13" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="bento-desc" style="color: #4a4a4a; text-align: center;">Optimized VRAM Parity for
+                        professional lab work.</div>
+                    <a href="#" class="bento-action"
+                        style="color: #0052FF; font-weight: 700; text-align: center; margin-top: auto;">Shop Gear
+                        &rarr;</a>
                 </div>
                 <!-- Product 2 -->
-                <div class="bento-card">
+                <div class="bento-card"
+                    style="background: #ffffff !important; border: 1px solid #e0e0e0; align-items: stretch; text-align: left; padding: 1.5rem;">
+                    <div class="bento-tag" style="background: rgba(46, 91, 255, 0.1); color: var(--accent-blue);">LOW
+                        LATENCY</div>
                     <div
-                        style="height: 150px; background: #f5f5f7; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                        IMG_PLACEHOLDER
+                        style="height: 160px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #fff5f5 0%, #ffffff 100%); border-radius: 12px;">
+                        <img src="/assets/img/hardware/ryzen-7800x3d.png" alt="Ryzen 7 7800X3D"
+                            style="max-width: 80%; max-height: 80%; object-fit: contain;">
                     </div>
-                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">40Gbps Data Cable</div>
-                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Signal Integrity Certified for high-speed
-                        transfer.</div>
-                    <a href="#" class="bento-action">Shop Gear &rarr;</a>
+                    <div class="bento-title"
+                        style="color: #1a1a1a; display: flex; align-items: center; gap: 8px; justify-content: center;">
+                        Ryzen 7 7800X3D
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#0052FF"
+                            style="border-radius: 50%; padding: 2px;">
+                            <circle cx="12" cy="12" r="11" fill="#0052FF" />
+                            <polyline points="17 9 10 16 7 13" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="bento-desc" style="color: #4a4a4a; text-align: center;">Instruction set verified for
+                        maximum diagnostic
+                        speed.</div>
+                    <a href="#" class="bento-action"
+                        style="color: #0052FF; font-weight: 700; text-align: center; margin-top: auto;">Shop Gear
+                        &rarr;</a>
                 </div>
                 <!-- Product 3 -->
-                <div class="bento-card">
+                <div class="bento-card"
+                    style="background: #ffffff !important; border: 1px solid #e0e0e0; align-items: stretch; text-align: left; padding: 1.5rem;">
+                    <div class="bento-tag" style="background: rgba(46, 91, 255, 0.1); color: var(--accent-blue);">
+                        STRUCTURAL</div>
                     <div
-                        style="height: 150px; background: #f5f5f7; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #ccc;">
-                        IMG_PLACEHOLDER
+                        style="height: 160px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #f0f7ff 0%, #ffffff 100%); border-radius: 12px;">
+                        <img src="/assets/img/hardware/frame.png" alt="Anti-Bending Frame"
+                            style="max-width: 80%; max-height: 80%; object-fit: contain;">
                     </div>
-                    <div class="bento-title" style="color: rgba(0,0,0,0.9);">Anti-Bending Frame</div>
-                    <div class="bento-desc" style="color: rgba(0,0,0,0.7);">Structure Verified for CPU longevity.</div>
-                    <a href="#" class="bento-action">Shop Gear &rarr;</a>
+                    <div class="bento-title"
+                        style="color: #1a1a1a; display: flex; align-items: center; gap: 8px; justify-content: center;">
+                        Anti-Bending Frame
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#0052FF"
+                            style="border-radius: 50%; padding: 2px;">
+                            <circle cx="12" cy="12" r="11" fill="#0052FF" />
+                            <polyline points="17 9 10 16 7 13" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="bento-desc" style="color: #4a4a4a; text-align: center;">Structure Verified for CPU
+                        longevity.</div>
+                    <a href="#" class="bento-action"
+                        style="color: #0052FF; font-weight: 700; text-align: center; margin-top: auto;">Shop Gear
+                        &rarr;</a>
                 </div>
             </div>
             <p class="disclosure"
@@ -285,16 +483,41 @@
                 diagnostics open and accessible.
             </p>
         </section>
+
+        <!-- Who Is This For? Section -->
+        <section class="audience-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem; color: #1a1a1a;">Used by Professionals Worldwide
+                </h2>
+                <div class="audience-grid">
+                    <div class="audience-item">
+                        <span class="audience-label">Used GPU Buyers</span>
+                        <p class="audience-desc">Verify local marketplace listings instantly.</p>
+                    </div>
+                    <div class="audience-item">
+                        <span class="audience-label">PC Flippers</span>
+                        <p class="audience-desc">Certify your builds with lab-grade validation.</p>
+                    </div>
+                    <div class="audience-item">
+                        <span class="audience-label">IT Technicians</span>
+                        <p class="audience-desc">Fast, installer-free hardware triage.</p>
+                    </div>
+                    <div class="audience-item">
+                        <span class="audience-label">Refurbishers</span>
+                        <p class="audience-desc">Bulk-verify hardware health at scale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <!-- E-E-A-T Footer -->
     <footer class="master-footer">
         <div class="footer-content">
             <!-- Column 1: Mission -->
-            <div class="footer-col">
+            <div class="footer-col" title="About GearVerify">
                 <h3>GearVerify</h3>
                 <p>Browser-based hardware validation. Empowering users with transparent, client-side diagnostics for
-                    modern
-                    hardware.</p>
+                    modern hardware.</p>
             </div>
 
             <!-- Column 2: Links -->
@@ -305,6 +528,7 @@
                     <li><a href="/privacy.html">Privacy Policy</a></li>
                     <li><a href="/terms.html">Terms of Service</a></li>
                     <li><a href="/contributors.html">Contributors</a></li>
+                    <li><a href="/conflict-of-interest.html">Conflict of Interest Policy</a></li>
                 </ul>
             </div>
 
@@ -312,11 +536,19 @@
             <div class="footer-col">
                 <h3>Transparency</h3>
                 <div class="trust-content">
-                    <p class="disclosure">Support GearVerify via PayPal donations.</p>
-                    <a href="/about.html#conflict" class="conflict-link">Conflict of Interest Policy</a>
+                    <p class="disclosure">Amazon Associate Disclosure: As an Amazon Associate, we earn from qualifying
+                        purchases.</p>
+                    <a href="/conflict-of-interest.html" class="conflict-link">Integrity Policy</a>
                 </div>
             </div>
         </div>
+
+        <div class="m-wrapper">
+            <div class="m-slot" aria-hidden="true">
+                <!-- MONEY_GHOST_PLACEMENT_FOOTER -->
+            </div>
+        </div>
+
         <div class="footer-bottom">
             <p>&copy; <span id="current-year">2026</span> GearVerify. All rights reserved.</p>
         </div>
@@ -324,6 +556,33 @@
     <script>
         // Update copyright year dynamically
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Tooltip Interactivity (Production Polish)
+        document.querySelectorAll('[data-tooltip]').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const tooltip = trigger.querySelector('.tooltip-box');
+                const isVisible = tooltip.style.opacity === '1';
+
+                // Close all other tooltips
+                document.querySelectorAll('.tooltip-box').forEach(box => box.style.opacity = '0');
+
+                // Toggle current
+                if (!isVisible) {
+                    tooltip.style.opacity = '1';
+                    tooltip.style.pointerEvents = 'all';
+                }
+            });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.tooltip-box').forEach(box => {
+                box.style.opacity = '0';
+                box.style.pointerEvents = 'none';
+            });
+        });
     </script>
     <script src="/js/main.js"></script>
 </body>
