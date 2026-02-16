@@ -1,0 +1,38 @@
+{
+    "__comment": "Optimized payload for GearVerify Homepage Slider. Contains only the 3 latest laboratory reports.",
+    "articles": [
+        {
+            "id": 1,
+            "title": "Detecting Spoofed GPU BIOS",
+            "slug": "/guides/detecting-spoofed-gpu-bios.html",
+            "date": "2026-02-16",
+            "excerpt": "Learn how to identify fake graphics cards using hardware signature analysis and forensic WebGPU verification.",
+            "image": "/assets/img/guides/gpu-bios.webp",
+            "category": "GPU",
+            "icon_type": "spy",
+            "is_new": true
+        },
+        {
+            "id": 2,
+            "title": "Apple Silicon M-Series Validation",
+            "slug": "/guides/apple-silicon-m-series-validation.html",
+            "date": "2026-02-15",
+            "excerpt": "Analyzing TBDR architecture performance via WebGPU compute shaders on Apple Silicon systems.",
+            "image": "/assets/img/guides/apple-silicon.webp",
+            "category": "Apple",
+            "icon_type": "apple",
+            "is_new": true
+        },
+        {
+            "id": 3,
+            "title": "VRM Thermal Soak: The Silent Crasher",
+            "slug": "/guides/gpu-vrm-thermal-soak.html",
+            "date": "2026-02-14",
+            "excerpt": "Why your GPU crashes after 2 hours even if Core Temp is 70°C: Identifying Voltage Regulator failures.",
+            "image": "/assets/img/guides/vrm-heat.webp",
+            "category": "GPU",
+            "icon_type": "fire",
+            "is_new": false
+        }
+    ]
+}

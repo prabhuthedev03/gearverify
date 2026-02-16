@@ -1,0 +1,203 @@
+{
+    "__comment": "GearVerify Owner's Guide: To add a new article, copy an existing entry and increment the ID. The machine-sortable 'date' (YYYY-MM-DD) determines slider priority. Toggle 'is_new' to trigger the blue badge.",
+    "articles": [
+        {
+            "id": 1,
+            "title": "Detecting Spoofed GPU BIOS",
+            "slug": "/guides/detecting-spoofed-gpu-bios.html",
+            "date": "2026-02-16",
+            "excerpt": "Learn how to identify fake graphics cards using hardware signature analysis and forensic WebGPU verification.",
+            "image": "/assets/img/guides/gpu-bios.webp",
+            "category": "GPU",
+            "icon_type": "spy",
+            "is_new": true
+        },
+        {
+            "id": 2,
+            "title": "Apple Silicon M-Series Validation",
+            "slug": "/guides/apple-silicon-m-series-validation.html",
+            "date": "2026-02-15",
+            "excerpt": "Analyzing TBDR architecture performance via WebGPU compute shaders on Apple Silicon systems.",
+            "image": "/assets/img/guides/apple-silicon.webp",
+            "category": "Apple",
+            "icon_type": "apple",
+            "is_new": true
+        },
+        {
+            "id": 3,
+            "title": "VRM Thermal Soak: The Silent Crasher",
+            "slug": "/guides/gpu-vrm-thermal-soak.html",
+            "date": "2026-02-14",
+            "excerpt": "Why your GPU crashes after 2 hours even if Core Temp is 70°C: Identifying Voltage Regulator failures.",
+            "image": "/assets/img/guides/vrm-heat.webp",
+            "category": "GPU",
+            "icon_type": "fire",
+            "is_new": false
+        },
+        {
+            "id": 4,
+            "title": "Display Lag vs System Latency",
+            "slug": "/guides/display-lag-vs-system-latency.html",
+            "date": "2026-02-13",
+            "excerpt": "Decoding the latency chain: How display processing adds hidden lag to your gaming response.",
+            "image": "/assets/img/guides/latency.webp",
+            "category": "Display",
+            "icon_type": "monitor",
+            "is_new": false
+        },
+        {
+            "id": 5,
+            "title": "WebGPU vs CUDA: Deep Dive",
+            "slug": "/guides/webgpu-vs-cuda-deep-dive.html",
+            "date": "2026-02-12",
+            "excerpt": "Comparing portable web-based compute kernels against specialized NVIDIA hardware-level APIs.",
+            "image": "/assets/img/guides/webgpu-compute.webp",
+            "category": "Compute",
+            "icon_type": "chip",
+            "is_new": false
+        },
+        {
+            "id": 6,
+            "title": "Identifying Ghost Frames",
+            "slug": "/guides/identifying-ghost-frames.html",
+            "date": "2026-02-11",
+            "excerpt": "Tools and techniques for detecting frame-pacing irregularities in high-refresh-rate gaming.",
+            "image": "/assets/img/guides/ghost-frames.webp",
+            "category": "Display",
+            "icon_type": "ghost",
+            "is_new": false
+        },
+        {
+            "id": 7,
+            "title": "DDR5 Stability Testing Guide",
+            "slug": "/guides/ddr5-stability-testing-guide.html",
+            "date": "2026-02-10",
+            "excerpt": "Verify high-frequency memory integrity with non-destructive client-side pattern analysis.",
+            "image": "/assets/img/guides/ddr5.webp",
+            "category": "RAM",
+            "icon_type": "memory",
+            "is_new": false
+        },
+        {
+            "id": 8,
+            "title": "Browser Extensions & Benchmarking",
+            "slug": "/guides/browser-extensions-benchmarking-impact.html",
+            "date": "2026-02-09",
+            "excerpt": "Why running benchmarks with active extensions leads to invalid hardware diagnostic results.",
+            "image": "/assets/img/guides/extensions.webp",
+            "category": "Performance",
+            "icon_type": "extension",
+            "is_new": false
+        },
+        {
+            "id": 9,
+            "title": "Hardware-Level Privacy Audit",
+            "slug": "/guides/hardware-level-privacy-audit.html",
+            "date": "2026-02-08",
+            "excerpt": "Ensuring your silicon fingerprints aren't being tracked by intrusive website diagnostic scripts.",
+            "image": "/assets/img/guides/privacy.webp",
+            "category": "Safety",
+            "icon_type": "shield",
+            "is_new": false
+        },
+        {
+            "id": 10,
+            "title": "NVMe Gen5 Controller Heat",
+            "slug": "/guides/nvme-gen5-controller-heat.html",
+            "date": "2026-02-07",
+            "excerpt": "Measuring the extreme thermal profiles of PCIe 5.0 storage and its impact on adjacent GPU temps.",
+            "image": "/assets/img/guides/nvme-heat.webp",
+            "category": "Storage",
+            "icon_type": "storage",
+            "is_new": false
+        },
+        {
+            "id": 11,
+            "title": "Client-Side vs Server Diagnostics",
+            "slug": "/guides/client-side-vs-server-diagnostics.html",
+            "date": "2026-02-06",
+            "excerpt": "Why local execution is the only way to measure true hardware performance accurately.",
+            "image": "/assets/img/guides/client-side.webp",
+            "category": "Performance",
+            "icon_type": "globe",
+            "is_new": false
+        },
+        {
+            "id": 12,
+            "title": "Interpreting Latency Metrics",
+            "slug": "/guides/latency-metrics-gaming.html",
+            "date": "2026-02-05",
+            "excerpt": "Understanding the input lag chain from mouse click to final photon emission.",
+            "image": "/assets/img/guides/latency-metrics.webp",
+            "category": "Display",
+            "icon_type": "target",
+            "is_new": false
+        },
+        {
+            "id": 13,
+            "title": "Browser GPU Stress Testing",
+            "slug": "/guides/browser-gpu-stress-testing.html",
+            "date": "2026-02-04",
+            "excerpt": "Stress test your GPU safely without installing risky kernel-level software.",
+            "image": "/assets/img/guides/gpu-stress.webp",
+            "category": "GPU",
+            "icon_type": "test",
+            "is_new": false
+        },
+        {
+            "id": 14,
+            "title": "Understanding Silicon Lottery",
+            "slug": "/guides/silicon-lottery-webgpu.html",
+            "date": "2026-02-03",
+            "excerpt": "Use compute shaders to find your chip's voltage and frequency efficiency sweet spot.",
+            "image": "/assets/img/guides/silicon.webp",
+            "category": "GPU",
+            "icon_type": "diamond",
+            "is_new": false
+        },
+        {
+            "id": 15,
+            "title": "Detecting NVMe Gen5 Throttling",
+            "slug": "/guides/nvme-gen5-throttling.html",
+            "date": "2026-02-02",
+            "excerpt": "Identify if your PCIe 5.0 drive is slowing down due to controller overheating.",
+            "image": "/assets/img/guides/nvme-throttling.webp",
+            "category": "Storage",
+            "icon_type": "storage_alt",
+            "is_new": false
+        },
+        {
+            "id": 16,
+            "title": "5 Signs Your GPU Is Failing",
+            "slug": "/guides/signs-graphics-card-failing.html",
+            "date": "2026-02-01",
+            "excerpt": "Identify artifacts, thermal issues, and VRM failures before your GPU dies completely.",
+            "image": "/assets/img/guides/gpu-failure.webp",
+            "category": "GPU",
+            "icon_type": "warning",
+            "is_new": false
+        },
+        {
+            "id": 17,
+            "title": "Interpreting Stress Test Results",
+            "slug": "/guides/gpu-stress-test-explained.html",
+            "date": "2026-01-31",
+            "excerpt": "Understanding thermal throttling patterns and stability metrics in WebGPU environments.",
+            "image": "/assets/img/guides/stress-results.webp",
+            "category": "GPU",
+            "icon_type": "bolt",
+            "is_new": false
+        },
+        {
+            "id": 18,
+            "title": "WebGPU vs WebGL Performance",
+            "slug": "/guides/webgpu-vs-webgl-performance.html",
+            "date": "2026-01-30",
+            "excerpt": "A technical comparison of hardware access and compute efficiency across web APIs.",
+            "image": "/assets/img/guides/webgpu-vs-webgl.webp",
+            "category": "Performance",
+            "icon_type": "performance",
+            "is_new": false
+        }
+    ]
+}
